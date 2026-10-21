@@ -45,7 +45,7 @@ function loadJson(file) {
 
 /* ---------- 板块索引 ---------- */
 let SECTIONS = [];
-let DEF_SECTION = "beijing";
+let DEF_SECTION = "hunan";
 const PROV_KEY = "dx_selected_prov";
 function provList() { return SECTIONS.filter((s) => s.section !== "quanguo"); }
 function secName(sec) { const s = SECTIONS.find((x) => x.section === sec); return s ? s.name : sec; }
@@ -329,7 +329,7 @@ function secondLevelOf(it) { return it.secondLevel || "其他"; }
 
 function renderList(section) {
   const rawKey = section; // 原始视图键：quanguo / prov
-  if (section === "prov") { section = ((document.getElementById("pProv") || {}).value || "beijing"); }
+  if (section === "prov") { section = ((document.getElementById("pProv") || {}).value || "hunan"); }
   if (section !== "quanguo") { ensureSections(); }
   const st = getSt(section);
   const idm = domMap(section);
@@ -1061,7 +1061,7 @@ function initModal() {
 }
 function describeHistory(hist) {
   if (!Array.isArray(hist) || !hist.length) return "";
-  const heads = SECTIONS.length ? SECTIONS : [{ section: "quanguo", name: "全网(全国)" }, { section: "beijing", name: "北京" }];
+  const heads = SECTIONS.length ? SECTIONS : [{ section: "quanguo", name: "全网(全国)" }, { section: "hunan", name: "湖南" }];
   return hist.map((r) => {
     const t = esc(r.ts || "变更记录");
     const parts = [];
