@@ -4,7 +4,7 @@ name: Mobile Fetch & Build
 
 on:
   schedule:
-    - cron: "47 0,12 * * *"    # 北京 08:47 / 20:47
+    - cron: "0 0,12 * * *"    # 北京 08:00 / 20:00
   workflow_dispatch:
     inputs:
       mode:
