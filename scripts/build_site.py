@@ -47,7 +47,7 @@ SECTION_NAMES = {
 }
 
 # 展示站默认选中的省份（前端记忆用户选择，首次访问用此值）
-DEFAULT_PROV = "hunan"
+DEFAULT_PROV = "beijing"
 
 
 def sec_name(sec):
