@@ -306,7 +306,7 @@ def build_latest(scopes, datadir):
     # 排序：quanguo 最前 → 湖南第二 → 其余按键名（用户要求湖南置顶）
     sections.sort(key=lambda s: (0, "") if s["section"] == "quanguo" else
                   (1, "") if s["section"] == "hunan" else (2, s["section"]))
-    default = "hunan" if any(s["section"] == "hunan" for s in sections) else (sections[1]["section"] if len(sections) > 1 else "quanguo")
+    default = "beijing" if any(s["section"] == "beijing" for s in sections) else (sections[1]["section"] if len(sections) > 1 else "quanguo")
     now = time.strftime("%Y-%m-%d %H:%M:%S")
     latest = {"sections": sections, "default": default, "quanguo_total": q_total, "prov_total": len(prov_total),
               "prov_stats": prov_stats, "updated": now, "timestamp": now}
