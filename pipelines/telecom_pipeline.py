@@ -231,7 +231,9 @@ def build_latest(scopes, datadir):
     now = time.strftime("%Y-%m-%d %H:%M:%S")
     # 省份合计：所有非全国板块之和（此前写死取 hunan，新增省份后统计会漏算）
     prov_total = sum(v.get("total", 0) for k, v in prov_stats.items() if k != "quanguo")
-    latest = {"sections": sections, "default": "hunan", "quanguo_total": q_total,
+    latest = {"sections": sections,
+              "default": "beijing" if any(s["section"] == "beijing" for s in sections) else "hunan",
+              "quanguo_total": q_total,
               "prov_total": prov_total,
               "prov_stats": prov_stats, "updated": now, "timestamp": now}
     save(os.path.join(datadir, "latest.json"), latest)
