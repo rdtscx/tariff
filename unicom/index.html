@@ -1001,7 +1001,7 @@ a.opc{text-decoration:none;display:block}
       <div class="panel glass">
         <div class="ph">
           <h2 class="pt">省份资费统计</h2>
-          <button class="pick" id="ovProv" data-pick="prov" data-target="ov"><span class="pk-t">北京</span><span class="pk-s"></span><i class="pk-a">▾</i></button>
+          <button class="pick" id="ovProv" data-pick="prov" data-target="ov"><span class="pk-t">湖南</span><span class="pk-s"></span><i class="pk-a">▾</i></button>
           <span class="ps" id="ovDesc">六大类分布</span>
         </div>
         <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px">
@@ -1039,7 +1039,7 @@ a.opc{text-decoration:none;display:block}
     <section class="view" id="v-prov">
       <div class="tool glass" data-scope="p">
         <div class="search"><span class="si">⌕</span><input type="search" data-f="search" placeholder="搜索名称 / 资费标准 / 说明关键词…"></div>
-        <button class="pick" id="pvProv" data-pick="prov" data-target="pv"><span class="pk-t">北京</span><span class="pk-s"></span><i class="pk-a">▾</i></button>
+        <button class="pick" id="pvProv" data-pick="prov" data-target="pv"><span class="pk-t">湖南</span><span class="pk-s"></span><i class="pk-a">▾</i></button>
         <button class="pick" data-pick="own" data-scope="p"><span class="pk-t">全部归属</span><i class="pk-a">▾</i></button>
         <button class="pick" data-pick="type" data-scope="p"><span class="pk-t">全部类型</span><i class="pk-a">▾</i></button>
         <div class="seg" data-f="sort">
@@ -1077,11 +1077,11 @@ a.opc{text-decoration:none;display:block}
       <div class="panel glass">
         <div class="ph"><h2 class="pt">关于本页</h2></div>
         <div class="ab">
-          <p>本页面展示中国联通「全网资费」及各省（默认北京）的公开资费资料，数据由自动监控程序定期抓取官网并存入代码仓库，再发布为静态网页。</p>
+          <p>本页面展示中国联通「全网资费」及各省（默认湖南）的公开资费资料，数据由自动监控程序定期抓取官网并存入代码仓库，再发布为静态网页。</p>
           <ul>
             <li><b>数据来源：</b>中国联通官网公开资费专区（湖南 + 全国，31 省可选）</li>
             <li><b>页面版本：</b>2026-09-27（看到这一行说明是最新版；看不到就是手机缓存，请清缓存或用无痕模式打开）</li>
-            <li><b>省份切换：</b>「省份资费」页可自助选择其他省份，默认北京；变化历史同样按省份标注</li>
+            <li><b>省份切换：</b>「省份资费」页可自助选择其他省份，默认湖南；变化历史同样按省份标注</li>
             <li><b>更新方式：</b>自动定时抓取比对，有变化即刷新本页</li>
             <li><b>数据口径：</b>以官网「适用地区」「适用范围」字段为准，仅供参考</li>
             <li><b>运营商：</b>顶部可切换运营商主题，目前仅中国移动已接入抓取数据</li>
@@ -1131,7 +1131,7 @@ a.opc{text-decoration:none;display:block}
           <span class="ckpl">检测范围</span>
           <button type="button" id="ckProvBtn" class="ckpsel ckpsel-btn">
             <span class="ckpv-dot" id="ckProvDot"></span>
-            <span class="ckpv-nm" id="ckProvNm">北京</span>
+            <span class="ckpv-nm" id="ckProvNm">湖南</span>
             <i class="ckpv-ar">▾</i>
           </button>
         </div>
@@ -1405,7 +1405,7 @@ function __bootReal(){
     var latest = rs[0] || {}, hist = [], ann = rs[1] || {};
     D.updated = latest.updated || "";
     var ps = latest.prov_stats || {};
-    var def = latest.default || "beijing";
+    var def = latest.default || "hunan";
     var hd = latest.dist || {};
     var hp = 0, hg = 0;
     Object.keys(hd).forEach(function(k){
@@ -1499,7 +1499,7 @@ function rebuildProv(){
 rebuildProv();
 
 var state = {
-  view:"overview", prov:"beijing", op:"unicom",
+  view:"overview", prov:"hunan", op:"unicom",
   q:{ search:"", own:"", type:"", sort:"time", dir:"desc", page:1 },
   p:{ search:"", own:"", type:"", sort:"time", dir:"desc", page:1 },
   h:""
@@ -2225,11 +2225,11 @@ function ckSecOf(j, k){
 function ckProvPaint(){
   var nm = document.getElementById("ckProvNm");
   var dot = document.getElementById("ckProvDot");
-  if(nm){ nm.textContent = ckProvName(CK.prov || "beijing"); }
+  if(nm){ nm.textContent = ckProvName(CK.prov || "hunan"); }
   if(dot){
     var c = null;
     try{ c = (typeof PROV_REGION !== "undefined" && typeof REGION_COLOR !== "undefined")
-      ? (REGION_COLOR[PROV_REGION[ckProvName(CK.prov || "beijing")]] || REGION_COLOR["其他"]) : null; }catch(e){ c = null; }
+      ? (REGION_COLOR[PROV_REGION[ckProvName(CK.prov || "hunan")]] || REGION_COLOR["其他"]) : null; }catch(e){ c = null; }
     if(c && c.length >= 2){
       dot.style.display = "";
       dot.style.background = "linear-gradient(135deg," + c[0] + "," + c[1] + ")";
@@ -2241,10 +2241,10 @@ function ckProvInit(){
   var sel = document.getElementById("ckProv");
   var L = ckProvList(), cur = "";
   try{ cur = localStorage.getItem(ckProvKey()) || ""; }catch(e){}
-  if(!cur){ cur = "beijing"; }
+  if(!cur){ cur = "hunan"; }
   var hit = false;
   for(var i=0;i<L.length;i++){ if(L[i][1] === cur){ hit = true; break; } }
-  if(!hit){ cur = "beijing"; }
+  if(!hit){ cur = "hunan"; }
   CK.prov = cur;
   ckProvPaint();
   // 兼容：若页面上仍是旧的 <select>，照旧填充
@@ -2446,7 +2446,7 @@ function ldKey(){ try{ return "ldProv__" + (typeof CK_WF !== "undefined" ? CK_WF
 function ldProvInit(){
   var cur = "";
   try{ cur = localStorage.getItem(ldKey()) || ""; }catch(e){}
-  if(!cur){ cur = (typeof CK !== "undefined" && CK.prov) ? CK.prov : "beijing"; }
+  if(!cur){ cur = (typeof CK !== "undefined" && CK.prov) ? CK.prov : "hunan"; }
   LD.prov = cur;
 }
 function ldSetProv(k){
@@ -3243,7 +3243,7 @@ var PS_CH = [
 ];
 var PS_DEF = {dingtalk:{enabled:false,webhook:"",secret:"",keyword:""},feishu:{enabled:false,webhook:"",secret:""},
  wecom:{enabled:false,webhook:""},email:{enabled:false,host:"",port:"465",user:"",pass:"",to:""},
- push:{ops:["mobile","telecom","unicom","gb"],provs:["quanguo","beijing"]}};
+ push:{ops:["mobile","telecom","unicom","gb"],provs:["quanguo","hunan"]}};
 var PS = JSON.parse(JSON.stringify(PS_DEF));
 function psName(list,code){ for(var i=0;i<list.length;i++){ if(list[i][1]===code) return list[i][0]; } return code; }
 function psLoad(){
