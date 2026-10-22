@@ -2,7 +2,7 @@ name: TelecomAnnounce
 on:
   workflow_dispatch:
   schedule:
-    - cron: '17 1,13 * * *'   # 北京时间 09:17 / 21:17
+    - cron: '0 0,12 * * *'   # 北京时间 08:00 / 20:00 整点
 permissions:
   contents: write
 jobs:
