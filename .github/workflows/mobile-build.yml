@@ -4,7 +4,7 @@ name: Mobile Fetch & Build
 
 on:
   schedule:
-    - cron: "0 0,12 * * *"    # 北京 08:00 / 20:00
+    - cron: "0 */2 * * *"    # 北京每2小时全量刷新 (0/2/4/.../22点)
   workflow_dispatch:
     inputs:
       mode:
