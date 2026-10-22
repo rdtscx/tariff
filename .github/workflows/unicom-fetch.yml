@@ -2,8 +2,9 @@ name: Unicom Fetch
 # 公开仓 Actions 免费不限量（私有仓额度已耗尽）
 
 on:
-  schedule:
-    - cron: "0 */2 * * *"    # 北京每2小时全量刷新 (0/2/4/.../22点)
+  # schedule 已禁用：改由外部 PHP 监控每2小时 workflow_dispatch 触发，避免双重抓取冲突
+  #   schedule:
+  #     - cron: "0 */2 * * *"    # 北京每2小时全量刷新 (0/2/4/.../22点)
   workflow_dispatch:
     inputs:
       mode:

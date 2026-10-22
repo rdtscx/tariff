@@ -3,8 +3,9 @@ name: Mobile Fetch & Build
 # 链路：抓快照 → 以 data/ 为基线构建 → 同步站点数据
 
 on:
-  schedule:
-    - cron: "0 */2 * * *"    # 北京每2小时全量刷新 (0/2/4/.../22点)
+  # schedule 已禁用：改由外部 PHP 监控每2小时 workflow_dispatch 触发，避免双重抓取冲突
+  #   schedule:
+  #     - cron: "0 */2 * * *"    # 北京每2小时全量刷新 (0/2/4/.../22点)
   workflow_dispatch:
     inputs:
       mode:
