@@ -4,7 +4,7 @@ name: Telecom & GB Fetch
 
 on:
   schedule:
-    - cron: "17 1,13 * * *"    # 北京 09:17 / 21:17
+    - cron: "0 0,12 * * *"    # 北京 08:00 / 20:00 整点
   workflow_dispatch:
     inputs:
       mode:
@@ -114,10 +114,9 @@ jobs:
         if: always()
         run: |
           set -e
-          rm -rf /tmp/art && mkdir -p /tmp/art/telecom /tmp/art/gb
-          # 仅备份 data/，避免覆盖远端前端文件（index.html/app.js 等）
-          cp -a telecom/data /tmp/art/telecom/ 2>/dev/null || true
-          cp -a gb/data /tmp/art/gb/ 2>/dev/null || true
+          rm -rf /tmp/art && mkdir -p /tmp/art
+          cp -a telecom /tmp/art/ 2>/dev/null || true
+          cp -a gb /tmp/art/ 2>/dev/null || true
           cp -f tg_run.log /tmp/art/ 2>/dev/null || true
           git fetch origin main || true
           git reset --hard FETCH_HEAD || true
@@ -126,19 +125,17 @@ jobs:
           # git add -A 会把「数据目录消失」当成正常变更提交。
           # 改为先复制 .new、校验存在、再 mv 原子替换；缺失即中止。
           for d in telecom gb; do
-            if [ ! -d "/tmp/art/$d/data" ]; then
-              echo "::error::产物数据目录缺失（/tmp/art/$d/data），中止提交以避免误删线上数据"
+            if [ ! -d "/tmp/art/$d" ]; then
+              echo "::error::产物目录缺失（/tmp/art/$d），中止提交以避免误删线上数据"
               exit 1
             fi
           done
           rm -rf telecom.new gb.new
-          mkdir -p telecom.new gb.new
-          cp -a /tmp/art/telecom/data ./telecom.new/data || { echo "::error::telecom 复制失败，中止"; exit 1; }
-          cp -a /tmp/art/gb/data ./gb.new/data || { echo "::error::gb 复制失败，中止"; exit 1; }
-          rm -rf telecom/data gb/data
-          mv telecom.new/data telecom/data || { echo "::error::telecom 替换失败，中止"; exit 1; }
-          mv gb.new/data gb/data || { echo "::error::gb 替换失败，中止"; exit 1; }
-          rm -rf telecom.new gb.new
+          cp -a /tmp/art/telecom ./telecom.new || { echo "::error::telecom 复制失败，中止"; exit 1; }
+          cp -a /tmp/art/gb ./gb.new || { echo "::error::gb 复制失败，中止"; exit 1; }
+          rm -rf telecom gb
+          mv telecom.new telecom || { echo "::error::telecom 替换失败，中止"; exit 1; }
+          mv gb.new gb || { echo "::error::gb 替换失败，中止"; exit 1; }
           cp -f /tmp/art/tg_run.log ./tg_run.log 2>/dev/null || true
           git config user.name "tariff-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -154,8 +151,8 @@ jobs:
               echo "[warn] push 失败，重新对齐后重试 ($i/5)"
               git fetch origin main
               git reset --hard FETCH_HEAD
-              cp -a /tmp/art/telecom/data/. ./telecom/data/ 2>/dev/null || true
-              cp -a /tmp/art/gb/data/. ./gb/data/ 2>/dev/null || true
+              cp -a /tmp/art/telecom/. ./telecom/ 2>/dev/null || true
+              cp -a /tmp/art/gb/. ./gb/ 2>/dev/null || true
               cp -f /tmp/art/tg_run.log ./tg_run.log 2>/dev/null || true
               git add -A
               git commit -q -m "telecom+gb fetch $(date -u +%FT%TZ) retry$i" || true
