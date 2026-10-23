@@ -41,3 +41,31 @@ jobs:
                 done
           done
           echo "检查完成"
+
+      - name: 数据过期时自动补触发抓取
+        # GitHub schedule 对本仓库实测延迟可达数小时甚至整轮丢失（曾出现
+        # 连续 3 个 cron 点未触发）。这里以线上 latest.json 的时间戳为准：
+        # 超过 3 小时未更新且当前没有正在跑/排队的抓取时，补一次手动触发。
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+          curl -fsSL "https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/data/latest.json" \
+            | jq -r .updated > /tmp/updated
+          UPDATED=$(cat /tmp/updated)
+          AGE=$(( $(date -u +%s) - $(date -u -d "$UPDATED" +%s) ))
+          echo "线上数据 updated=$UPDATED，距今 $((AGE/60)) 分钟"
+          if [ "$AGE" -lt 10800 ]; then
+            echo "数据新鲜，无需补抓"
+            exit 0
+          fi
+          ACTIVE=$(gh api "repos/${GITHUB_REPOSITORY}/actions/workflows/mobile-build.yml/runs?per_page=5" \
+            | jq '[.workflow_runs[] | select(.status == "in_progress" or .status == "queued" or .status == "waiting")] | length')
+          if [ "$ACTIVE" != "0" ]; then
+            echo "已有 $ACTIVE 个抓取运行在进行/排队，不重复触发"
+            exit 0
+          fi
+          echo "::warning::数据已过期 $((AGE/3600)) 小时，自动补触发 mobile-build"
+          gh api -X POST "repos/${GITHUB_REPOSITORY}/actions/workflows/mobile-build.yml/dispatches" \
+            -f ref=main
+          echo "已触发"
