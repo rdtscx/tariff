@@ -1,0 +1,50 @@
+name: Mobile Heartbeat
+# 仓库内自续心跳：绕过 GitHub schedule 对本仓库丢触发/延迟数小时的问题。
+#
+# 原理：每次「Mobile Fetch & Build」结束后由 workflow_run 自动触发本工作流，
+# 睡眠 95 分钟后用 GITHUB_TOKEN 重新触发下一轮抓取，如此往复形成约每 2 小时
+# 一轮的稳定循环。关键在于 workflow_dispatch 是 GITHUB_TOKEN 触发事件中
+# 允许级联启动工作流的官方例外，且「已在运行的 workflow」不受调度器排队
+# 影响——循环一旦启动就不再依赖 schedule。
+#
+# 首次启动：手动跑一次 mobile-build 即可，跑完后心跳自动接管。
+# 循环意外中断时：build-watchdog 检测到数据超 3 小时未更新会自动补触发，
+# 心跳随之恢复。仓库自带的每 2 小时 cron 保留作为第二重保险，
+# 两路触发即使撞车，mobile-build 的并发组也会自动去重。
+
+on:
+  workflow_run:
+    workflows: ["Mobile Fetch & Build"]
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  actions: write
+
+concurrency:
+  group: mobile-heartbeat
+  cancel-in-progress: true
+
+jobs:
+  heartbeat:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - name: 等待到下一个抓取窗口（95 分钟）
+        run: |
+          echo "心跳启动于 $(date -u +%FT%TZ)，95 分钟后触发下一轮抓取"
+          sleep 5700
+
+      - name: 触发下一轮抓取
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+          ACTIVE=$(gh api "repos/${GITHUB_REPOSITORY}/actions/workflows/mobile-build.yml/runs?per_page=5" \
+            | jq '[.workflow_runs[] | select(.status == "in_progress" or .status == "queued" or .status == "waiting")] | length')
+          if [ "$ACTIVE" != "0" ]; then
+            echo "已有 $ACTIVE 个抓取运行在进行/排队，跳过本次触发（其完成后心跳会自动续上）"
+            exit 0
+          fi
+          gh api -X POST "repos/${GITHUB_REPOSITORY}/actions/workflows/mobile-build.yml/dispatches" -f ref=main
+          echo "已触发下一轮抓取 $(date -u +%FT%TZ)"
