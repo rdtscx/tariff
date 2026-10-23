@@ -3,9 +3,8 @@ name: Telecom & GB Fetch
 # 单 job 顺序执行：电信 → 广电 → 统一提交，避免并行 push 冲突
 
 on:
-  # schedule 已禁用：改由外部 PHP 监控每2小时 workflow_dispatch 触发，避免双重抓取冲突
-  #   schedule:
-  #     - cron: "0 */2 * * *"    # 北京每2小时全量刷新 (0/2/4/.../22点)
+  schedule:
+    - cron: "0 */2 * * *"    # 北京每2小时全量刷新 (0/2/4/.../22点)
   workflow_dispatch:
     inputs:
       mode:
