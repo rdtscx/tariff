@@ -277,14 +277,27 @@ jobs:
             unset TRACK_PROVINCES
           fi
           echo "=== 移动抓取开始 $(date -u +%FT%TZ) ==="
+          # 与 mobile-build 同款：失败退避 60s 重试一次；仍失败则显式失败。
+          # 此前失败被静默吞掉：job 照常显示 success，推送任务照常推旧数据，
+          # 且日志里没有任何异常痕迹可查。
           set +e
           python3 -u main.py --once 2>&1 | tail -60
-          echo "移动抓取 exit=${PIPESTATUS[0]}"
+          RC=${PIPESTATUS[0]}
+          if [ "$RC" -ne 0 ]; then
+            echo "[warn] 首轮抓取失败(exit=$RC)，退避 60s 后重试一次"
+            sleep 60
+            python3 -u main.py --once 2>&1 | tail -60
+            RC=${PIPESTATUS[0]}
+          fi
           set -e
+          echo "移动抓取 exit=$RC"
+          exit "$RC"
 
       - name: 构建移动站点数据
         run: |
           set -e
+          # 与 mobile-build 同款：防止 build_site.py 失败被 tail 退出码覆盖
+          set -o pipefail
           cd "$GITHUB_WORKSPACE"
           rm -rf snapshots
           cp -r pipelines/mobile/snapshots ./snapshots 2>/dev/null || true
@@ -318,7 +331,8 @@ jobs:
           rm -rf _site _prev snapshots
 
       - name: 提交抓取结果
-        if: always()
+        # 与 mobile-build 同款：失败轮次不碰仓库，避免把半成品 data/ 推上线
+        if: success()
         run: |
           set -e
           cd "$GITHUB_WORKSPACE"
@@ -435,7 +449,7 @@ jobs:
           # 注意：FOCUS_SEC 已不再用于「筛选推送哪些省」——推送一律列全部
           # 有变化的省，与网站变化历史同源同口径。此变量仅为兼容旧配置保留。
           FOCUS_SEC:        ${{ vars.FOCUS_SEC || '' }}
-          SITE_URL:         ${{ vars.SITE_URL || 'https://woshiyigemanhuajia.github.io/hunan-tariff-site/' }}
+          SITE_URL:         ${{ vars.SITE_URL || 'https://rdtscx.github.io/tariff/' }}
           SITE_ROOT:        "."
         run: python3 scripts/dingtalk_summary.py
 

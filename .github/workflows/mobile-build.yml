@@ -129,6 +129,9 @@ jobs:
       - name: 构建站点数据
         run: |
           set -e
+          # ★ 管道退出码：否则 build_site.py 失败会被 tail 的退出码覆盖，
+          #   半成品 _site 可能被当成构建成功提交到线上
+          set -o pipefail
           cd "$GITHUB_WORKSPACE"
           # build_site 固定读 ./snapshots（snapshot.py 输出在 pipelines/mobile/snapshots）
           rm -rf snapshots
@@ -226,7 +229,10 @@ jobs:
           echo "data 文件数: $(ls data | wc -l)"
 
       - name: 提交
-        if: always()
+        # ★ 必须 success() 而非 always()：抓取/构建任一步失败时，工作区的
+        #   data/ 可能是半成品（部分新部分旧），此时备份→恢复→提交会把
+        #   损坏数据推上线。失败轮次不碰仓库，下一轮会重新抓。
+        if: success()
         run: |
           set -e
           rm -rf /tmp/art && mkdir -p /tmp/art
