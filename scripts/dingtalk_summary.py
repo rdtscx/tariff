@@ -68,16 +68,14 @@ SITE_URL = (os.getenv("SITE_URL", "").strip().rstrip("/") or DEFAULT_SITE.rstrip
 TEST_MODE = "--test" in sys.argv
 
 # 站名 -> (history 路径, 显示名, 图标)
+# 联通/电信/广电抓取已永久停用，仅推送移动。
 SITES = [
     ("data/history.json", "移动", "🔵", "mobile"),
-    ("unicom/data/history.json", "联通", "🟠", "unicom"),
-    ("telecom/data/history.json", "电信", "🟢", "telecom"),
-    ("gb/data/history.json", "广电", "🟣", "gb"),
 ]
 
-# ── 推送过滤（可选；不设置则与历史行为完全一致：四家全推、只给总览）──
+# ── 推送过滤（可选；默认仅移动）──
 # PUSH_OPS   只推哪些运营商，逗号分隔：mobile / unicom / telecom / gb
-#            例：mobile,unicom   留空 = 四家全推
+#            例：mobile,unicom   留空 = 默认仅移动（三家已停用）
 # PUSH_PROVS 只统计哪些省份（拼音，逗号分隔），并且推送里列出分省明细
 #            例：quanguo,hunan,guangdong   留空 = 不列明细、省份全算
 # 这两个变量由「自定义推送」弹窗选择后写入仓库 Variables 生效；不设就不变。
@@ -417,14 +415,12 @@ def main():
     lines.append("**合计**：新增 %d、下架 %d、修改 %d" % tuple(grand))
     if not any_change:
         lines.append("")
-        lines.append("> 本时段内四家运营商均无资费变化。")
+        lines.append("> 本时段内移动运营商无资费变化。")
 
-    # 结尾固定附链接（主站 + 四家子站直达），不再依赖外部配置是否填对
+    # 结尾固定附链接（主站直达），不再依赖外部配置是否填对
     lines.append("")
     lines.append("---")
-    lines.append("🔗 [资费站入口](%s/)" % SITE_URL)
-    lines.append("　[移动](%s/) ｜ [联通](%s/unicom/) ｜ [电信](%s/telecom/) ｜ [广电](%s/gb/)"
-                 % (SITE_URL, SITE_URL, SITE_URL, SITE_URL))
+    lines.append("🔗 [移动资费站](%s/)" % SITE_URL)
 
     text = "\n".join(lines)
     print(text)

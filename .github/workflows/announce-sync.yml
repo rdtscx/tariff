@@ -3,7 +3,8 @@ name: Announce Sync
 # 公告单独同步 —— 与重量级 mobile-build 解耦。
 # 背景：公告挂在 mobile-build 里，随 32 板块全量抓取走（约 40 分钟），
 # 一天只有两轮，源站上午发的公告经常要等到晚上才同步。
-# 本流程只抓公告（60 条列表 + 15 条详情），1~2 分钟跑完，可高频执行。
+# 本流程只抓移动公告（60 条列表 + 15 条详情），1~2 分钟跑完，可高频执行。
+# 联通/电信/广电公告已随其抓取链路一并停用。
 
 on:
   schedule:
@@ -35,7 +36,7 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: 抓取公告（移动 + 联通）
+      - name: 抓取公告（移动）
         run: |
           set -e
           cd "$GITHUB_WORKSPACE"
@@ -43,7 +44,7 @@ jobs:
           python3 - <<'PY'
           import json, os
           old = []
-          for p in ("data/announce.json", "unicom/data/announce.json"):
+          for p in ("data/announce.json",):
               try:
                   d = json.load(open(p, encoding="utf-8"))
                   old += [x.get("id") for x in (d.get("items") or [])]
@@ -59,7 +60,6 @@ jobs:
           mkdir -p probe
           python3 pipelines/scripts/announce_fetch.py \
             --move-dir "$GITHUB_WORKSPACE/data" \
-            --uni-dir  "$GITHUB_WORKSPACE/unicom/data" \
             2>&1 | tee probe/ann_fetch.log
           echo "[抓取时刻] $(date -u +%FT%TZ)" >> probe/ann_fetch.log
           echo "[文件状态] $(ls -l data/announce.json 2>&1)" >> probe/ann_fetch.log
@@ -104,8 +104,7 @@ jobs:
           import json, os
           old = set(json.load(open("/tmp/ann_old.json")))
           news = []
-          for prov, p in (("移动", "data/announce.json"),
-                          ("联通", "unicom/data/announce.json")):
+          for prov, p in (("移动", "data/announce.json"),):
               try:
                   d = json.load(open(p, encoding="utf-8"))
               except Exception:
@@ -159,7 +158,7 @@ jobs:
                   headers=dict(HDR, **{"Content-Type": "application/json"}))
               return urllib.request.urlopen(req, timeout=90).status
 
-          for path in ("data/announce.json", "unicom/data/announce.json"):
+          for path in ("data/announce.json",):
               if not os.path.exists(path):
                   print("跳过（不存在）", path)
                   continue

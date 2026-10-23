@@ -85,12 +85,24 @@ jobs:
             echo "模式: 全量（全部板块）"
           fi
           echo "=== 抓取开始 $(date -u +%FT%TZ) ==="
-          set +e
-          python3 -u main.py --once 2>&1 | tail -300
-          EC=${PIPESTATUS[0]}
-          set -e
+          # 失败自动重试一次：源站瞬时网络抖动 / TLS 握手失败常导致整轮抓取
+          # 中断（历史出现过）。首次失败后稍作退避再跑一轮，避免本轮空跑、
+          # 也减少下轮定时前线上数据陈旧的概率。
+          run_scrape() {
+            set +e
+            python3 -u main.py --once 2>&1 | tail -300
+            EC=${PIPESTATUS[0]}
+            set -e
+            return "$EC"
+          }
+          run_scrape; EC=$?
+          if [ "$EC" -ne 0 ]; then
+            echo "::warning::首轮抓取失败(exit=$EC)，退避 60s 后自动重试一次"
+            sleep 60
+            run_scrape; EC=$?
+          fi
           echo "抓取 exit=$EC"
-          if [ "$EC" -ne 0 ]; then echo "::error::移动抓取失败"; exit "$EC"; fi
+          if [ "$EC" -ne 0 ]; then echo "::error::移动抓取连续失败"; exit "$EC"; fi
           ls -la snapshots/ | head -5
 
       - name: 清洗历史假新增（漏采补录重分类，幂等）

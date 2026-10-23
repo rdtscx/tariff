@@ -1,29 +1,26 @@
 name: Tariff Notify
 # 汇总推送：钉钉 / 飞书 / 企业微信 / 邮件（配哪个推哪个）
+# 仅推送移动资费（联通/电信/广电抓取已永久停用）
 #
 # ══ 重点省份与推送模式统一在本文件配置（不再散落到各抓取 workflow）══
 #
 # 仓库变量（Settings → Secrets and variables → Actions → Variables）：
 #   FOCUS_PROVS   重点省份，3 个，拼音逗号分隔
 #                 例：hunan,guangdong,zhejiang
-#                 四家通用；每项都自动附带「全国」，即每家抓 4 个板块。
+#                 移动通用；每项都自动附带「全国」，即抓 4 个板块。
 #   NOTIFY_MODE   推送模式（定时触发时生效）：
 #     full_auto     (a) 定时全量推送——当日抓取范围为全量，到点推送
 #     focus_auto    (b) 定时重点省份推送——当日抓取范围为 3 省+全国，到点推送
 #     focus_manual  (c) 不自动推送——等手动点「手动推送(重点省)」才跑
 #   SCRAPE_MODE   抓取范围，需与 NOTIFY_MODE 保持一致：
 #     (a) → full    (b)(c) → focus
-#     它决定三个抓取 workflow（08:47/09:17/09:37）每天抓多少省份
+#     它决定 mobile-build workflow 每天抓多少省份
 #
 # 手动触发（Actions → 本 workflow → Run workflow）可临时覆盖：
-#   手动推送(重点省)  ← 点一下就只跑重点省份并推送（对应需求 1、4）
+#   手动推送(重点省)  ← 点一下就只跑重点省份并推送
 #   仅推送            ← 不抓取，直接推当前已有数据
 #   全量推送          ← 抓全部省份后推送
 #
-# 注：电信源站仅公开 quanguo 与 hunan 两个板块（其余省 h5 受瑞数 WAF
-#     拦截、provCode 无公开口径），故模式对电信无实际影响，它始终抓
-#     这两个板块；这不影响其余三家的重点省份设置。
-
 on:
   # 外部精确触发（cron-job.org / 服务器 crontab 调 GitHub API 用）
   # 这是唯一能保证「北京 08:00 / 20:00 准点」的方式：
@@ -31,12 +28,10 @@ on:
   repository_dispatch:
     types: [notify]
   schedule:
-    # focus 模式下各家耗时：移动 ~4 分 / 电信广电 ~5 分 / 联通 ~7 分，
-    # 三家在本 workflow 内顺序跑约 20 分钟，10:00 与 20:00 推送前有足够余量。
-    #   午场必须排在早间抓取(移动08:47/电信广电09:17/联通09:37)之后。
-    #   原 北京10:00 比抓取还早，且 GitHub 定时任务常延迟数小时，
-    #   导致推送时当日数据尚未抓完，只能报「昨天的变化」。
-    #   现改到北京16:00，并配合下方 fresh 检查兜底（数据陈旧则本轮自抓再推）。
+    # 移动抓取每 2 小时一轮（mobile-build.yml 定时执行），推送前有足够余量。
+    # 原 北京10:00 比抓取还早，且 GitHub 定时任务常延迟数小时，
+    # 导致推送时当日数据尚未抓完，只能报「昨天的变化」。
+    # 现改到北京16:00，并配合下方 fresh 检查兜底（数据陈旧则本轮自抓再推）。
     # 北京 08:00 / 20:00 整点（cron 一律按 UTC：0=北京08，12=北京20）
     # fresh 检查兜底：数据陈旧则本轮自抓再推
     - cron: "0 0 * * *"
@@ -173,8 +168,8 @@ jobs:
         run: |
           python3 - <<'PYEOF'
           import json, os, datetime
-          pats = ["data/latest.json", "unicom/data/latest.json",
-                  "telecom/data/latest.json", "gb/data/latest.json"]
+          # 只监控移动数据：联通/电信/广电抓取已永久停用（见 README）
+          pats = ["data/latest.json"]
           keys = ["updated", "updated_at", "generated_at", "time", "date"]
           now = datetime.datetime.utcnow()
           best, src = None, ""
@@ -215,8 +210,8 @@ jobs:
   fetch:
     needs: [window, fresh]
     # 手动触发且选了「手动推送(重点省)」/「全量推送」→ 抓取；
-    # 定时触发 → 当日抓取本由三个 workflow 在 08:47/09:17/09:37 完成，
-    #   但若它们被 GitHub 延迟、数据仍陈旧（fresh.stale=true），本轮自己
+    # 定时触发 → 当日抓取本由 mobile-build 每 2 小时完成，
+    #   但若它被 GitHub 延迟、数据仍陈旧（fresh.stale=true），本轮自己
     #   抓一遍再推，避免推成「昨天的变化」。
     if: >-
       always() && needs.window.outputs.ok == 'true' && (
@@ -300,7 +295,7 @@ jobs:
           fi
           rm -rf _prev && mkdir -p _prev
           cp -f data/*.json _prev/ 2>/dev/null || true
-          python3 pipelines/scripts/announce_fetch.py --move-dir site/data || true
+          python3 pipelines/scripts/announce_fetch.py --move-dir "$GITHUB_WORKSPACE/data" || true
           python3 scripts/build_site.py 2>&1 | tail -30
           QT=$(python3 -c "import json;print(json.load(open('_site/data/latest.json')).get('quanguo_total',0))" 2>/dev/null || echo 0)
           echo "新构建 quanguo_total=$QT"
@@ -320,40 +315,6 @@ jobs:
           rm -f data/peaks.json
           rm -rf _site _prev snapshots
 
-      # ── 联通 ──
-      - name: 抓取联通
-        run: |
-          set -e
-          cd "$GITHUB_WORKSPACE"
-          SCOPE=""
-          if [ "${{ steps.cfg.outputs.mode }}" = "focus" ]; then
-            SCOPE="--scopes quanguo,${{ steps.cfg.outputs.focus }}"
-          fi
-          echo "=== 联通抓取开始 $(date -u +%FT%TZ) ==="
-          set +e
-          python3 -u pipelines/unicom_pipeline.py \
-            --prev-dir unicom/data --out-dir unicom/data $SCOPE 2>&1 | tail -40
-          echo "联通 exit=${PIPESTATUS[0]}"
-          set -e
-
-      # ── 电信 + 广电 ──
-      - name: 抓取电信与广电
-        run: |
-          set -e
-          cd "$GITHUB_WORKSPACE"
-          GBSCOPE=""
-          if [ "${{ steps.cfg.outputs.mode }}" = "focus" ]; then
-            GBSCOPE="--scopes quanguo,${{ steps.cfg.outputs.focus }}"
-          fi
-          set +e
-          echo "--- 电信（源站仅公开 全网+湖南，模式对其无效）---"
-          PYTHONPATH=pipelines python3 -u pipelines/telecom_pipeline.py \
-            --prev-dir telecom/data --out-dir telecom/data 2>&1 | tail -30
-          echo "--- 广电 ---"
-          PYTHONPATH=pipelines python3 -u pipelines/gb_pipeline.py \
-            --prev-dir gb/data --out-dir gb/data $GBSCOPE 2>&1 | tail -30
-          set -e
-
       - name: 提交抓取结果
         if: always()
         run: |
@@ -369,13 +330,10 @@ jobs:
           mkdir -p /tmp/art/snap
           cp -a pipelines/mobile/snapshots/. /tmp/art/snap/ 2>/dev/null || true
           echo "备份移动快照文件数: $(find /tmp/art/snap -maxdepth 1 -type f -name '*.json' | wc -l)"
-          cp -a unicom  /tmp/art/ 2>/dev/null || true
-          cp -a telecom /tmp/art/ 2>/dev/null || true
-          cp -a gb      /tmp/art/ 2>/dev/null || true
           git fetch origin main || true
           git reset --hard FETCH_HEAD || true
           # 原子恢复：先确认产物存在，再覆盖，避免把「目录消失」提交上去
-          for d in data unicom telecom gb; do
+          for d in data; do
             if [ -d "/tmp/art/$d" ]; then
               rm -rf "$d"
               cp -a "/tmp/art/$d" "./$d"
@@ -399,7 +357,7 @@ jobs:
               echo "[warn] push 失败，重新对齐后重试 ($i/5)"
               git fetch origin main
               git reset --hard FETCH_HEAD
-              for d in data unicom telecom gb; do
+              for d in data; do
                 [ -d "/tmp/art/$d" ] && { rm -rf "$d"; cp -a "/tmp/art/$d" "./$d"; }
               done
               git add -A
@@ -463,12 +421,12 @@ jobs:
           MAIL_FROM_NAME:   ${{ github.event_name == 'workflow_dispatch' && '' || secrets.MAIL_FROM_NAME }}
           # 通用
           SINCE_HOURS:      ${{ github.event.inputs.hours || '24' }}
-          # 推送过滤（可选）：不设置 = 与历史行为完全一致（四家全推、只给总览）
+          # 推送过滤（可选）：联通/电信/广电已停用，默认只推移动（mobile）
           # PUSH_OPS   只推哪些运营商：mobile,unicom,telecom,gb（例：mobile,unicom）
           # PUSH_PROVS 只统计哪些省份（拼音）：例 quanguo,hunan,guangdong
           #            设置后推送里会列出分省明细；不设置则不列明细
           # 两个变量在 Settings → Secrets and variables → Actions → Variables 里填
-          PUSH_OPS:         ${{ vars.PUSH_OPS || '' }}
+          PUSH_OPS:         ${{ vars.PUSH_OPS || 'mobile' }}
           PUSH_PROVS:       ${{ vars.PUSH_PROVS || '' }}
           # 仓库未配置 vars 时这里会是空串，必须给默认值
           # （脚本里也做了显式回退，双保险）
