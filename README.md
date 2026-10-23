@@ -12,10 +12,10 @@
 
 ## 在线访问
 
-- 中国移动（实时更新）：<https://rdtscx.github.io/tariff-monitor-site/>
-- 中国联通（历史快照，已停止更新）：<https://rdtscx.github.io/tariff-monitor-site/unicom/>
-- 中国电信（历史快照，已停止更新）：<https://rdtscx.github.io/tariff-monitor-site/telecom/>
-- 中国广电（历史快照，已停止更新）：<https://rdtscx.github.io/tariff-monitor-site/gb/>
+- 中国移动（实时更新）：<https://rdtscx.github.io/tariff/>
+- 中国联通（历史快照，已停止更新）：<https://rdtscx.github.io/tariff/unicom/>
+- 中国电信（历史快照，已停止更新）：<https://rdtscx.github.io/tariff/telecom/>
+- 中国广电（历史快照，已停止更新）：<https://rdtscx.github.io/tariff/gb/>
 
 ## 数据说明
 
@@ -72,7 +72,8 @@ fork 本项目后，填入**你自己的**凭据，资费变化就能推送到**
 | `mobile-build.yml` | 每 2 小时（0/2/4…/22 点） | 移动抓取 + 站点构建 + 自动部署 |
 | `announce-sync.yml` | 每 1 小时（:17 / :47） | 移动公告同步 |
 | `dingtalk-summary.yml` | 每日 08:00 / 20:00 | 移动资费变化汇总推送 |
+| `build-watchdog.yml` | 每 30 分钟 | 看门狗：取消卡死超 2 小时的构建运行，防止并发组排死导致数据停更 |
 
 > 说明：联通 / 电信 / 广电的抓取 workflow（`unicom-fetch.yml`、`telecom-gb-fetch.yml`、
 > `telecom-announce.yml`）已删除，三家的抓取与部署永久停用，仅保留历史数据快照。
-> probe / verify / diag-dns 等诊断类工作流已禁用，避免触发失败产生通知邮件。
+> probe / verify / diag-dns 等诊断类一次性工作流已删除，避免触发失败产生通知邮件。

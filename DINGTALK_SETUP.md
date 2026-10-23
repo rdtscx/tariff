@@ -56,8 +56,8 @@
 #### 方式 B：本地运行（临时试一下 / 自己的服务器）
 
 ```bash
-git clone https://github.com/<你的用户名>/tariff-monitor-site.git
-cd tariff-monitor-site
+git clone https://github.com/<你的用户名>/tariff.git
+cd tariff
 cp .env.example .env
 # 编辑 .env，填入你的 Webhook 和加签密钥
 python3 scripts/dingtalk_summary.py --test    # 先发一条测试消息

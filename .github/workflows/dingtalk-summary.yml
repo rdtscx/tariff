@@ -69,7 +69,9 @@ concurrency:
   # 最终 history.json 里的 ts 与分片文件名对不上，前端按 ts 取分片 404，
   # 表现为「有变动记录但点开没有修改前/后详情」。
   group: tariff-build
-  cancel-in-progress: false
+  # 与 mobile-build.yml 同理：卡死的旧运行必须能被新运行踢掉，
+  # 否则 group 排死会让两边都停摆（线上数据停更的根因之一）。
+  cancel-in-progress: true
 
 jobs:
 
@@ -223,7 +225,7 @@ jobs:
         github.event_name == 'repository_dispatch'
       )
     runs-on: ubuntu-latest
-    timeout-minutes: 180
+    timeout-minutes: 110
     steps:
       - uses: actions/checkout@v4
 

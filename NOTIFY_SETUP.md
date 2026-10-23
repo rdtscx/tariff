@@ -23,8 +23,8 @@
 ### 方式 B：本地 / 自己的服务器
 
 ```bash
-git clone https://github.com/<你的用户名>/tariff-monitor-site.git
-cd tariff-monitor-site
+git clone https://github.com/<你的用户名>/tariff.git
+cd tariff
 cp .env.example .env
 # 编辑 .env 填入你的凭据（.env 已被 .gitignore 排除，不会误提交）
 python3 scripts/notify.py --test      # 测试所有已配置通道

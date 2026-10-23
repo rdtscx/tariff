@@ -23,13 +23,18 @@ permissions:
 concurrency:
   # 与 dingtalk-summary.yml 共用同一 group：两个 workflow 都会跑 build_site.py，
   # 必须互斥排队，否则并发写会让 history.json 的 ts 与 data/hist 分片文件名错位。
+  # cancel-in-progress 必须为 true：曾出现过一轮运行卡成僵尸（远超 timeout
+  # 仍未结束），group 排死导致后续所有 schedule 运行永远排队，线上数据停更
+  # 十几个小时。改为新运行直接取消卡住的旧运行；被取消方的产物只在工作区，
+  # 未走到 commit 步骤就不会影响仓库数据。
   group: tariff-build
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 180
+    # 必须小于 2 小时的 schedule 间隔，保证本轮结束前不会被下一轮 cancel-in-progress 踢掉
+    timeout-minutes: 110
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

@@ -344,7 +344,7 @@ const CH=[
 const PROV=[['全国','quanguo'],['北京','beijing'],['天津','tianjin'],['河北','hebei'],['山西','shanxi'],['内蒙古','neimenggu'],['辽宁','liaoning'],['吉林','jilin'],['黑龙江','heilongjiang'],['上海','shanghai'],['江苏','jiangsu'],['浙江','zhejiang'],['安徽','anhui'],['福建','fujian'],['江西','jiangxi'],['山东','shandong'],['河南','henan'],['湖北','hubei'],['湖南','hunan'],['广东','guangdong'],['广西','guangxi'],['海南','hainan'],['重庆','chongqing'],['四川','sichuan'],['贵州','guizhou'],['云南','yunnan'],['西藏','xizang'],['陕西','shaanxi'],['甘肃','gansu'],['青海','qinghai'],['宁夏','ningxia'],['新疆','xinjiang']];
 const DEF={dingtalk:{enabled:false,webhook:'',secret:'',keyword:''},feishu:{enabled:false,webhook:'',secret:''},wecom:{enabled:false,webhook:''},
  email:{enabled:false,host:'',port:'465',user:'',pass:'',to:''},
- push:{focus:'hunan',siteUrl:'https://rdtscx.github.io/tariff-monitor-site/',since:'24',fmt:'detail',skipEmpty:true,mode:'local',focusProvs:['hunan','guangdong','zhejiang'],notifyMode:'focus_auto'}};
+ push:{focus:'hunan',siteUrl:'https://rdtscx.github.io/tariff/',since:'24',fmt:'detail',skipEmpty:true,mode:'local',focusProvs:['hunan','guangdong','zhejiang'],notifyMode:'focus_auto'}};
 let cfg=JSON.parse(JSON.stringify(DEF));
 function load(){try{const raw=localStorage.getItem(LS_KEY);if(raw){const d=JSON.parse(raw);CH.forEach(function(c){if(d[c.id])Object.assign(cfg[c.id],d[c.id])});if(d.push)Object.assign(cfg.push,d.push)}}catch(e){storageOK=false}}
 let saveTimer=null;
@@ -599,8 +599,8 @@ async function qSend(){
 $('qSend').addEventListener('click',qSend);
 
 /* ===== 生成可直接粘贴执行的命令 ===== */
-const CDN='https://cdn.jsdelivr.net/gh/rdtscx/tariff-monitor-site@main/scripts/';
-const REPO_API='https://api.github.com/repos/rdtscx/tariff-monitor-site/contents/scripts/';
+const CDN='https://cdn.jsdelivr.net/gh/rdtscx/tariff@main/scripts/';
+const REPO_API='https://api.github.com/repos/rdtscx/tariff/contents/scripts/';
 /* CDN 优先（不限速、国内快），失败自动回退 GitHub API */
 function dl(name){return '(curl -sS -m 60 -o '+name+' '+CDN+name+' || curl -sS -m 60 -H "Accept: application/vnd.github.raw" -H "User-Agent: pc" -o '+name+' '+REPO_API+name+')'}
 function shq(x){return "'"+String(x).replace(/'/g,"'\\''")+"'"}
@@ -611,7 +611,7 @@ function envPairs(){
  if(cfg.wecom.enabled&&cfg.wecom.webhook){L.push(['WECOM_WEBHOOK',cfg.wecom.webhook])}
  if(cfg.email.enabled){['host','port','user','pass','to'].forEach(function(k){const m={host:'SMTP_HOST',port:'SMTP_PORT',user:'SMTP_USER',pass:'SMTP_PASS',to:'MAIL_TO'};if(cfg.email[k])L.push([m[k],cfg.email[k]])})}
  L.push(['FOCUS_SEC',(fpList().length?fpList().join(','):(p.focus||'hunan'))]);L.push(['SINCE_HOURS',p.since||'24']);
- L.push(['SITE_URL',(p.siteUrl||'https://rdtscx.github.io/tariff-monitor-site/').trim()]);
+ L.push(['SITE_URL',(p.siteUrl||'https://rdtscx.github.io/tariff/').trim()]);
  return L;
 }
 function hasChannel(){return envPairs().some(function(x){return /^(DINGTALK|FEISHU|WECOM|SMTP|MAIL)/.test(x[0])})}

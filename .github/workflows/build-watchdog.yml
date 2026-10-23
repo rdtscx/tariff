@@ -1,0 +1,43 @@
+name: Build Watchdog
+# 兜底看门狗：取消 tariff-build 并发组里卡死的运行。
+# 曾出现过一轮构建远超 timeout 仍未结束（GitHub 平台故障），
+# group 被 zombie 占住且 cancel-in-progress 未启用，后续所有
+# schedule 运行永远排队，线上数据停更十几个小时。
+# 本工作流不加入 tariff-build group，即使组被卡死也能运行：
+# 每半小时检查一次，把 mobile-build / dingtalk-summary 中
+# 开始超过 2 小时仍未结束的运行直接取消。
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+
+permissions:
+  actions: write
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: 取消卡死的构建运行
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+          CUTOFF=$(date -u -d '2 hours ago' +%s)
+          echo "截止时间: $(date -u -d @$CUTOFF +%FT%TZ) 之前启动的运行将被取消"
+          for wf in mobile-build.yml dingtalk-summary.yml; do
+            gh api "repos/${GITHUB_REPOSITORY}/actions/workflows/${wf}/runs?per_page=20" \
+              | jq -r --argjson cutoff "$CUTOFF" \
+              '.workflow_runs[]
+               | select(.status == "in_progress" or .status == "queued" or .status == "waiting")
+               | select((.created_at | sub("\\.\\d+Z$"; "Z") | fromdateiso8601) < $cutoff)
+               | .id' \
+              | while read -r RUN_ID; do
+                  [ -n "$RUN_ID" ] || continue
+                  echo "取消卡死运行: $RUN_ID ($wf)"
+                  gh api -X POST "repos/${GITHUB_REPOSITORY}/actions/runs/${RUN_ID}/cancel" || true
+                done
+          done
+          echo "检查完成"

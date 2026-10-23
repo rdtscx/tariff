@@ -1137,8 +1137,8 @@ a.opc{text-decoration:none;display:block}
         <ul class="cktips">
           <li>配置<b>只存在你本机浏览器</b>，与「推送中心」共用同一份，不上传任何服务器</li>
           <li>钉钉 / 飞书 可由本页直连发送并测试；企业微信与邮箱需导出给脚本执行</li>
-          <li><b>要让选择影响每天 8 点 / 20 点的定时推送</b>：把它填进<a href="https://github.com/rdtscx/tariff-monitor-site/settings/variables/actions" target="_blank" rel="noopener">仓库 Variables ↗</a>（PUSH_OPS / PUSH_PROVS）。不填则定时推送维持原样，只存在本机</li>
-          <li>想让别人自己搭一套（互不影响）：<a href="https://github.com/rdtscx/tariff-monitor-site/tree/main/visitor" target="_blank" rel="noopener">自助部署说明 ↗</a></li>
+          <li><b>要让选择影响每天 8 点 / 20 点的定时推送</b>：把它填进<a href="https://github.com/rdtscx/tariff/settings/variables/actions" target="_blank" rel="noopener">仓库 Variables ↗</a>（PUSH_OPS / PUSH_PROVS）。不填则定时推送维持原样，只存在本机</li>
+          <li>想让别人自己搭一套（互不影响）：<a href="https://github.com/rdtscx/tariff/tree/main/visitor" target="_blank" rel="noopener">自助部署说明 ↗</a></li>
           <li>想立即抓取最新数据：<a id="psGh" href="#" target="_blank" rel="noopener">打开 Actions 页 ↗</a></li>
         </ul>
       </div>
@@ -2120,7 +2120,7 @@ function closeModal(){ document.getElementById("mask").classList.remove("on"); }
 /* ---------- 检测最新资费 ---------- */
 var CK = { t:null, cd:null, n:0, base:"", max:40, left:15, paused:false, prov:"", baseU:"", baseT:0 };
 function ckGhUrl(){
-  return "https://github.com/rdtscx/tariff-monitor-site/actions/workflows/" + CK_WF;
+  return "https://github.com/rdtscx/tariff/actions/workflows/" + CK_WF;
 }
 /* ---- 单省份检测：只盯所选省份的在架数与更新时间 ----
    注意：这里只改「检测弹窗」的比对维度；
@@ -2526,7 +2526,7 @@ function ckTick(){
 
 /* ---------- 一键触发云端抓取（令牌仅存本机 localStorage） ---------- */
 var CK_OWNER = "rdtscx";
-var CK_REPO  = "tariff-monitor-site";
+var CK_REPO  = "tariff";
 var CK_API   = "https://api.github.com/repos/" + CK_OWNER + "/" + CK_REPO;
 function ckTkKey(){ return "ghpat__" + CK_REPO + "__" + CK_WF; }
 function ckTkGet(){ try{ return localStorage.getItem(ckTkKey()) || ""; }catch(e){ return ""; } }
@@ -3319,7 +3319,7 @@ psLoad();
   var m = document.getElementById("psMask");
   if(!m){ window.open("push-center.html", "_blank"); return; }
   var g = document.getElementById("psGh");
-  if(g){ g.href = "https://github.com/rdtscx/tariff-monitor-site/actions/workflows/" + CK_WF; }
+  if(g){ g.href = "https://github.com/rdtscx/tariff/actions/workflows/" + CK_WF; }
   m.classList.add("on");
 }
 function psClose(){
@@ -3348,7 +3348,7 @@ var SITE_NOTICE = {
     "<li>抓到更新会<b>自动替换</b>面板内容并高亮闪烁，无需刷新页面</li>" +
     "<li>检测日志逐条留痕，能看到每次请求的状态码与耗时</li>" +
     "</ul>" +
-    '<div class="nttip">若界面未变化，请清除浏览器缓存，或访问 <b>rdtscx.github.io/tariff-monitor-site/index.html?v=6</b> 强制加载新版。</div>'
+    '<div class="nttip">若界面未变化，请清除浏览器缓存，或访问 <b>rdtscx.github.io/tariff/index.html?v=6</b> 强制加载新版。</div>'
 };
 function ntKey(){ return "siteNotice__" + SITE_NOTICE.ver; }
 function ntClose(){
