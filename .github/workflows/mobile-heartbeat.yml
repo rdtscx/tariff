@@ -1,4 +1,3 @@
-
 name: Mobile Heartbeat
 # 仓库内自续心跳：绕过 GitHub schedule 对本仓库丢触发/延迟数小时的问题。
 #
