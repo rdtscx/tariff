@@ -1,16 +1,20 @@
+
 name: Mobile Heartbeat
 # 仓库内自续心跳：绕过 GitHub schedule 对本仓库丢触发/延迟数小时的问题。
 #
-# 原理：每次「Mobile Fetch & Build」结束后由 workflow_run 自动触发本工作流，
-# 睡眠 95 分钟后用 GITHUB_TOKEN 重新触发下一轮抓取，如此往复形成约每 2 小时
-# 一轮的稳定循环。关键在于 workflow_dispatch 是 GITHUB_TOKEN 触发事件中
-# 允许级联启动工作流的官方例外，且「已在运行的 workflow」不受调度器排队
-# 影响——循环一旦启动就不再依赖 schedule。
+# 为什么不能只靠 workflow_run 自续：上一版在每轮抓取结束后由 workflow_run
+# 触发本工作流，睡 95 分钟再用 GITHUB_TOKEN dispatch 下一轮。但按 GitHub
+# 规则，GITHUB_TOKEN 触发的运行不会产生可级联的 workflow_run 事件（仅
+# workflow_dispatch / repository_dispatch 例外），链条只能从 schedule/手动
+# 触发的那轮往后续一跳：2026-10-24 #33（GITHUB_TOKEN 触发）结束后心跳
+# 再未启动，北京 11 点那一轮缺失，只能等被延迟近 2 小时的 schedule 兜底。
 #
-# 首次启动：手动跑一次 mobile-build 即可，跑完后心跳自动接管。
-# 循环意外中断时：build-watchdog 检测到数据超 3 小时未更新会自动补触发，
-# 心跳随之恢复。仓库自带的每 2 小时 cron 保留作为第二重保险，
-# 两路触发即使撞车，mobile-build 的并发组也会自动去重。
+# 现改为单个长驻运行内部循环：睡 95 分钟 → 触发一轮抓取 → 等它结束 →
+# 重复。运行接近 6 小时上限前用 workflow_dispatch 续期一个新心跳运行
+# （workflow_dispatch 是 GITHUB_TOKEN 允许级联的例外，已实测可用），
+# 循环永续，不再依赖 schedule 与 workflow_run。workflow_run 触发保留
+# 作为入口：手动/schedule 触发的抓取结束后自动拉起或重启心跳。
+# 循环中断时由 build-watchdog 兜底；两路触发撞车由 mobile-build 并发组去重。
 
 on:
   workflow_run:
@@ -23,28 +27,51 @@ permissions:
 
 concurrency:
   group: mobile-heartbeat
+  # 新心跳启动时旧心跳可能仍在收尾，直接取消即可，新心跳已接管循环
   cancel-in-progress: true
 
 jobs:
   heartbeat:
     runs-on: ubuntu-latest
-    timeout-minutes: 150
+    # GitHub 托管 runner 单 job 上限 6 小时；DEADLINE 留足余量保证
+    # 运行总是自己收尾并完成续期，而不是被 timeout 强杀后断链
+    timeout-minutes: 350
     steps:
-      - name: 等待到下一个抓取窗口（95 分钟）
-        run: |
-          echo "心跳启动于 $(date -u +%FT%TZ)，95 分钟后触发下一轮抓取"
-          sleep 5700
-
-      - name: 触发下一轮抓取
+      - name: 循环驱动抓取
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -e
-          ACTIVE=$(gh api "repos/${GITHUB_REPOSITORY}/actions/workflows/mobile-build.yml/runs?per_page=5" \
-            | jq '[.workflow_runs[] | select(.status == "in_progress" or .status == "queued" or .status == "waiting")] | length')
-          if [ "$ACTIVE" != "0" ]; then
-            echo "已有 $ACTIVE 个抓取运行在进行/排队，跳过本次触发（其完成后心跳会自动续上）"
-            exit 0
-          fi
-          gh api -X POST "repos/${GITHUB_REPOSITORY}/actions/workflows/mobile-build.yml/dispatches" -f ref=main
-          echo "已触发下一轮抓取 $(date -u +%FT%TZ)"
+          DEADLINE=$(( $(date -u +%s) + 320 * 60 ))
+
+          count_active() {
+            gh api "repos/${GITHUB_REPOSITORY}/actions/workflows/mobile-build.yml/runs?per_page=5" \
+              | jq '[.workflow_runs[] | select(.status == "in_progress" or .status == "queued" or .status == "waiting")] | length'
+          }
+
+          while :; do
+            LEFT=$(( DEADLINE - $(date -u +%s) ))
+            if [ "$LEFT" -le 0 ]; then break; fi
+            if [ "$LEFT" -lt 5700 ]; then SLEEP=$LEFT; else SLEEP=5700; fi
+            echo "=== 睡眠 $(( SLEEP / 60 )) 分钟至 $(date -u -d "+$SLEEP seconds" +%FT%TZ) ==="
+            sleep "$SLEEP"
+            if [ "$(date -u +%s)" -ge "$DEADLINE" ]; then break; fi
+
+            ACTIVE=$(count_active)
+            if [ "$ACTIVE" = "0" ]; then
+              gh api -X POST "repos/${GITHUB_REPOSITORY}/actions/workflows/mobile-build.yml/dispatches" -f ref=main
+              echo "已触发下一轮抓取 $(date -u +%FT%TZ)"
+            else
+              echo "已有 $ACTIVE 个抓取运行在进行/排队，直接等待其结束"
+            fi
+
+            while [ "$(date -u +%s)" -lt "$DEADLINE" ]; do
+              sleep 60
+              ACTIVE=$(count_active)
+              if [ "$ACTIVE" = "0" ]; then break; fi
+            done
+            echo "抓取已结束 $(date -u +%FT%TZ)"
+          done
+
+          gh api -X POST "repos/${GITHUB_REPOSITORY}/actions/workflows/mobile-heartbeat.yml/dispatches" -f ref=main
+          echo "时间预算用尽，已续期新心跳 $(date -u +%FT%TZ)"
