@@ -315,6 +315,10 @@ def pair_renamed_only(old_items, new_items):
         det = field_diff(oi, ni)
         if on != nn:
             det = [{"field": "业务名称", "from": on, "to": nn}] + det
+        else:
+            # 名称相同且归一化后无真实字段差异 → 仅序列化差异造成的假配对，跳过
+            if not det:
+                continue
         modified.append(ni)
         details[nn] = det
         before[nn] = _clip_fields(oi.get("fields") or {})
@@ -338,8 +342,15 @@ def diff_items(old_items, new_items):
     mod_before, mod_after = {}, {}
     for k in om:
         if k in nm and om[k] != nm[k]:
+            # 修正：原始 dict 不等（字段顺序 / HTML / 空白等序列化差异）但
+            # 字段内容经 _norm_val 归一化后完全相同的条目，是「假修改」，
+            # 不该计入 modified。曾导致山西 6 条固定套餐每轮都被判 modified，
+            # 推送里每次都重复粘贴（铂金会员流量版等 6 条）。
+            det = field_diff(om[k], nm[k])
+            if not det:
+                continue   # 归一化后无任何真实字段差异 → 跳过，不误报
             modified.append(om[k])
-            modified_details[k] = field_diff(om[k], nm[k])
+            modified_details[k] = det
             mod_before[k] = _clip_fields(om[k].get("fields") or {})
             mod_after[k] = _clip_fields(nm[k].get("fields") or {})
     # 改名/改编号配对：源站会批量给存量业务加年份后缀或版本号
@@ -486,6 +497,44 @@ def clean_upgrade_false_records(history, st):
                 break
         if not suspicious:
             cleaned.append(rec0)
+    return cleaned
+
+
+def clean_shell_modified_records(history):
+    """剔除「空壳 modified」误报：逐板块归零，不删除整条记录。
+
+    某板块 modified>0 但没有任何字段级明细（modified_details /
+    modified_before / modified_after 全空/缺失）时，说明它只是「原始
+    dict 不等但归一化后内容相同」的序列化差异造成的假变化，并非真实
+    资费修改。真实修改必然伴随字段级明细快照：modified_details 限量
+    500 条、before/after 限量 60 条，被截断时也只是变短、不会为空，
+    故「modified>0 但三者全空」可安全判定为空壳误报。
+
+    典型：山西 6 条固定套餐（铂金会员流量版等）每轮被记 modified=6
+    却无任何明细，推送里反复重复粘贴；西藏等省也偶发同类空壳。
+
+    只对该板块归零 modified（含 modified_names），added/removed 属
+    真实变化、独立保留；不删除整条记录，其它板块不受影响。
+    """
+    cleaned = []
+    for rec0 in history:
+        if not isinstance(rec0, dict):
+            cleaned.append(rec0)
+            continue
+        rec = dict(rec0)          # 浅拷贝，避免污染上游 history
+        for sec, d in rec0.items():
+            if sec == "ts" or not isinstance(d, dict):
+                continue
+            mod = d.get("modified") or 0
+            if mod <= 0:
+                continue
+            has_detail = bool(d.get("modified_details")) or \
+                         bool(d.get("modified_before")) or \
+                         bool(d.get("modified_after"))
+            if not has_detail:
+                # 空壳：仅序列化差异，无字段级明细 → 归零 modified
+                rec[sec] = {**d, "modified": 0, "modified_names": []}
+        cleaned.append(rec)
     return cleaned
 
 
@@ -712,6 +761,14 @@ def main():
     history = clean_upgrade_false_records(history, st)
     if len(history) != _pre_clean:
         print(f"[清理] 剔除 {_pre_clean - len(history)} 条字段升级误报历史记录")
+    # 清理「空壳 modified」误报记录：某板块 modified>0 但无任何字段级明细
+    # （modified_details / modified_before / modified_after 全空）。真实修改必有明细；
+    # 只有序列化差异（字段顺序 / HTML / 空白）才会产生这种「有数字没内容」的空壳。
+    # 曾导致山西 6 条固定套餐每轮被记 modified=6，推送反复重复粘贴。
+    _pre_shell = len(history)
+    history = clean_shell_modified_records(history)
+    if len(history) != _pre_shell:
+        print(f"[清理] 剔除 {_pre_shell - len(history)} 条空壳 modified 误报记录")
     rec = {"ts": now}
     has_change = False
     # 采样校验用的「今天」取北京时间，与 now 同口径
