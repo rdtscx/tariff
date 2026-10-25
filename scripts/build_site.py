@@ -342,10 +342,17 @@ def diff_items(old_items, new_items):
     mod_before, mod_after = {}, {}
     for k in om:
         if k in nm and om[k] != nm[k]:
-            # 修正：原始 dict 不等（字段顺序 / HTML / 空白等序列化差异）但
+            # 修正 A：同名但「方案编号」不同 → 是不同版本/不同业务，不判 modified。
+            # 方案编号是业务稳定标识。源站常把同名套餐拆成「套餐版」与「加装包版」
+            # 两个编号，且每轮抓取随机返回其一（山西 6 条：铂金会员流量版等，
+            # 在 25SX202194↔25SX202467 之间震荡），导致每轮都被判 modified，
+            # 推送反复重复粘贴。编号不同即视为不同业务，跳过。
+            if _item_plan_code(om[k]) and _item_plan_code(nm[k]) \
+               and _item_plan_code(om[k]) != _item_plan_code(nm[k]):
+                continue
+            # 修正 B：原始 dict 不等（字段顺序 / HTML / 空白等序列化差异）但
             # 字段内容经 _norm_val 归一化后完全相同的条目，是「假修改」，
-            # 不该计入 modified。曾导致山西 6 条固定套餐每轮都被判 modified，
-            # 推送里每次都重复粘贴（铂金会员流量版等 6 条）。
+            # 不该计入 modified。
             det = field_diff(om[k], nm[k])
             if not det:
                 continue   # 归一化后无任何真实字段差异 → 跳过，不误报
