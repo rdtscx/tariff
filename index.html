@@ -1257,6 +1257,16 @@ a.opc{text-decoration:none;display:block}
 var D = { updated:"", stats:{}, sections:[], prov_stats:{}, hunan_dist:{}, quanguo_dist:{},
             items:[], qitems:null, history:[], announce:{updated:"",count:0,items:[]} };
 var DATA_BASE = "./data/";
+function bjTime(s){
+  // 数据文件里的时间戳是 UTC，展示层统一转北京时间；解析不了就原样返回
+  var m = /^(\d{4}-\d{2}-\d{2})[ T](\d{2}:\d{2})(:\d{2})?/.exec(String(s || ""));
+  if(!m) return s;
+  var t = Date.parse(m[1] + "T" + m[2] + (m[3] || ":00") + "Z");
+  if(isNaN(t)) return s;
+  var d = new Date(t + 8 * 3600 * 1000), p = function(n){ return (n < 10 ? "0" : "") + n; };
+  return d.getUTCFullYear() + "-" + p(d.getUTCMonth() + 1) + "-" + p(d.getUTCDate()) + " " +
+         p(d.getUTCHours()) + ":" + p(d.getUTCMinutes()) + ":" + p(d.getUTCSeconds());
+}
 var CK_WF = "mobile-build.yml";
 var REAL_OK = false;
 function __j(u){
@@ -2327,7 +2337,7 @@ function ckDelta(pname, u, tt){
     var a = (v && v.added) || 0, rm = (v && v.removed) || 0, md = (v && v.modified) || 0;
     var d = (a || rm || md) ? ("<br>最新一轮：新增 " + a + "、下架 " + rm + "、修改 " + md) : "";
     if(st){ st.textContent = "「" + pname + "」有更新：在架 " + (CK.baseT || 0) + " → " + tt + " 条"; }
-    if(mt){ mt.innerHTML = "数据更新于 <b>" + (u || "未知") + "</b>" + d; }
+    if(mt){ mt.innerHTML = "数据更新于 <b>" + (bjTime(u) || "未知") + "</b>" + d; }
     // 先把最新检测结果写进首页卡片，再刷新页面（刷新后卡片也保持最新）
     ldRefresh(function(){ ldFlash(); });
     setTimeout(function(){ location.href = location.pathname + "?_=" + Date.now(); }, 1500);
@@ -2347,7 +2357,7 @@ function ckOpen(){
   CK.base = CK.baseU;
   var lg = document.getElementById("ckLog"); if(lg){ lg.innerHTML = ""; }
   document.getElementById("ckStat").textContent = "正在读取「" + ckProvName(CK.prov) + "」线上数据…";
-  document.getElementById("ckMeta").innerHTML = "基线：在架 <b>" + (CK.baseT || 0) + "</b> 条 · 更新于 <b>" + (CK.baseU || "未知") + "</b>";
+  document.getElementById("ckMeta").innerHTML = "基线：在架 <b>" + (CK.baseT || 0) + "</b> 条 · 更新于 <b>" + (bjTime(CK.baseU) || "未知") + "</b>";
   document.getElementById("ckBar").style.width = "0%";
   document.getElementById("ckSpin").classList.remove("done");
   m.classList.add("on");
@@ -2375,7 +2385,7 @@ function ckStopTimer(){ if(CK.t){ clearInterval(CK.t); CK.t = null; } ckStopCd()
 function ckStop(){
   ckStopTimer();
   var s = document.getElementById("ckStat");
-  if(s){ s.textContent = "已停止检测（数据更新于 " + (CK.base || "未知") + "）"; }
+  if(s){ s.textContent = "已停止检测（数据更新于 " + (bjTime(CK.base) || "未知") + "）"; }
   var b = document.getElementById("ckStop");
   if(b){ b.style.display = "none"; }
 }
@@ -2575,12 +2585,12 @@ function ckTick(){
       return;
     }
     var u = sec.updated || "", tt = sec.total || 0;
-    ckLogAdd(log, hm, "已查 " + pname + " · 在架 " + tt + " 条 · 更新于 " + (u || "未知") + " · " + ms + "ms", false);
+    ckLogAdd(log, hm, "已查 " + pname + " · 在架 " + tt + " 条 · 更新于 " + (bjTime(u) || "未知") + " · " + ms + "ms", false);
     var changed = (CK.baseU && u && u !== CK.baseU) || (CK.baseT && tt && tt !== CK.baseT);
     if(changed){
       ckStopTimer();
       if(st){ st.textContent = "「" + pname + "」检测到更新，正在读取明细…"; }
-      if(mt){ mt.innerHTML = "<b>" + pname + "</b> 数据更新于 <b>" + (u || "未知") + "</b>"; }
+      if(mt){ mt.innerHTML = "<b>" + pname + "</b> 数据更新于 <b>" + (bjTime(u) || "未知") + "</b>"; }
       document.getElementById("ckSpin").classList.add("done");
       if(bar){ bar.style.width = "100%"; }
       ckDelta(pname, u, tt);
@@ -3849,7 +3859,7 @@ document.getElementById("tabs").addEventListener("scroll", function(){ updateEdg
 /* ---------- 启动 ---------- */
 function boot(){
   D.items.forEach(function(x,n){ x.__i = n; });
-  document.getElementById("updTxt").textContent = "更新于 " + (D.updated || "—");
+  document.getElementById("updTxt").textContent = "更新于 " + (bjTime(D.updated) || "—");
   updNavChg();
   (function(){
     var nc = document.getElementById("navCnt");
@@ -3964,7 +3974,7 @@ if(document.readyState === "loading"){
       var old = "";
       try { old = localStorage.getItem(KEY) || ""; } catch(e){}
       if(old && old !== cur){
-        showTip("已有新数据（" + cur + "），点此立即刷新");
+        showTip("已有新数据（" + bjTime(cur) + "），点此立即刷新");
         var t = document.getElementById("newTip");
         if(t) t.onclick = hardReload;
       }
