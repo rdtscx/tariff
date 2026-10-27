@@ -1,16 +1,18 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""公告抓取脚本：湖南移动公告 + 联通公告，各只保留最新 15 条，输出 announce.json
+"""公告抓取脚本：移动 31 省公告 + 联通公告，移动每省保留最新 6 条，输出索引与分省详情
 
 用法:
     python3 scripts/announce_fetch.py --move-dir site/data --uni-dir unicom/data
 说明:
-    - 移动(湖南)公告列表/详情均为静态 JSON，GET 直取；
+    - 移动 31 省公告列表/详情均为静态 JSON，GET 直取；各省路径只差
+      省份缩写与区号，栏目尾部（5004505_873_2361）全站一致。
       详情接口触发 TLS legacy renegotiation，需注入 openssl_legacy.cnf(见下)。
     - 联通公告列表/详情为 POST 接口，需带 XHR 特征头(否则中文被替换成 ?)。
     - 输出文件:
-        <move-dir>/announce.json  移动站公告数据
-        <uni-dir>/announce.json   联通站公告数据
+        <move-dir>/announce.json          移动公告索引（31 省最新条目，含摘要，不含正文）
+        <move-dir>/announce/<section>.json 各省公告详情（含正文/附件，按需加载）
+        <uni-dir>/announce.json           联通站公告数据
 """
 import os
 import re
@@ -26,16 +28,55 @@ if os.path.exists(_SSL_CNF):
 
 import urllib.request
 import urllib.parse
+from concurrent.futures import ThreadPoolExecutor
 
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
-MAX_KEEP = 15
+MAX_KEEP = 15     # 联通保留条数
+MOVE_KEEP = 6     # 移动每省保留的最新公告条数
+FETCH_WORKERS = 3 # 同时抓取的省份数，避免把源站打出限流
 
-# ---------------- 移动(湖南) ----------------
-MOVE_LIST_URL = ("https://www.10086.cn/aboutus/news/pannounce/hn/731/5004505_873_2361.json")
-MOVE_DETAIL_PREFIX = ("https://www.10086.cn/aboutus/news/pannounce/hn/731/5004505_873_2361_detail_")
-MOVE_DETAIL_PAGE = ("https://www.10086.cn/aboutus/news/pannounce/hn/index_731_731_detail_{id}.html")
+# ---------------- 移动(31 省) ----------------
+MOVE_BASE = ("https://www.10086.cn/aboutus/news/pannounce/"
+             "{abbr}/{code}/5004505_873_2361")
+MOVE_DETAIL_PAGE = ("https://www.10086.cn/aboutus/news/pannounce/"
+                    "{abbr}/index_{code}_{code}_detail_{id}.html")
 MOVE_SITE = "https://www.10086.cn"
+
+# (section, 区号, 官网路径缩写, 省名)；缩写取自 www.10086.cn 首页省份入口
+MOVE_PROVINCES = [
+    ("beijing", "100", "bj", "北京"),
+    ("tianjin", "220", "tj", "天津"),
+    ("hebei", "311", "he", "河北"),
+    ("shanxi", "351", "sx", "山西"),
+    ("neimenggu", "471", "nm", "内蒙古"),
+    ("liaoning", "240", "ln", "辽宁"),
+    ("jilin", "431", "jl", "吉林"),
+    ("heilongjiang", "451", "hl", "黑龙江"),
+    ("shanghai", "210", "sh", "上海"),
+    ("jiangsu", "250", "js", "江苏"),
+    ("zhejiang", "571", "zj", "浙江"),
+    ("anhui", "551", "ah", "安徽"),
+    ("fujian", "591", "fj", "福建"),
+    ("jiangxi", "791", "jx", "江西"),
+    ("shandong", "531", "sd", "山东"),
+    ("henan", "371", "ha", "河南"),
+    ("hubei", "270", "hb", "湖北"),
+    ("hunan", "731", "hn", "湖南"),
+    ("guangdong", "200", "gd", "广东"),
+    ("guangxi", "771", "gx", "广西"),
+    ("hainan", "898", "hi", "海南"),
+    ("chongqing", "230", "cq", "重庆"),
+    ("sichuan", "280", "sc", "四川"),
+    ("guizhou", "851", "gz", "贵州"),
+    ("yunnan", "871", "yn", "云南"),
+    ("xizang", "891", "xz", "西藏"),
+    ("shaanxi", "290", "sn", "陕西"),
+    ("gansu", "931", "gs", "甘肃"),
+    ("qinghai", "971", "qh", "青海"),
+    ("ningxia", "951", "nx", "宁夏"),
+    ("xinjiang", "991", "xj", "新疆"),
+]
 
 # ---------------- 联通 ----------------
 UNI_LIST_URL = "https://www.10010.com/mall/service/query/announcementquery"
@@ -63,7 +104,7 @@ KEEP_TAGS = {"p", "br", "div", "span", "a", "img", "strong", "b", "em", "i", "u"
 
 def _http_get(url, headers=None, timeout=30, retries=5):
     """源站(移动网关) TLS 握手偶发 UNSAFE_LEGACY_RENEGOTIATION_DISABLED，
-    单次失败很常见。原先没有重试 → fetch_move() 直接抛异常 → 上层 || true
+    单次失败很常见。原先没有重试 → fetch_prov() 直接抛异常 → 上层 || true
     吞掉 → 公告长期停在旧日期而无任何报错。这里必须重试。"""
     last = None
     for i in range(retries):
@@ -196,51 +237,100 @@ def now_str():
 
 
 # ---------------- 移动抓取 ----------------
-def fetch_move():
-    print("[移动] 拉取公告列表 ...")
-    raw = _http_get(MOVE_LIST_URL)
-    j = json.loads(raw)
-    lst = j["cData"]["list"] or []
-    items = []
+def fetch_prov(sec, code, abbr, name):
+    """抓取单个省份的最新 MAX_KEEP 条公告（含正文）。"""
+    base = MOVE_BASE.format(abbr=abbr, code=code)
+    j = json.loads(_http_get(base + ".json"))
+    lst = ((j.get("cData") or {}).get("list") or [])
+    items, seen = [], set()
     for row in lst:
-        href = row.get("detail_href") or ""
-        mid = None
-        m = re.search(r"_detail_(\d+)\.", href)
-        if m:
-            mid = m.group(1)
-        if mid is None:
+        m = re.search(r"_detail_(\d+)\.", row.get("detail_href") or "")
+        if not m:
             continue
+        mid = m.group(1)
+        if mid in seen:
+            continue
+        seen.add(mid)
         items.append({
             "id": mid,
             "title": row.get("noticeTitle") or "",
             "date": row.get("publishTime") or "",
-            "page_url": MOVE_DETAIL_PAGE.format(id=mid),
+            "page_url": MOVE_DETAIL_PAGE.format(abbr=abbr, code=code, id=mid),
         })
     items.sort(key=lambda x: x["date"], reverse=True)
-    items = items[:MAX_KEEP]
-    print(f"[移动] 列表 {len(lst)} 条，取最新 {len(items)} 条")
-    # 诊断：把排序后前 20 条打印出来，便于核对「源站有但没同步」
-    print("[移动][诊断] 排序后前 20 条：")
-    _sorted_all = sorted(items, key=lambda x: x["date"], reverse=True)
-    for _i, _it in enumerate(_sorted_all[:20]):
-        print("[移动][诊断]  %2d %s | %s" % (_i, _it.get("date"), str(_it.get("title"))[:44]))
-    print("[移动][诊断] 原始列表日期集合: %s" % sorted(
-        {str(r.get("publishTime")) for r in lst}, reverse=True)[:12])
+    items = items[:MOVE_KEEP]
     for it in items:
         try:
-            dj = json.loads(_http_get(MOVE_DETAIL_PREFIX + it["id"] + ".json"))
-            c = dj.get("cData", {}).get("content", {})
-            text = c.get("text") or ""
-            content = clean_html(text)
+            dj = json.loads(_http_get(base + "_detail_" + it["id"] + ".json"))
+            c = ((dj.get("cData") or {}).get("content") or {})
+            content = clean_html(c.get("text") or "")
             it["summary"] = html_to_text(content)[:120]
             it["content"] = content
             it["attachments"] = find_attachments(content, MOVE_SITE)
         except Exception as e:
-            print(f"[移动] 详情 {it['id']} 失败: {e}")
+            print(f"[移动] {name} 详情 {it['id']} 失败: {e}")
             it["summary"], it["content"], it["attachments"] = "", "", []
-        # 避免请求过快
         time.sleep(0.4)
     return items
+
+
+def _load_json(path):
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return None
+
+
+def _fetch_prov_task(p):
+    sec, code, abbr, name = p
+    try:
+        items = fetch_prov(sec, code, abbr, name)
+        print(f"[移动] {name} 抓取 {len(items)} 条")
+        return sec, name, items, None
+    except Exception as e:
+        print(f"[移动] {name} 抓取失败: {str(e)[:120]}")
+        return sec, name, None, str(e)
+
+
+def write_mobile(out_dir):
+    """抓取 31 省公告，写分省详情 + 汇总索引。
+
+    某省本轮失败时沿用上次的详情文件，避免索引里整省消失。
+    """
+    prov_dir = os.path.join(out_dir, "announce")
+    os.makedirs(prov_dir, exist_ok=True)
+    results = []
+    with ThreadPoolExecutor(max_workers=FETCH_WORKERS) as ex:
+        for r in ex.map(_fetch_prov_task, MOVE_PROVINCES):
+            results.append(r)
+
+    flat, summary = [], []
+    for sec, name, items, _err in results:
+        path = os.path.join(prov_dir, sec + ".json")
+        if items is None:
+            old = _load_json(path) or {}
+            items = old.get("items") or []
+            print(f"[移动] {name} 沿用上次数据 {len(items)} 条")
+        else:
+            write_json(items, path, {"section": sec, "name": name})
+        d = _load_json(path) or {}
+        summary.append({"section": sec, "name": name,
+                        "count": len(items), "updated": d.get("updated") or ""})
+        for it in items:
+            flat.append({
+                "id": it.get("id") or "",
+                "prov": sec,
+                "prov_name": name,
+                "title": it.get("title") or "",
+                "date": it.get("date") or "",
+                "summary": (it.get("summary") or "")[:80],
+                "page_url": it.get("page_url") or "",
+            })
+    flat.sort(key=lambda x: (x.get("date") or "", x.get("id") or ""), reverse=True)
+    write_json(flat, os.path.join(out_dir, "announce.json"), {"provinces": summary})
+    ok = sum(1 for r in results if r[2] is not None)
+    print(f"[移动] 完成：{ok}/{len(results)} 省抓取成功，索引 {len(flat)} 条")
 
 
 # ---------------- 联通抓取 ----------------
@@ -282,8 +372,10 @@ def fetch_uni():
     return items
 
 
-def write_json(items, path):
+def write_json(items, path, extra=None):
     data = {"updated": now_str(), "count": len(items), "items": items}
+    if extra:
+        data.update(extra)
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=1)
@@ -304,7 +396,7 @@ def main():
         if a == "--uni-dir" and i + 1 < len(args):
             uni_dir = _resolve(root, args[i + 1])
     if move_dir:
-        write_json(fetch_move(), os.path.join(move_dir, "announce.json"))
+        write_mobile(move_dir)
     if uni_dir:
         write_json(fetch_uni(), os.path.join(uni_dir, "announce.json"))
     if not move_dir and not uni_dir:
