@@ -1088,6 +1088,7 @@ a.opc{text-decoration:none;display:block}
             <li><b>省份切换：</b>「省份资费」页可自助选择其他省份，默认北京；变化历史同样按省份标注</li>
             <li><b>更新方式：</b>自动定时抓取比对，有变化即刷新本页</li>
             <li><b>数据口径：</b>以官网「适用地区」「适用范围」字段为准，仅供参考</li>
+            <li><b>公告范围：</b>中国移动 31 省官网公告，每省保留最新 6 条，可在公告页按省筛选</li>
             <li><b>运营商：</b>顶部可切换运营商主题，目前仅中国移动已接入抓取数据</li>
             <li><b>免责声明：</b>展示内容可能存在延迟或误差，办理业务请以营业厅 / 官方客服信息为准</li>
           </ul>
@@ -2068,6 +2069,8 @@ function renderAnnounce(){
   var op = OP_MAP[state.op];
   var cur = annProvMeta();
   if(!cur){ state.anProv = ""; }
+  var pkEl = document.getElementById("anProv");
+  if(pkEl){ pkEl.style.display = hasData() ? "" : "none"; }
   var title = cur ? cur.name + "移动公告" : "全国移动公告";
   document.getElementById("anTitle").textContent = hasData() ? title : (op.name + "公告");
   document.getElementById("anTabTxt").textContent = hasData() ? "移动公告" : (op.short + "公告");
@@ -3934,6 +3937,8 @@ function annUnread(){
   var its = annItems();
   if(!its.length){ return 0; }
   var last = __ls("ann_last_" + state.op) || "";
+  /* 首次访问不弹红点；旧版存的是纯 id，升级后视为已读 */
+  if(!last || last.indexOf(":") < 0){ return 0; }
   var n = 0;
   for(var i=0;i<its.length;i++){
     if(annKeyOf(its[i]) === last){ break; }
@@ -4064,6 +4069,7 @@ if(document.readyState === "loading"){
         .then(function(j){
           if(!D) return;
           D.announce = (j && j.items) ? j : {updated:"",count:0,items:[],provinces:[]};
+          ANN_DETAIL = {};
           if(typeof renderAnnounce === "function") renderAnnounce();
           btn.textContent = "已更新";
           setTimeout(function(){ btn.classList.remove("loading"); btn.textContent = old; }, 1200);
