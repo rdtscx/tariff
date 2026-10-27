@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""公告抓取脚本：移动 31 省公告 + 联通公告，移动每省保留最新 6 条，输出索引与分省详情
+"""公告抓取脚本：移动 31 省公告（全量存档，含已下架）+ 联通公告
 
 用法:
     python3 scripts/announce_fetch.py --move-dir site/data --uni-dir unicom/data
@@ -8,10 +8,12 @@
     - 移动 31 省公告列表/详情均为静态 JSON，GET 直取；各省路径只差
       省份缩写与区号，栏目尾部（5004505_873_2361）全站一致。
       详情接口触发 TLS legacy renegotiation，需注入 openssl_legacy.cnf(见下)。
+    - 源站列表只含当前在架公告，已删除/已下架的会直接从列表消失；
+      脚本把历次列表合并存档，消失的条目标记为 removed，不再删除。
     - 联通公告列表/详情为 POST 接口，需带 XHR 特征头(否则中文被替换成 ?)。
     - 输出文件:
-        <move-dir>/announce.json          移动公告索引（31 省最新条目，含摘要，不含正文）
-        <move-dir>/announce/<section>.json 各省公告详情（含正文/附件，按需加载）
+        <move-dir>/announce.json          移动公告索引（各省最新在架条目，不含正文）
+        <move-dir>/announce/<section>.json 各省全量公告存档（含在架/已下架，6 条正文缓存）
         <uni-dir>/announce.json           联通站公告数据
 """
 import os
@@ -33,7 +35,7 @@ from concurrent.futures import ThreadPoolExecutor
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
 MAX_KEEP = 15     # 联通保留条数
-MOVE_KEEP = 6     # 移动每省保留的最新公告条数
+MOVE_KEEP = 6     # 移动每省缓存正文的最新公告条数（全部条目只存标题+链接）
 FETCH_WORKERS = 3 # 同时抓取的省份数，避免把源站打出限流
 
 # ---------------- 移动(31 省) ----------------
@@ -237,8 +239,8 @@ def now_str():
 
 
 # ---------------- 移动抓取 ----------------
-def fetch_prov(sec, code, abbr, name):
-    """抓取单个省份的最新 MAX_KEEP 条公告（含正文）。"""
+def fetch_list(sec, code, abbr, name):
+    """拉取单个省份公告列表（源站当前在架的全部条目）。"""
     base = MOVE_BASE.format(abbr=abbr, code=code)
     j = json.loads(_http_get(base + ".json"))
     lst = ((j.get("cData") or {}).get("list") or [])
@@ -257,20 +259,6 @@ def fetch_prov(sec, code, abbr, name):
             "date": row.get("publishTime") or "",
             "page_url": MOVE_DETAIL_PAGE.format(abbr=abbr, code=code, id=mid),
         })
-    items.sort(key=lambda x: x["date"], reverse=True)
-    items = items[:MOVE_KEEP]
-    for it in items:
-        try:
-            dj = json.loads(_http_get(base + "_detail_" + it["id"] + ".json"))
-            c = ((dj.get("cData") or {}).get("content") or {})
-            content = clean_html(c.get("text") or "")
-            it["summary"] = html_to_text(content)[:120]
-            it["content"] = content
-            it["attachments"] = find_attachments(content, MOVE_SITE)
-        except Exception as e:
-            print(f"[移动] {name} 详情 {it['id']} 失败: {e}")
-            it["summary"], it["content"], it["attachments"] = "", "", []
-        time.sleep(0.4)
     return items
 
 
@@ -282,28 +270,87 @@ def _load_json(path):
         return None
 
 
-def _fetch_prov_task(p):
+def _detail_fields(base, it):
+    """抓一条公告的正文/摘要/附件。"""
+    dj = json.loads(_http_get(base + "_detail_" + str(it["id"]) + ".json"))
+    c = ((dj.get("cData") or {}).get("content") or {})
+    content = clean_html(c.get("text") or "")
+    return {
+        "summary": html_to_text(content)[:120],
+        "content": content,
+        "attachments": find_attachments(content, MOVE_SITE),
+    }
+
+
+def _sync_prov_task(p, prov_dir):
+    """抓一省列表并与本地存档合并：新条目入库，消失的标为 removed。
+
+    源站列表不含已删除/已下架公告，只靠列表无法展示历史；
+    因此每次与旧存档按 id 合并，消失的条目保留并置 status=removed，
+    重新出现时再置回 on。本轮抓取失败则不动存档，避免误判整省下架。
+    """
     sec, code, abbr, name = p
+    path = os.path.join(prov_dir, sec + ".json")
+    old = _load_json(path) or {}
+    now = now_str()
     try:
-        items = fetch_prov(sec, code, abbr, name)
-        print(f"[移动] {name} 抓取 {len(items)} 条")
-        return sec, name, items, None
+        cur = fetch_list(sec, code, abbr, name)
     except Exception as e:
         print(f"[移动] {name} 抓取失败: {str(e)[:120]}")
         return sec, name, None, str(e)
 
+    old_map = {}
+    for x in (old.get("items") or []):
+        mid = str(x.get("id") or "")
+        if mid:
+            old_map[mid] = x
+
+    cur_ids = set()
+    merged = []
+    for it in cur:
+        mid = str(it.get("id"))
+        cur_ids.add(mid)
+        rec = old_map.get(mid)
+        if rec is None:
+            rec = {"id": mid, "first_seen": now}
+        rec["title"] = it["title"]
+        rec["date"] = it["date"]
+        rec["page_url"] = it["page_url"]
+        rec["status"] = "on"
+        rec.pop("removed_at", None)
+        merged.append(rec)
+    for mid, rec in old_map.items():
+        if mid in cur_ids:
+            continue
+        rec["status"] = "removed"
+        rec.setdefault("first_seen", now)
+        rec.setdefault("removed_at", now)
+        merged.append(rec)
+    merged.sort(key=lambda x: (x.get("date") or "", str(x.get("id") or "")), reverse=True)
+
+    # 只给最新在架条目缓存正文，其余保留标题+链接，避免存档体积失控
+    base = MOVE_BASE.format(abbr=abbr, code=code)
+    for it in [x for x in merged if x.get("status") == "on"][:MOVE_KEEP]:
+        try:
+            it.update(_detail_fields(base, it))
+        except Exception as e:
+            print(f"[移动] {name} 详情 {it['id']} 失败: {e}")
+            it.setdefault("summary", "")
+            it.setdefault("content", "")
+            it.setdefault("attachments", [])
+        time.sleep(0.4)
+    return sec, name, merged, None
+
 
 def write_mobile(out_dir):
-    """抓取 31 省公告，写分省详情 + 汇总索引。
-
-    某省本轮失败时沿用上次的详情文件，避免索引里整省消失。
-    """
+    """抓取 31 省公告，写全量存档 + 汇总索引。"""
     prov_dir = os.path.join(out_dir, "announce")
     os.makedirs(prov_dir, exist_ok=True)
     results = []
     with ThreadPoolExecutor(max_workers=FETCH_WORKERS) as ex:
-        for r in ex.map(_fetch_prov_task, MOVE_PROVINCES):
-            results.append(r)
+        futs = [ex.submit(_sync_prov_task, p, prov_dir) for p in MOVE_PROVINCES]
+        for f in futs:
+            results.append(f.result())
 
     flat, summary = [], []
     for sec, name, items, _err in results:
@@ -313,11 +360,19 @@ def write_mobile(out_dir):
             items = old.get("items") or []
             print(f"[移动] {name} 沿用上次数据 {len(items)} 条")
         else:
-            write_json(items, path, {"section": sec, "name": name})
+            active = sum(1 for x in items if x.get("status") == "on")
+            removed = len(items) - active
+            write_json(items, path, {"section": sec, "name": name,
+                                     "active": active, "removed": removed})
+            print(f"[移动] {name} 在架 {active} 条，已下架 {removed} 条")
         d = _load_json(path) or {}
-        summary.append({"section": sec, "name": name,
-                        "count": len(items), "updated": d.get("updated") or ""})
-        for it in items:
+        items = d.get("items") or []
+        active = sum(1 for x in items if x.get("status") == "on")
+        removed = len(items) - active
+        summary.append({"section": sec, "name": name, "count": len(items),
+                        "active": active, "removed": removed,
+                        "updated": d.get("updated") or ""})
+        for it in [x for x in items if x.get("status") == "on"][:MOVE_KEEP]:
             flat.append({
                 "id": it.get("id") or "",
                 "prov": sec,
@@ -326,6 +381,7 @@ def write_mobile(out_dir):
                 "date": it.get("date") or "",
                 "summary": (it.get("summary") or "")[:80],
                 "page_url": it.get("page_url") or "",
+                "status": "on",
             })
     flat.sort(key=lambda x: (x.get("date") or "", x.get("id") or ""), reverse=True)
     write_json(flat, os.path.join(out_dir, "announce.json"), {"provinces": summary})
