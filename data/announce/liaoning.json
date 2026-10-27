@@ -1,6 +1,6 @@
 {
- "updated": "2026-10-27 21:22",
- "count": 6,
+ "updated": "2026-10-27 22:09",
+ "count": 31,
  "items": [
   {
    "id": "54951",
@@ -9,7 +9,8 @@
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/ln/index_240_240_detail_54951.html",
    "summary": "",
    "content": "<div style=\"text-align:center\"><img src=\"https://www.10086.cn/uploadBaseDir/content/jpg/20260430/20260430094629612dWx.jpg\" alt=\"\"><br>\n</div>",
-   "attachments": []
+   "attachments": [],
+   "status": "on"
   },
   {
    "id": "53613",
@@ -18,7 +19,8 @@
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/ln/index_240_240_detail_53613.html",
    "summary": "",
    "content": "<img src=\"https://www.10086.cn/uploadBaseDir/content/jpg/20250925/20250925162309696PU9.jpg\" alt=\"\"><br>",
-   "attachments": []
+   "attachments": [],
+   "status": "on"
   },
   {
    "id": "52521",
@@ -27,7 +29,8 @@
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/ln/index_240_240_detail_52521.html",
    "summary": "",
    "content": "<div><img src=\"https://www.10086.cn/uploadBaseDir/content/jpg/20250512/20250512161235004X2U.jpg\" data-ke-src=\"/uploadBaseDir/content/jpg/20250512/20250512161235004X2U.jpg\" alt=\"\"><br>\n</div><br>",
-   "attachments": []
+   "attachments": [],
+   "status": "on"
   },
   {
    "id": "51671",
@@ -36,7 +39,8 @@
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/ln/index_240_240_detail_51671.html",
    "summary": "",
    "content": "<div><img src=\"https://www.10086.cn/uploadBaseDir/content/jpg/20250110/20250110151104601h0I.jpg\" data-ke-src=\"/uploadBaseDir/content/jpg/20250110/20250110151104601h0I.jpg\" alt=\"\"><br>\n</div><br>",
-   "attachments": []
+   "attachments": [],
+   "status": "on"
   },
   {
    "id": "50867",
@@ -45,7 +49,8 @@
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/ln/index_240_240_detail_50867.html",
    "summary": "",
    "content": "<img src=\"https://www.10086.cn/uploadBaseDir/content/jpg/20241022/20241022154301855t8S.jpg\" alt=\"\">",
-   "attachments": []
+   "attachments": [],
+   "status": "on"
   },
   {
    "id": "50860",
@@ -54,9 +59,212 @@
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/ln/index_240_240_detail_50860.html",
    "summary": "中国移动通信集团辽宁有限公司 2024年10月22日",
    "content": "<div><img src=\"https://www.10086.cn/uploadBaseDir/content/jpg/20241022/20241022105516515Xl6.jpg\" alt=\"\"><br>\n</div><div>中国移动通信集团辽宁有限公司<br>\n2024年10月22日<br>\n</div>",
-   "attachments": []
+   "attachments": [],
+   "status": "on"
+  },
+  {
+   "id": "44866",
+   "first_seen": "2026-10-27 22:07",
+   "title": "关于中国移动辽宁公司清理拖欠民营企业和中小企业账款、整治拖欠农民工工资问题投诉举报联系方式的公告",
+   "date": "2023-03-16",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/ln/index_240_240_detail_44866.html",
+   "status": "on"
+  },
+  {
+   "id": "41003",
+   "first_seen": "2026-10-27 22:07",
+   "title": "关于改变“国际及港澳台短信业务”开通方式的联合公告",
+   "date": "2022-01-01",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/ln/index_240_240_detail_41003.html",
+   "status": "on"
+  },
+  {
+   "id": "38372",
+   "first_seen": "2026-10-27 22:07",
+   "title": "关于五部委公告",
+   "date": "2021-02-09",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/ln/index_240_240_detail_38372.html",
+   "status": "on"
+  },
+  {
+   "id": "32191",
+   "first_seen": "2026-10-27 22:07",
+   "title": "关于停售4G飞享套餐18元的公告",
+   "date": "2018-07-19",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/ln/index_240_240_detail_32191.html",
+   "status": "on"
+  },
+  {
+   "id": "32069",
+   "first_seen": "2026-10-27 22:07",
+   "title": "中国移动关于取消流量“漫游”费的公告",
+   "date": "2018-06-27",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/ln/index_240_240_detail_32069.html",
+   "status": "on"
+  },
+  {
+   "id": "31986",
+   "first_seen": "2026-10-27 22:07",
+   "title": "中国移动大流量套餐使用规范公告",
+   "date": "2018-06-13",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/ln/index_240_240_detail_31986.html",
+   "status": "on"
+  },
+  {
+   "id": "31756",
+   "first_seen": "2026-10-27 22:07",
+   "title": "&ldquo;培训班报名&rdquo;诈骗短信",
+   "date": "2018-04-17",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/ln/index_240_240_detail_31756.html",
+   "status": "on"
+  },
+  {
+   "id": "31755",
+   "first_seen": "2026-10-27 22:07",
+   "title": "通过QQ应聘，小心有诈！",
+   "date": "2018-04-17",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/ln/index_240_240_detail_31755.html",
+   "status": "on"
+  },
+  {
+   "id": "31754",
+   "first_seen": "2026-10-27 22:07",
+   "title": "警惕&ldquo;线上赌博&rdquo;诈骗短信",
+   "date": "2018-04-17",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/ln/index_240_240_detail_31754.html",
+   "status": "on"
+  },
+  {
+   "id": "31518",
+   "first_seen": "2026-10-27 22:07",
+   "title": "中国移动门户网站服务协议",
+   "date": "2018-01-24",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/ln/index_240_240_detail_31518.html",
+   "status": "on"
+  },
+  {
+   "id": "31517",
+   "first_seen": "2026-10-27 22:07",
+   "title": "中国移动个人信息保护政策",
+   "date": "2018-01-24",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/ln/index_240_240_detail_31517.html",
+   "status": "on"
+  },
+  {
+   "id": "31367",
+   "first_seen": "2026-10-27 22:07",
+   "title": "关于和包业务上线&ldquo;非实名用户交易限制&rdquo;相关功能的公告",
+   "date": "2017-12-14",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/ln/index_240_240_detail_31367.html",
+   "status": "on"
+  },
+  {
+   "id": "30973",
+   "first_seen": "2026-10-27 22:07",
+   "title": "关于中国移动取消手机客户国内长途和漫游费的公告",
+   "date": "2017-08-30",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/ln/index_240_240_detail_30973.html",
+   "status": "on"
+  },
+  {
+   "id": "30808",
+   "first_seen": "2026-10-27 22:07",
+   "title": "关于国际/港澳台漫游部分运营商关闭2G网络服务的公告",
+   "date": "2017-07-24",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/ln/index_240_240_detail_30808.html",
+   "status": "on"
+  },
+  {
+   "id": "31225",
+   "first_seen": "2026-10-27 22:07",
+   "title": "用户个人信息保护承诺书",
+   "date": "2017-05-01",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/ln/index_240_240_detail_31225.html",
+   "status": "on"
+  },
+  {
+   "id": "27378",
+   "first_seen": "2026-10-27 22:07",
+   "title": "手机恶意软件警示信息",
+   "date": "2012-01-18",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/ln/index_240_240_detail_27378.html",
+   "status": "on"
+  },
+  {
+   "id": "27377",
+   "first_seen": "2026-10-27 22:07",
+   "title": "“吸血狂魔”恶意软件预警",
+   "date": "2011-12-01",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/ln/index_240_240_detail_27377.html",
+   "status": "on"
+  },
+  {
+   "id": "27376",
+   "first_seen": "2026-10-27 22:07",
+   "title": "关于彩信相册业务下线公告",
+   "date": "2011-11-04",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/ln/index_240_240_detail_27376.html",
+   "status": "on"
+  },
+  {
+   "id": "27375",
+   "first_seen": "2026-10-27 22:07",
+   "title": "跨省补卡业务暂停公告",
+   "date": "2011-09-01",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/ln/index_240_240_detail_27375.html",
+   "status": "on"
+  },
+  {
+   "id": "27374",
+   "first_seen": "2026-10-27 22:07",
+   "title": "停止纸质账单邮寄的公告",
+   "date": "2011-06-29",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/ln/index_240_240_detail_27374.html",
+   "status": "on"
+  },
+  {
+   "id": "27373",
+   "first_seen": "2026-10-27 22:07",
+   "title": "关于网络进行升位模拟演练公告",
+   "date": "2011-06-16",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/ln/index_240_240_detail_27373.html",
+   "status": "on"
+  },
+  {
+   "id": "27372",
+   "first_seen": "2026-10-27 22:07",
+   "title": "预防钓鱼网站警示公告",
+   "date": "2011-04-27",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/ln/index_240_240_detail_27372.html",
+   "status": "on"
+  },
+  {
+   "id": "27371",
+   "first_seen": "2026-10-27 22:07",
+   "title": "“手机骷髅”病毒预警",
+   "date": "2010-09-21",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/ln/index_240_240_detail_27371.html",
+   "status": "on"
+  },
+  {
+   "id": "27370",
+   "first_seen": "2026-10-27 22:07",
+   "title": "关于10086电话营业厅语音流程升级的公告",
+   "date": "2010-07-14",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/ln/index_240_240_detail_27370.html",
+   "status": "on"
+  },
+  {
+   "id": "27369",
+   "first_seen": "2026-10-27 22:07",
+   "title": "关于手机中不明程序的卸载说明",
+   "date": "2010-04-19",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/ln/index_240_240_detail_27369.html",
+   "status": "on"
   }
  ],
  "section": "liaoning",
- "name": "辽宁"
+ "name": "辽宁",
+ "active": 31,
+ "removed": 0
 }
