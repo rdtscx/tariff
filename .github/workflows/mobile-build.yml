@@ -237,7 +237,9 @@ jobs:
           set -e
           rm -rf /tmp/art && mkdir -p /tmp/art
           cp -a data /tmp/art/ 2>/dev/null || true
-          cp -f index.html app.js style.css common-extras.js /tmp/art/ 2>/dev/null || true
+          # ★ 不备份根目录静态页：本流程从不修改它们，而运行开始时的副本可能
+          #   早于本轮期间 main 上的改动，恢复回去会把别人的修改冲掉
+          #   （2026-10-27 实测：公告页改版被一轮构建回退）。
           # ★ 必须一并备份本轮新抓的快照：main.py 把结果写进
           #   pipelines/mobile/snapshots/，而下面 git reset --hard 会把它打回
           #   远程旧版本。此前漏备份 → snapshots 永远停在 2026-09-12，
@@ -262,7 +264,6 @@ jobs:
           cp -a /tmp/art/data ./data.new || { echo "::error::data 复制失败，中止"; exit 1; }
           rm -rf data
           mv data.new data || { echo "::error::data 替换失败，中止"; exit 1; }
-          cp -f /tmp/art/index.html /tmp/art/app.js /tmp/art/style.css /tmp/art/common-extras.js . 2>/dev/null || true
           # 恢复本轮新快照，避免 git reset --hard 把它打回 09-12 旧版本
           if [ "$(find /tmp/art/snap -maxdepth 1 -type f -name '*.json' | wc -l)" -gt 0 ]; then
             mkdir -p pipelines/mobile/snapshots
@@ -288,7 +289,6 @@ jobs:
               git reset --hard FETCH_HEAD
               cp -a /tmp/art/data/. ./data/ 2>/dev/null || true
               cp -a /tmp/art/snap/. pipelines/mobile/snapshots/ 2>/dev/null || true
-              cp -f /tmp/art/index.html /tmp/art/app.js /tmp/art/style.css /tmp/art/common-extras.js . 2>/dev/null || true
               git add -A
               git commit -q -m "mobile fetch+build $(date -u +%FT%TZ) retry$i" || true
               sleep 8
