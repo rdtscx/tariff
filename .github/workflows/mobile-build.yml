@@ -110,6 +110,15 @@ jobs:
           if [ "$EC" -ne 0 ]; then echo "::error::移动抓取连续失败"; exit "$EC"; fi
           ls -la snapshots/ | head -5
 
+      - name: 抓取 31 省公告（随业务抓取同步一次）
+        run: |
+          cd "$GITHUB_WORKSPACE"
+          # announce_fetch.py 的 root 解析为 pipelines/，必须显式写仓库根 data/
+          python3 pipelines/scripts/announce_fetch.py --move-dir "$GITHUB_WORKSPACE/data" \
+            || echo "::warning::公告抓取失败，沿用现有公告数据"
+          python3 -c "import json;d=json.load(open('data/announce.json',encoding='utf-8'));print('[公告] updated =',d.get('updated'),'| count =',len(d.get('items',[])))" \
+            || echo "::warning::公告文件读取失败"
+
       - name: 清洗历史假新增（漏采补录重分类，幂等）
         run: |
           cd "$GITHUB_WORKSPACE"
@@ -151,15 +160,6 @@ jobs:
           rm -rf _prev && mkdir -p _prev
           cp -f data/*.json _prev/ 2>/dev/null || true
           echo "基线文件数: $(ls _prev | wc -l)"
-          # 公告
-          # ★ 修复：announce_fetch.py 的 root 解析为 pipelines/，传 site/data 会写到
-          #   pipelines/site/data/announce.json —— 该目录从不参与同步，导致线上公告
-          #   长期停在旧日期（曾停在 2026-09-12 长达 10 天）而 || true 又把失败吞掉。
-          #   现改为直接写入仓库根 data/，并把结果打印出来便于核对。
-          python3 pipelines/scripts/announce_fetch.py --move-dir "$GITHUB_WORKSPACE/data" \
-            || echo "::warning::公告抓取失败，沿用现有公告数据"
-          python3 -c "import json;d=json.load(open('data/announce.json',encoding='utf-8'));print('[公告] updated =',d.get('updated'),'| count =',len(d.get('items',[])))" \
-            || echo "::warning::公告文件读取失败"
           # 构建
           python3 scripts/build_site.py 2>&1 | tail -40
 
