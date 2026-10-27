@@ -127,49 +127,61 @@ jobs:
 
       # 2026-10-19 用户要求：公告不再推送钉钉，只在页面公告栏内呈现，
       # 由页面上的「刷新」按钮自助拉取最新公告。
-      - name: 提交（用 contents API，避免 git rebase 冲突导致静默丢失）
+      # 用 Git Data API 一次提交写完全部文件：逐个文件 PUT /contents 会生成
+      # 32 个提交，每个提交都触发一次 Pages 构建，构建队列互相取消（2026-10-27 实测）。
+      - name: 提交（Git Data API 单次原子提交，避免逐文件刷屏）
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           cd "$GITHUB_WORKSPACE"
           python3 - <<'PY'
-          import base64, json, os, urllib.request
+          import base64, json, os, time, urllib.request
           tok = os.environ["GH_TOKEN"]
           repo = os.environ["GITHUB_REPOSITORY"]
+          API = "https://api.github.com/repos/%s" % repo
           HDR = {"Authorization": "token " + tok,
                  "Accept": "application/vnd.github+json",
                  "User-Agent": "ann-bot"}
 
-          def api_put(path, content_bytes, msg):
-              url = "https://api.github.com/repos/%s/contents/%s" % (repo, path)
-              sha = None
-              try:
-                  d = json.load(urllib.request.urlopen(
-                      urllib.request.Request(url, headers=HDR), timeout=60))
-                  sha = d.get("sha")
-              except Exception:
-                  pass
-              payload = {"message": msg,
-                         "content": base64.b64encode(content_bytes).decode()}
-              if sha:
-                  payload["sha"] = sha
-              req = urllib.request.Request(
-                  url, data=json.dumps(payload).encode(), method="PUT",
-                  headers=dict(HDR, **{"Content-Type": "application/json"}))
-              return urllib.request.urlopen(req, timeout=90).status
+          def api(url, method="GET", payload=None):
+              data = json.dumps(payload).encode() if payload is not None else None
+              h = dict(HDR)
+              if data:
+                  h["Content-Type"] = "application/json"
+              req = urllib.request.Request(url, data=data, method=method, headers=h)
+              return json.load(urllib.request.urlopen(req, timeout=90))
 
-          for path in ["data/announce.json"] + [
-                  os.path.join("data/announce", f)
-                  for f in (sorted(os.listdir("data/announce"))
-                            if os.path.isdir("data/announce") else [])
-                  if f.endswith(".json")]:
-              if not os.path.exists(path):
-                  print("跳过（不存在）", path)
-                  continue
-              raw = open(path, "rb").read()
+          paths = ["data/announce.json"] + [
+              os.path.join("data/announce", f)
+              for f in (sorted(os.listdir("data/announce"))
+                        if os.path.isdir("data/announce") else [])
+              if f.endswith(".json")]
+          paths = [p for p in paths if os.path.exists(p)]
+          print("待提交文件数:", len(paths))
+
+          for attempt in range(3):
+              head = api(API + "/git/ref/heads/main")["object"]["sha"]
+              base_tree = api(API + "/git/commits/" + head)["tree"]["sha"]
+              tree = []
+              for path in paths:
+                  raw = open(path, "rb").read()
+                  blob = api(API + "/git/blobs", "POST",
+                             {"content": base64.b64encode(raw).decode(),
+                              "encoding": "base64"})
+                  tree.append({"path": path, "mode": "100644",
+                               "type": "blob", "sha": blob["sha"]})
+              new_tree = api(API + "/git/trees", "POST",
+                             {"base_tree": base_tree, "tree": tree})
+              commit = api(API + "/git/commits", "POST",
+                           {"message": "announce: 同步公告数据",
+                            "tree": new_tree["sha"], "parents": [head]})
               try:
-                  st = api_put(path, raw, "announce: 同步公告数据")
-                  print("已写入 %s (HTTP %s, %d 字节)" % (path, st, len(raw)))
+                  api(API + "/git/refs/heads/main", "PATCH", {"sha": commit["sha"]})
+                  print("已提交 %d 个文件（commit %s）" % (len(tree), commit["sha"][:8]))
+                  break
               except Exception as e:
-                  print("写入失败 %s: %s" % (path, str(e)[:200]))
+                  print("引用更新失败（第 %d 次）: %s" % (attempt + 1, str(e)[:120]))
+                  time.sleep(2)
+          else:
+              raise SystemExit("公告提交失败")
           PY
