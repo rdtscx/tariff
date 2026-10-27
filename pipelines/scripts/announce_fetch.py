@@ -304,6 +304,11 @@ def _sync_prov_task(p, prov_dir):
         mid = str(x.get("id") or "")
         if mid:
             old_map[mid] = x
+    old_active = sum(1 for x in old_map.values() if x.get("status") != "removed")
+    # 列表骤减视为源站/限流异常，不标下架：否则会把整省在架公告误判为已下架
+    if old_active >= 10 and len(cur) < old_active * 0.5:
+        print(f"[移动] {name} 列表骤减 {old_active}->{len(cur)}，疑似源站异常，跳过本轮")
+        return sec, name, None, "list_drop"
 
     cur_ids = set()
     merged = []
