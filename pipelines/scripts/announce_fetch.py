@@ -355,16 +355,22 @@ def write_mobile(out_dir):
     flat, summary = [], []
     for sec, name, items, _err in results:
         path = os.path.join(prov_dir, sec + ".json")
+        old = _load_json(path) or {}
+        old_items = old.get("items") or []
         if items is None:
-            old = _load_json(path) or {}
-            items = old.get("items") or []
+            items = old_items
             print(f"[移动] {name} 沿用上次数据 {len(items)} 条")
         else:
             active = sum(1 for x in items if x.get("status") == "on")
             removed = len(items) - active
-            write_json(items, path, {"section": sec, "name": name,
-                                     "active": active, "removed": removed})
-            print(f"[移动] {name} 在架 {active} 条，已下架 {removed} 条")
+            # 内容没变就不重写：存档每小时重写一遍会不断新增 blob，
+            # 31 省全量存档累积后会把仓库撑大
+            if items != old_items:
+                write_json(items, path, {"section": sec, "name": name,
+                                         "active": active, "removed": removed})
+                print(f"[移动] {name} 在架 {active} 条，已下架 {removed} 条")
+            else:
+                print(f"[移动] {name} 无变化（在架 {active} 条，已下架 {removed} 条）")
         d = _load_json(path) or {}
         items = d.get("items") or []
         active = sum(1 for x in items if x.get("status") == "on")
