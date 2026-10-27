@@ -8,12 +8,17 @@ name: Mobile Heartbeat
 # 触发的那轮往后续一跳：2026-10-24 #33（GITHUB_TOKEN 触发）结束后心跳
 # 再未启动，北京 11 点那一轮缺失，只能等被延迟近 2 小时的 schedule 兜底。
 #
-# 现改为单个长驻运行内部循环：睡 95 分钟 → 触发一轮抓取 → 等它结束 →
+# 现改为单个长驻运行内部循环：等线上数据够旧 → 触发一轮抓取 → 等它结束 →
 # 重复。运行接近 6 小时上限前用 workflow_dispatch 续期一个新心跳运行
 # （workflow_dispatch 是 GITHUB_TOKEN 允许级联的例外，已实测可用），
 # 循环永续，不再依赖 schedule 与 workflow_run。workflow_run 触发保留
 # 作为入口：手动/schedule 触发的抓取结束后自动拉起或重启心跳。
 # 循环中断时由 build-watchdog 兜底；两路触发撞车由 mobile-build 并发组去重。
+#
+# 每轮等待的时长按 latest.json 的 updated 倒推，而不是固定睡 95 分钟：
+# 320 分钟预算耗尽时由新心跳接管，固定睡眠会让新心跳重新睡满一轮。
+# 2026-10-27 北京 16:58→19:54 的空窗即由此产生（老心跳 10:19Z 到期，
+# 新心跳 11:55Z 才醒，中间只等到一次碰巧准点的 schedule）。
 
 on:
   workflow_run:
@@ -42,20 +47,40 @@ jobs:
         run: |
           set -e
           DEADLINE=$(( $(date -u +%s) + 320 * 60 ))
+          # 下一轮抓取在「线上数据已有 95 分钟」时启动，构建约 25 分钟，
+          # 线上数据因此保持约 2 小时一更；取不到时间戳时按已过期处理。
+          INTERVAL=5700
+          # 触发过一轮后至少隔 20 分钟再试，避免构建连续失败时原地热循环
+          MIN_GAP=1200
+          ATTEMPTED=0
 
           count_active() {
             gh api "repos/${GITHUB_REPOSITORY}/actions/workflows/mobile-build.yml/runs?per_page=5" \
               | jq '[.workflow_runs[] | select(.status == "in_progress" or .status == "queued" or .status == "waiting")] | length'
           }
 
+          data_age() {
+            UPDATED=$(curl -fsSL -H 'Cache-Control: no-cache' \
+              "https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/data/latest.json" \
+              | jq -r '.updated // empty') || UPDATED=""
+            [ -n "$UPDATED" ] || { echo 999999; return; }
+            UPDATED_TS=$(date -u -d "$UPDATED" +%s 2>/dev/null) || { echo 999999; return; }
+            echo $(( $(date -u +%s) - UPDATED_TS ))
+          }
+
           while :; do
             LEFT=$(( DEADLINE - $(date -u +%s) ))
             if [ "$LEFT" -le 0 ]; then break; fi
-            if [ "$LEFT" -lt 5700 ]; then SLEEP=$LEFT; else SLEEP=5700; fi
-            echo "=== 睡眠 $(( SLEEP / 60 )) 分钟至 $(date -u -d "+$SLEEP seconds" +%FT%TZ) ==="
+            AGE=$(data_age)
+            SLEEP=$(( INTERVAL - AGE ))
+            if [ "$ATTEMPTED" = "1" ] && [ "$SLEEP" -lt "$MIN_GAP" ]; then SLEEP=$MIN_GAP; fi
+            if [ "$SLEEP" -lt 0 ]; then SLEEP=0; fi
+            if [ "$SLEEP" -gt "$LEFT" ]; then SLEEP=$LEFT; fi
+            echo "=== 线上数据距今 $(( AGE / 60 )) 分钟，睡眠 $(( SLEEP / 60 )) 分钟至 $(date -u -d "+$SLEEP seconds" +%FT%TZ) ==="
             sleep "$SLEEP"
             if [ "$(date -u +%s)" -ge "$DEADLINE" ]; then break; fi
 
+            ATTEMPTED=1
             ACTIVE=$(count_active)
             if [ "$ACTIVE" = "0" ]; then
               gh api -X POST "repos/${GITHUB_REPOSITORY}/actions/workflows/mobile-build.yml/dispatches" -f ref=main
