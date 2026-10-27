@@ -872,6 +872,9 @@ body{
 .ai-more{margin-top:8px;font-size:12px;color:var(--ac);font-weight:700}
 .an-p{display:inline-block;margin-right:7px;padding:1px 6px;border-radius:6px;font-size:10.5px;
   font-weight:700;color:#fff;background:linear-gradient(135deg,var(--c1),var(--c2));vertical-align:1px}
+.an-p.off{background:linear-gradient(135deg,#94a3b8,#cbd5e1)}
+.an-more{display:block;width:100%;margin-top:10px;padding:10px;border-radius:12px;cursor:pointer;
+  font-size:12.5px;color:var(--c1);background:var(--glass);border:1px dashed var(--bd);font-family:inherit}
 .an-dv-d{font-size:12px;color:var(--tx3);margin-bottom:10px}
 .an-dv-c{font-size:13.5px;line-height:1.85;color:var(--tx2);word-break:break-word}
 .an-dv-c p{margin:0 0 10px}
@@ -1088,7 +1091,7 @@ a.opc{text-decoration:none;display:block}
             <li><b>省份切换：</b>「省份资费」页可自助选择其他省份，默认北京；变化历史同样按省份标注</li>
             <li><b>更新方式：</b>自动定时抓取比对，有变化即刷新本页</li>
             <li><b>数据口径：</b>以官网「适用地区」「适用范围」字段为准，仅供参考</li>
-            <li><b>公告范围：</b>中国移动 31 省官网公告，每省保留最新 6 条，可在公告页按省筛选</li>
+            <li><b>公告范围：</b>中国移动 31 省官网公告，按省查看该省全部公告（已下架条目一并保留）</li>
             <li><b>运营商：</b>顶部可切换运营商主题，目前仅中国移动已接入抓取数据</li>
             <li><b>免责声明：</b>展示内容可能存在延迟或误差，办理业务请以营业厅 / 官方客服信息为准</li>
           </ul>
@@ -2058,10 +2061,20 @@ function annProvOptions(){
       abbr:m.abbr, region:m.region, ca:m.ca, cb:m.cb, total:t };
   });
 }
-function annShown(){
-  var all = annItems();
-  if(!state.anProv){ return all; }
-  return all.filter(function(x){ return x.prov === state.anProv; });
+var ANN_ITEMS = [];      // 当前视图渲染的条目（全国近期 或 某省全量存档）
+var ANN_CACHE = {};      // section -> 分省全量存档
+var ANN_LIMIT = 60;      // 分省列表每次渲染条数
+function annLoadProv(sec){
+  if(ANN_CACHE[sec]){ return Promise.resolve(ANN_CACHE[sec]); }
+  var u = (window.DATA_BASE || "./data/") + "announce/" + sec + ".json?_t=" + Date.now();
+  return fetch(u, {cache:"no-store"})
+    .then(function(r){ return r.ok ? r.json() : null; })
+    .then(function(j){ if(j){ ANN_CACHE[sec] = j; } return j; });
+}
+function annCounts(items){
+  var on = 0;
+  for(var i=0;i<items.length;i++){ if(items[i].status !== "removed"){ on++; } }
+  return { on:on, off:items.length - on };
 }
 function renderAnnounce(){
   var a = D.announce || {};
@@ -2081,18 +2094,48 @@ function renderAnnounce(){
     box.innerHTML = emptyBox(op.name + "公告源待接入");
     return;
   }
-  var provs = a.provinces || [];
-  var items = annShown();
-  desc.textContent = "来源：中国移动各省官网公告 · " + (provs.length ? provs.length + " 省 · " : "") +
-    "共 " + items.length + " 条 · 更新于 " + (a.updated || "—");
-  if(!items.length){ box.innerHTML = '<div style="color:var(--tx3);font-size:13px">暂无公告</div>'; return; }
-  box.innerHTML = items.map(function(x, i){
+  if(state.anProv){
+    var arch = ANN_CACHE[state.anProv];
+    if(!arch){
+      var want = state.anProv;
+      box.innerHTML = '<div style="color:var(--tx3);font-size:13px">正在加载 ' + esc(cur.name) + ' 全部公告…</div>';
+      desc.textContent = "来源：" + cur.name + "移动官网公告 · 正在加载";
+      annLoadProv(want).then(function(j){
+        if(state.anProv !== want){ return; }
+        if(!j){ box.innerHTML = '<div style="color:var(--tx3);font-size:13px">加载失败</div>'; return; }
+        renderAnnounce();
+      }).catch(function(){
+        if(state.anProv === want){ box.innerHTML = '<div style="color:var(--tx3);font-size:13px">加载失败</div>'; }
+      });
+      return;
+    }
+    ANN_ITEMS = arch.items || [];
+    var c = annCounts(ANN_ITEMS);
+    desc.textContent = "来源：" + cur.name + "移动官网公告 · 共 " + ANN_ITEMS.length +
+      " 条（在架 " + c.on + " · 已下架 " + c.off + "） · 更新于 " + (arch.updated || "—");
+  } else {
+    ANN_ITEMS = a.items || [];
+    var provs = a.provinces || [];
+    desc.textContent = "来源：中国移动各省官网公告 · " + (provs.length ? provs.length + " 省 · " : "") +
+      "近期 " + ANN_ITEMS.length + " 条（选省份看该省全部） · 更新于 " + (a.updated || "—");
+  }
+  if(!ANN_ITEMS.length){ box.innerHTML = '<div style="color:var(--tx3);font-size:13px">暂无公告</div>'; return; }
+  var shown = ANN_ITEMS.slice(0, ANN_LIMIT);
+  box.innerHTML = shown.map(function(x, i){
+    var off = x.status === "removed";
     return '<div class="ai" data-ai="' + i + '" role="button" tabindex="0">' +
       '<div class="ai-t">' + esc(x.title) + "</div>" +
-      '<div class="ai-d">' + (state.anProv ? "" : '<span class="an-p">' + esc(x.prov_name || "") + "</span>") + esc(x.date || "") + "</div>" +
-      '<div class="ai-s">' + esc(x.summary || "") + "</div>" +
+      '<div class="ai-d">' +
+        (state.anProv ? "" : '<span class="an-p">' + esc(x.prov_name || "") + "</span>") +
+        (off ? '<span class="an-p off">已下架</span>' : "") +
+        esc(x.date || "") + "</div>" +
+      '<div class="ai-s">' + esc(x.summary || (off ? "该公告已从官网列表移除，原文可能无法访问" : "")) + "</div>" +
       '<div class="ai-more">查看完整内容 ›</div></div>';
   }).join("");
+  if(ANN_ITEMS.length > shown.length){
+    box.innerHTML += '<button class="an-more" data-an-more="1" type="button">加载更早公告（剩余 ' +
+      (ANN_ITEMS.length - shown.length) + ' 条）</button>';
+  }
 }
 
 /* ---------- 视图切换 ---------- */
@@ -3773,6 +3816,7 @@ document.addEventListener("click", function(e){
         options:[{value:"",label:"全部省份",icon:"🌐",sub:"全国"}].concat(annProvOptions()),
         groupBy:true, onPick:function(v){
           state.anProv = v;
+          ANN_LIMIT = 60;
           renderAnnounce();
         }});
       return;
@@ -3958,48 +4002,58 @@ function paintAnnDot(){
   if(n > 0){ d.textContent = n > 99 ? "99+" : String(n); d.style.display = ""; }
   else { d.style.display = "none"; d.textContent = ""; }
 }
-var ANN_DETAIL = {};
-function annDetail(prov){
-  if(ANN_DETAIL[prov]){ return Promise.resolve(ANN_DETAIL[prov]); }
-  var u = (window.DATA_BASE || "./data/") + "announce/" + prov + ".json?_t=" + Date.now();
-  return fetch(u, {cache:"no-store"})
-    .then(function(r){ return r.ok ? r.json() : null; })
-    .then(function(j){ if(j){ ANN_DETAIL[prov] = j; } return j; });
-}
 function annModal(it, fallback){
   var x = it || fallback || {};
   var prov = x.prov_name || fallback.prov_name || "";
+  var off = x.status === "removed";
+  var empty = off
+    ? '<div class="dfnone">该公告已从官网下架，本地未缓存正文，原文可能无法访问</div>'
+    : '<div class="dfnone">该公告正文需在官网查看（源站接口未开放正文抓取）</div>';
   return '<div class="an-dv">' +
-    '<div class="an-dv-d">' + (prov ? '<span class="an-p">' + esc(prov) + "</span>" : "") + esc(x.date || "") + "</div>" +
-    '<div class="an-dv-c">' + (((x.content || x.summary) || "").trim() || '<div class="dfnone">该公告正文需在官网查看（源站接口未开放正文抓取）</div>') + "</div>" +
+    '<div class="an-dv-d">' + (prov ? '<span class="an-p">' + esc(prov) + "</span>" : "") +
+      (off ? '<span class="an-p off">已下架</span>' : "") + esc(x.date || "") + "</div>" +
+    '<div class="an-dv-c">' + (((x.content || x.summary) || "").trim() || empty) + "</div>" +
     (x.page_url ? '<div class="an-dv-l"><a href="' + esc(x.page_url) + '" target="_blank" rel="noopener">查看原文 ↗</a></div>' : "") +
     "</div>";
 }
+function annFind(arch, id){
+  var its = (arch && arch.items) || [];
+  for(var i=0;i<its.length;i++){
+    if(String(its[i].id) === String(id)){ return its[i]; }
+  }
+  return null;
+}
 function openAnn(i){
-  var x = annShown()[i];
+  var x = ANN_ITEMS[i];
   if(!x){ return; }
   document.getElementById("mTitle").textContent = x.title || "公告详情";
   var cp = document.getElementById("mCopy");
   if(cp){ cp.style.display = "none"; }
   document.getElementById("mask").classList.add("on");
   var host = document.getElementById("mBody");
-  if(!x.prov){
+  if(x.content || !x.prov){
     host.innerHTML = annModal(x, x);
     return;
   }
+  var cached = ANN_CACHE[x.prov];
+  if(cached){
+    host.innerHTML = annModal(annFind(cached, x.id), x);
+    return;
+  }
   host.innerHTML = '<div class="dfnone">正在加载公告正文…</div>';
-  annDetail(x.prov).then(function(j){
-    var it = null;
-    (j && j.items || []).some(function(y){
-      if(String(y.id) === String(x.id)){ it = y; return true; }
-      return false;
-    });
-    host.innerHTML = annModal(it, x);
+  annLoadProv(x.prov).then(function(j){
+    host.innerHTML = annModal(annFind(j, x.id), x);
   }).catch(function(){
     host.innerHTML = annModal(null, x);
   });
 }
 document.addEventListener("click", function(e){
+  var more = e.target && e.target.closest ? e.target.closest("[data-an-more]") : null;
+  if(more){
+    ANN_LIMIT += 60;
+    renderAnnounce();
+    return;
+  }
   var ai = e.target && e.target.closest ? e.target.closest(".ai") : null;
   if(ai){
     openAnn(parseInt(ai.getAttribute("data-ai"), 10));
@@ -4069,7 +4123,8 @@ if(document.readyState === "loading"){
         .then(function(j){
           if(!D) return;
           D.announce = (j && j.items) ? j : {updated:"",count:0,items:[],provinces:[]};
-          ANN_DETAIL = {};
+          ANN_CACHE = {};
+          ANN_LIMIT = 60;
           if(typeof renderAnnounce === "function") renderAnnounce();
           btn.textContent = "已更新";
           setTimeout(function(){ btn.classList.remove("loading"); btn.textContent = old; }, 1200);
