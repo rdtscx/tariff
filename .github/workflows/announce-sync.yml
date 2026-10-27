@@ -3,7 +3,7 @@ name: Announce Sync
 # 公告单独同步 —— 与重量级 mobile-build 解耦。
 # 背景：公告挂在 mobile-build 里，随 32 板块全量抓取走（约 40 分钟），
 # 一天只有两轮，源站上午发的公告经常要等到晚上才同步。
-# 本流程只抓移动公告（60 条列表 + 15 条详情），1~2 分钟跑完，可高频执行。
+# 本流程只抓移动公告（31 省各 1 个列表 + 最新 6 条详情），3~5 分钟跑完，可高频执行。
 # 联通/电信/广电公告已随其抓取链路一并停用。
 
 on:
@@ -158,7 +158,11 @@ jobs:
                   headers=dict(HDR, **{"Content-Type": "application/json"}))
               return urllib.request.urlopen(req, timeout=90).status
 
-          for path in ("data/announce.json",):
+          for path in ["data/announce.json"] + [
+                  os.path.join("data/announce", f)
+                  for f in (sorted(os.listdir("data/announce"))
+                            if os.path.isdir("data/announce") else [])
+                  if f.endswith(".json")]:
               if not os.path.exists(path):
                   print("跳过（不存在）", path)
                   continue
