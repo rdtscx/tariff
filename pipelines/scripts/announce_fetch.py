@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""公告抓取脚本：移动 31 省公告（全量存档，含已下架）+ 联通公告
+"""公告抓取脚本：移动 31 省公告（永久存档，只增不减）+ 联通公告
 
 用法:
     python3 scripts/announce_fetch.py --move-dir site/data --uni-dir unicom/data
@@ -8,12 +8,12 @@
     - 移动 31 省公告列表/详情均为静态 JSON，GET 直取；各省路径只差
       省份缩写与区号，栏目尾部（5004505_873_2361）全站一致。
       详情接口触发 TLS legacy renegotiation，需注入 openssl_legacy.cnf(见下)。
-    - 源站列表只含当前在架公告，已删除/已下架的会直接从列表消失；
-      脚本把历次列表合并存档，消失的条目标记为 removed，不再删除。
+    - 所有抓到的公告都作为本地永久数据保留：只按 id 追加新条目，
+      不因为源站删除/下架而从存档里删除存量条目。
     - 联通公告列表/详情为 POST 接口，需带 XHR 特征头(否则中文被替换成 ?)。
     - 输出文件:
         <move-dir>/announce.json          移动公告索引（各省最新在架条目，不含正文）
-        <move-dir>/announce/<section>.json 各省全量公告存档（含在架/已下架，6 条正文缓存）
+        <move-dir>/announce/<section>.json 各省全量公告存档（只增不减，6 条正文缓存）
         <uni-dir>/announce.json           联通站公告数据
 """
 import os
@@ -283,11 +283,10 @@ def _detail_fields(base, it):
 
 
 def _sync_prov_task(p, prov_dir):
-    """抓一省列表并与本地存档合并：新条目入库，消失的标为 removed。
+    """抓一省列表并追加到本地存档：只增不减，不跟随源站删除。
 
-    源站列表不含已删除/已下架公告，只靠列表无法展示历史；
-    因此每次与旧存档按 id 合并，消失的条目保留并置 status=removed，
-    重新出现时再置回 on。本轮抓取失败则不动存档，避免误判整省下架。
+    已存档的条目原样保留（标题/日期/正文不再改写），只把本地没有的 id 追加进来；
+    源站删掉或下架公告后，已抓过的条目仍留在存档里。本轮抓取失败则不动存档。
     """
     sec, code, abbr, name = p
     path = os.path.join(prov_dir, sec + ".json")
@@ -304,38 +303,25 @@ def _sync_prov_task(p, prov_dir):
         mid = str(x.get("id") or "")
         if mid:
             old_map[mid] = x
-    old_active = sum(1 for x in old_map.values() if x.get("status") != "removed")
-    # 列表骤减视为源站/限流异常，不标下架：否则会把整省在架公告误判为已下架
-    if old_active >= 10 and len(cur) < old_active * 0.5:
-        print(f"[移动] {name} 列表骤减 {old_active}->{len(cur)}，疑似源站异常，跳过本轮")
-        return sec, name, None, "list_drop"
 
-    cur_ids = set()
-    merged = []
+    merged = list(old_map.values())
+    added = 0
     for it in cur:
         mid = str(it.get("id"))
-        cur_ids.add(mid)
-        rec = old_map.get(mid)
-        if rec is None:
-            rec = {"id": mid, "first_seen": now}
-        rec["title"] = it["title"]
-        rec["date"] = it["date"]
-        rec["page_url"] = it["page_url"]
-        rec["status"] = "on"
-        rec.pop("removed_at", None)
-        merged.append(rec)
-    for mid, rec in old_map.items():
-        if mid in cur_ids:
+        if mid in old_map:
             continue
-        rec["status"] = "removed"
-        rec.setdefault("first_seen", now)
-        rec.setdefault("removed_at", now)
+        rec = {"id": mid, "title": it["title"], "date": it["date"],
+               "page_url": it["page_url"], "status": "on", "first_seen": now}
+        old_map[mid] = rec
         merged.append(rec)
+        added += 1
     merged.sort(key=lambda x: (x.get("date") or "", str(x.get("id") or "")), reverse=True)
 
-    # 只给最新在架条目缓存正文，其余保留标题+链接，避免存档体积失控
+    # 只补抓最新条目中尚无正文的，已有正文不重复请求
     base = MOVE_BASE.format(abbr=abbr, code=code)
-    for it in [x for x in merged if x.get("status") == "on"][:MOVE_KEEP]:
+    for it in merged[:MOVE_KEEP]:
+        if it.get("content"):
+            continue
         try:
             it.update(_detail_fields(base, it))
         except Exception as e:
@@ -344,6 +330,7 @@ def _sync_prov_task(p, prov_dir):
             it.setdefault("content", "")
             it.setdefault("attachments", [])
         time.sleep(0.4)
+    print(f"[移动] {name} 新增 {added} 条，本地累计 {len(merged)} 条")
     return sec, name, merged, None
 
 
@@ -366,24 +353,20 @@ def write_mobile(out_dir):
             items = old_items
             print(f"[移动] {name} 沿用上次数据 {len(items)} 条")
         else:
-            active = sum(1 for x in items if x.get("status") == "on")
-            removed = len(items) - active
             # 内容没变就不重写：存档每小时重写一遍会不断新增 blob，
             # 31 省全量存档累积后会把仓库撑大
             if items != old_items:
                 write_json(items, path, {"section": sec, "name": name,
-                                         "active": active, "removed": removed})
-                print(f"[移动] {name} 在架 {active} 条，已下架 {removed} 条")
+                                         "active": len(items), "removed": 0})
+                print(f"[移动] {name} 本地累计 {len(items)} 条")
             else:
-                print(f"[移动] {name} 无变化（在架 {active} 条，已下架 {removed} 条）")
+                print(f"[移动] {name} 无变化（本地 {len(items)} 条）")
         d = _load_json(path) or {}
         items = d.get("items") or []
-        active = sum(1 for x in items if x.get("status") == "on")
-        removed = len(items) - active
         summary.append({"section": sec, "name": name, "count": len(items),
-                        "active": active, "removed": removed,
+                        "active": len(items), "removed": 0,
                         "updated": d.get("updated") or ""})
-        for it in [x for x in items if x.get("status") == "on"][:MOVE_KEEP]:
+        for it in items[:MOVE_KEEP]:
             flat.append({
                 "id": it.get("id") or "",
                 "prov": sec,
