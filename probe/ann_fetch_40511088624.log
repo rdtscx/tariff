@@ -1,0 +1,76 @@
+[移动] 北京 抓取 6 条
+[移动] 河北 抓取 6 条
+[移动] 天津 抓取 6 条
+[移动] 山西 抓取 6 条
+[移动] 辽宁 抓取 6 条
+[移动] 内蒙古 抓取 6 条
+[移动] 吉林 抓取 6 条
+[移动] 黑龙江 抓取 6 条
+[移动] 上海 抓取 6 条
+[移动] 浙江 抓取 6 条
+[移动] 安徽 抓取 6 条
+[移动] 江苏 抓取 6 条
+[移动] 江西 抓取 6 条
+[移动] 山东 抓取 6 条
+[移动] 福建 抓取 6 条
+[移动] 河南 抓取 6 条
+[移动] 广东 抓取 0 条
+[移动] 湖南 抓取 6 条
+[移动] 湖北 抓取 6 条
+[移动] 广西 抓取 6 条
+[移动] 重庆 抓取 2 条
+[移动] 海南 抓取 6 条
+[移动] 四川 抓取 6 条
+[移动] 贵州 抓取 6 条
+[移动] 云南 抓取 6 条
+[移动] 西藏 抓取 6 条
+[移动] 甘肃 抓取 6 条
+[移动] 青海 抓取 6 条
+[移动] 陕西 抓取 6 条
+[移动] 宁夏 抓取 6 条
+[移动] 新疆 抓取 6 条
+已写入 /home/runner/work/tariff/tariff/data/announce/beijing.json (6 条)
+已写入 /home/runner/work/tariff/tariff/data/announce/tianjin.json (6 条)
+已写入 /home/runner/work/tariff/tariff/data/announce/hebei.json (6 条)
+已写入 /home/runner/work/tariff/tariff/data/announce/shanxi.json (6 条)
+已写入 /home/runner/work/tariff/tariff/data/announce/neimenggu.json (6 条)
+已写入 /home/runner/work/tariff/tariff/data/announce/liaoning.json (6 条)
+已写入 /home/runner/work/tariff/tariff/data/announce/jilin.json (6 条)
+已写入 /home/runner/work/tariff/tariff/data/announce/heilongjiang.json (6 条)
+已写入 /home/runner/work/tariff/tariff/data/announce/shanghai.json (6 条)
+已写入 /home/runner/work/tariff/tariff/data/announce/jiangsu.json (6 条)
+已写入 /home/runner/work/tariff/tariff/data/announce/zhejiang.json (6 条)
+已写入 /home/runner/work/tariff/tariff/data/announce/anhui.json (6 条)
+已写入 /home/runner/work/tariff/tariff/data/announce/fujian.json (6 条)
+已写入 /home/runner/work/tariff/tariff/data/announce/jiangxi.json (6 条)
+已写入 /home/runner/work/tariff/tariff/data/announce/shandong.json (6 条)
+已写入 /home/runner/work/tariff/tariff/data/announce/henan.json (6 条)
+已写入 /home/runner/work/tariff/tariff/data/announce/hubei.json (6 条)
+已写入 /home/runner/work/tariff/tariff/data/announce/hunan.json (6 条)
+已写入 /home/runner/work/tariff/tariff/data/announce/guangdong.json (0 条)
+已写入 /home/runner/work/tariff/tariff/data/announce/guangxi.json (6 条)
+已写入 /home/runner/work/tariff/tariff/data/announce/hainan.json (6 条)
+已写入 /home/runner/work/tariff/tariff/data/announce/chongqing.json (2 条)
+已写入 /home/runner/work/tariff/tariff/data/announce/sichuan.json (6 条)
+已写入 /home/runner/work/tariff/tariff/data/announce/guizhou.json (6 条)
+已写入 /home/runner/work/tariff/tariff/data/announce/yunnan.json (6 条)
+已写入 /home/runner/work/tariff/tariff/data/announce/xizang.json (6 条)
+已写入 /home/runner/work/tariff/tariff/data/announce/shaanxi.json (6 条)
+已写入 /home/runner/work/tariff/tariff/data/announce/gansu.json (6 条)
+已写入 /home/runner/work/tariff/tariff/data/announce/qinghai.json (6 条)
+已写入 /home/runner/work/tariff/tariff/data/announce/ningxia.json (6 条)
+已写入 /home/runner/work/tariff/tariff/data/announce/xinjiang.json (6 条)
+已写入 /home/runner/work/tariff/tariff/data/announce.json (176 条)
+[移动] 完成：31/31 省抓取成功，索引 176 条
+[抓取时刻] 2026-10-27T13:22:33Z
+[文件状态] -rw-r--r-- 1 runner runner 88132 Oct 27 13:22 data/announce.json
+[git 状态]  M data/announce.json
+ M data/announce/anhui.json
+ M data/announce/beijing.json
+ M data/announce/chongqing.json
+ M data/announce/fujian.json
+ M data/announce/gansu.json
+ M data/announce/guangdong.json
+ M data/announce/guangxi.json
+ M data/announce/guizhou.json
+ M data/announce/hainan.json
