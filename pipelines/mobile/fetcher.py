@@ -14,6 +14,7 @@ import json
 import os
 import random
 import re
+import socket
 import ssl
 import threading
 import time
@@ -25,6 +26,19 @@ from Crypto.Cipher import AES
 
 from config import SECTIONS
 from province_table import SECTION_INFO
+
+# Actions 出口普遍没有可用 IPv6 路由：getaddrinfo 先返回 AAAA，连接抛
+# [Errno 101] Network is unreachable，再回落 A 重连。每次请求多一次失败尝试，
+# 配合 _post 的指数退避会把单轮抓取拖到 20 分钟，也放大了"分类抓取失败"。
+# 这里只解析 IPv4 地址，消掉这类无效尝试。
+_orig_getaddrinfo = socket.getaddrinfo
+
+
+def _getaddrinfo_ipv4(host, port, family=0, type=0, proto=0, flags=0):
+    return _orig_getaddrinfo(host, port, socket.AF_INET, type, proto, flags)
+
+
+socket.getaddrinfo = _getaddrinfo_ipv4
 
 AES_KEY = b"1234123412ABCDEF"
 AES_IV = b"ABCDEF1234123412"
