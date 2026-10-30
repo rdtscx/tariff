@@ -1,7 +1,37 @@
 {
- "updated": "2026-10-30 23:12",
+ "updated": "2026-10-31 00:17",
  "count": 176,
  "items": [
+  {
+   "id": "56070",
+   "prov": "shanxi",
+   "prov_name": "山西",
+   "title": "大同分公司2026年第三批委托加盟店合作伙伴引入结果公示",
+   "date": "2026-10-31",
+   "summary": "中国移动通信集团山西有限公司【大同】分公司（以下简称：【大同】移动）第三批委托加盟店合作伙伴引入项目，已按照相关规定完成评审工作，现将结果公示如下： 大同分公司",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/sx/index_351_351_detail_56070.html",
+   "status": "on"
+  },
+  {
+   "id": "56068",
+   "prov": "fujian",
+   "prov_name": "福建",
+   "title": "关于省内五档权益产品下线的公告承载需求",
+   "date": "2026-10-30",
+   "summary": "尊敬的客户您好: 因业务调整，我公司将于2026年12月1日0时起停止“5G特惠流量包35元10GB档（权益超市版）、5G特惠流量包25元10GB档（权益超市版",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/fj/index_591_591_detail_56068.html",
+   "status": "on"
+  },
+  {
+   "id": "56069",
+   "prov": "shanxi",
+   "prov_name": "山西",
+   "title": "吕梁分公司2026年第5批自控厅委托加盟合作伙伴评估引入结果公示",
+   "date": "2026-10-29",
+   "summary": "中国移动通信集团山西有限公司【吕梁】分公司（以下简称：【吕梁】移动）2026年第5批自控厅委托加盟合作伙伴评估引入项目（项目编号：LL202605）已按照相关规",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/sx/index_351_351_detail_56069.html",
+   "status": "on"
+  },
   {
    "id": "56067",
    "prov": "beijing",
@@ -873,16 +903,6 @@
    "status": "on"
   },
   {
-   "id": "56026",
-   "prov": "fujian",
-   "prov_name": "福建",
-   "title": "关于高频骚扰电话拦截服务升级的公告",
-   "date": "2026-08-19",
-   "summary": "尊敬的客户：您好！ 为持续提供优质通信服务，强化反诈防护能力，保障您的合法权益，我公司将对高频骚扰电话拦截服务进行升级。在原有电话免扰功能基础上，免费增加短信免",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/fj/index_591_591_detail_56026.html",
-   "status": "on"
-  },
-  {
    "id": "53682",
    "prov": "hebei",
    "prov_name": "河北",
@@ -993,16 +1013,6 @@
    "status": "on"
   },
   {
-   "id": "55127",
-   "prov": "shanxi",
-   "prov_name": "山西",
-   "title": "外籍人员办卡指南及资费手册",
-   "date": "2026-05-26",
-   "summary": "中国移动山西公司外籍来华人员服务网点.xlsx 中国移动通信集团有限公司 2026年5月26日",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/sx/index_351_351_detail_55127.html",
-   "status": "on"
-  },
-  {
    "id": "55118",
    "prov": "xinjiang",
    "prov_name": "新疆",
@@ -1020,16 +1030,6 @@
    "date": "2026-05-15",
    "summary": "尊敬的客户： 感谢您一直以来对中国移动和留言、来电管家业务的关注与支持！为统一业务品牌标识、优化客户服务感知，相关业务将统一焕新更名，具体事项公告如下： 一、业",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/xj/index_991_991_detail_55062.html",
-   "status": "on"
-  },
-  {
-   "id": "55032",
-   "prov": "shanxi",
-   "prov_name": "山西",
-   "title": "关于为客户提供免停机服务的公告",
-   "date": "2026-05-11",
-   "summary": "尊敬的客户： 您好！ 为保障客户享受优质、便捷、连续的通信服务，我公司对部分客户提供欠费免停机服务。 该服务根据客户的业务使用、网龄等情况进行动态评估，确定对应",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/sx/index_351_351_detail_55032.html",
    "status": "on"
   },
   {
@@ -1791,10 +1791,10 @@
   {
    "section": "shanxi",
    "name": "山西",
-   "count": 38,
-   "active": 38,
+   "count": 40,
+   "active": 40,
    "removed": 0,
-   "updated": "2026-10-27 22:09"
+   "updated": "2026-10-31 00:17"
   },
   {
    "section": "neimenggu",
@@ -1863,10 +1863,10 @@
   {
    "section": "fujian",
    "name": "福建",
-   "count": 56,
-   "active": 56,
+   "count": 57,
+   "active": 57,
    "removed": 0,
-   "updated": "2026-10-27 22:09"
+   "updated": "2026-10-31 00:17"
   },
   {
    "section": "jiangxi",

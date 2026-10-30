@@ -1,7 +1,23 @@
 {
- "updated": "2026-10-27 22:09",
- "count": 56,
+ "updated": "2026-10-31 00:17",
+ "count": 57,
  "items": [
+  {
+   "id": "56068",
+   "title": "关于省内五档权益产品下线的公告承载需求",
+   "date": "2026-10-30",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/fj/index_591_591_detail_56068.html",
+   "status": "on",
+   "first_seen": "2026-10-31 00:17",
+   "summary": "尊敬的客户您好: 因业务调整，我公司将于2026年12月1日0时起停止“5G特惠流量包35元10GB档（权益超市版）、5G特惠流量包25元10GB档（权益超市版）、福建高价值保障服务年卡”等5项业务的服务，具体业务点击查看。系统将自动为已订",
+   "content": "<p>尊敬的客户您好:<br>\n&nbsp; &nbsp; &nbsp; 因业务调整，我公司将于2026年12月1日0时起停止“5G特惠流量包35元10GB档（权益超市版）、5G特惠流量包25元10GB档（权益超市版）、福建高价值保障服务年卡”等5项业务的服务，具体业务<a href=\"https://docs.qq.com/sheet/DVmxOcmdDV1RpeG1X?tab=BB08J2\" target=\"_blank\"><u>点击查看</u></a>。系统将自动为已订购以上5个业务的客户进行退订，退订后不再继续扣除功能费，退订无需您做任何操作。如有不便，敬请谅解，感谢您的理解与支持。</p>\n<p><br>\n</p>\n<p><a href=\"https://www.10086.cn/uploadBaseDir/content/xlsx/20261023/202610231027292922qK.xlsx\" target=\"_blank\" download=\"\"></a></p>\n<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 中国移动通信集团福建有限公司<br>\n&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;2026年10月30日</p>\n<br>",
+   "attachments": [
+    {
+     "name": "202610231027292922qK.xlsx",
+     "url": "https://www.10086.cn/uploadBaseDir/content/xlsx/20261023/202610231027292922qK.xlsx"
+    }
+   ]
+  },
   {
    "id": "53548",
    "title": "福建移动停售资费营销案公示",
@@ -489,6 +505,6 @@
  ],
  "section": "fujian",
  "name": "福建",
- "active": 56,
+ "active": 57,
  "removed": 0
 }
