@@ -1,7 +1,27 @@
 {
- "updated": "2026-10-31 00:17",
+ "updated": "2026-10-31 01:09",
  "count": 176,
  "items": [
+  {
+   "id": "56072",
+   "prov": "beijing",
+   "prov_name": "北京",
+   "title": "关于 600 元档悦享大礼包等产品下线的公告",
+   "date": "2026-10-31",
+   "summary": "尊敬的客户： 您好！ 2026 年 11 月 1 日起，所有渠道停售 600 元档悦享大礼包 2025 版（12 个月）、800 元档悦享大礼包 2025 流量",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/bj/index_100_100_detail_56072.html",
+   "status": "on"
+  },
+  {
+   "id": "56071",
+   "prov": "hubei",
+   "prov_name": "湖北",
+   "title": "“移动高清-FITURE健身”产品下线公告",
+   "date": "2026-10-31",
+   "summary": "尊敬的中国移动湖北公司客户： 由于业务调整，《移动高清-FITURE健身》产品将于2026年10月31日24时起停止提供服务，届时产品自动取消，给您带来的不便敬",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hb/index_270_270_detail_56071.html",
+   "status": "on"
+  },
   {
    "id": "56070",
    "prov": "shanxi",
@@ -673,16 +693,6 @@
    "status": "on"
   },
   {
-   "id": "55908",
-   "prov": "hubei",
-   "prov_name": "湖北",
-   "title": "关于继续为湖北客户提供北斗短信应急通信服务的公告",
-   "date": "2026-09-30",
-   "summary": "尊敬的中国移动湖北公司客户： 为持续发挥北斗短信在应急通信保障中的积极作用，中国移动湖北公司继续面向号码归属地为湖北的客户逐步提供北斗短信应急服务。发送北斗卫星",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hb/index_270_270_detail_55908.html",
-   "status": "on"
-  },
-  {
    "id": "55906",
    "prov": "tianjin",
    "prov_name": "天津",
@@ -740,16 +750,6 @@
    "date": "2026-09-23",
    "summary": "尊敬的客户: 为进一步保障您的个人信息安全，依据国家相关法律法规规定，我公司已依法设立个人信息保护负责人，专门负责本公司个人信息保护相关工作的监管与管理。若您对",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/gz/index_851_851_detail_55873.html",
-   "status": "on"
-  },
-  {
-   "id": "55868",
-   "prov": "beijing",
-   "prov_name": "北京",
-   "title": "关于暂停部分设备办理一号双终端的通知",
-   "date": "2026-09-22",
-   "summary": "尊敬的客户： 您好！由于一号双终端业务维护升级，自 2026 年 9 月 24 日起，该业务暂停支持以下 5 款 eSIM 手表办理，恢复办理时间另行通知。 暂",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/bj/index_100_100_detail_55868.html",
    "status": "on"
   },
   {
@@ -1767,10 +1767,10 @@
   {
    "section": "beijing",
    "name": "北京",
-   "count": 1135,
-   "active": 1135,
+   "count": 1136,
+   "active": 1136,
    "removed": 0,
-   "updated": "2026-10-30 15:43"
+   "updated": "2026-10-31 01:09"
   },
   {
    "section": "tianjin",
@@ -1895,10 +1895,10 @@
   {
    "section": "hubei",
    "name": "湖北",
-   "count": 1324,
-   "active": 1324,
+   "count": 1325,
+   "active": 1325,
    "removed": 0,
-   "updated": "2026-10-27 22:09"
+   "updated": "2026-10-31 01:09"
   },
   {
    "section": "hunan",
