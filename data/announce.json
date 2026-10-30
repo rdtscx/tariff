@@ -1,7 +1,17 @@
 {
- "updated": "2026-10-30 13:58",
+ "updated": "2026-10-30 15:43",
  "count": 176,
  "items": [
+  {
+   "id": "56067",
+   "prov": "beijing",
+   "prov_name": "北京",
+   "title": "关于 49 元“动感地带校园专属套餐”流量扩容的通知",
+   "date": "2026-10-28",
+   "summary": "尊敬的客户： 您好！ 为回馈广大客户，带来更好的业务体验，现对 49 元“动感地带校园专属套餐”中的国内通用流量进行免费升级扩容，扩容前套内流量资源：20GB ",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/bj/index_100_100_detail_56067.html",
+   "status": "on"
+  },
   {
    "id": "56065",
    "prov": "jilin",
@@ -710,16 +720,6 @@
    "date": "2026-09-22",
    "summary": "尊敬的客户： 您好！由于一号双终端业务维护升级，自 2026 年 9 月 24 日起，该业务暂停支持以下 5 款 eSIM 手表办理，恢复办理时间另行通知。 暂",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/bj/index_100_100_detail_55868.html",
-   "status": "on"
-  },
-  {
-   "id": "55968",
-   "prov": "beijing",
-   "prov_name": "北京",
-   "title": "关于公开基站电磁辐射环境监测结果的公告",
-   "date": "2026-09-21",
-   "summary": "尊敬的用户： 按照上级部门相关要求，现将我公司已完成的通信基站电磁辐射环境监测结果予以公开，后续将定期滚动更新。相关基站备案登记信息可登陆“北京市人民政府北京市",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/bj/index_100_100_detail_55968.html",
    "status": "on"
   },
   {
@@ -1767,10 +1767,10 @@
   {
    "section": "beijing",
    "name": "北京",
-   "count": 1134,
-   "active": 1134,
+   "count": 1135,
+   "active": 1135,
    "removed": 0,
-   "updated": "2026-10-27 22:09"
+   "updated": "2026-10-30 15:43"
   },
   {
    "section": "tianjin",
