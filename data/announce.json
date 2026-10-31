@@ -1,7 +1,27 @@
 {
- "updated": "2026-10-31 23:47",
+ "updated": "2026-11-01 01:41",
  "count": 176,
  "items": [
+  {
+   "id": "56083",
+   "prov": "shanxi",
+   "prov_name": "山西",
+   "title": "2026年大同分公司委托加盟店合作伙伴评估引入公告",
+   "date": "2026-11-01",
+   "summary": "本项目为中国移动通信集团山西有限公司【大同】分公司（以下简称：【大同】移动）集中评估引入，评估引入主体为中国移动通信集团山西有限公司【大同】分公司。该项目具备引",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/sx/index_351_351_detail_56083.html",
+   "status": "on"
+  },
+  {
+   "id": "56082",
+   "prov": "zhejiang",
+   "prov_name": "浙江",
+   "title": "关于公众WLAN业务下线的公告",
+   "date": "2026-11-01",
+   "summary": "尊敬的用户，您好！ 因业务发展调整，浙江省内中国移动CMCC和CMCC-WEB公众WLAN网络将于2026年12月31日24时正式全面停止服务，届时将无法登录使",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/zj/index_571_571_detail_56082.html",
+   "status": "on"
+  },
   {
    "id": "56078",
    "prov": "heilongjiang",
@@ -1003,16 +1023,6 @@
    "status": "on"
   },
   {
-   "id": "55193",
-   "prov": "shanxi",
-   "prov_name": "山西",
-   "title": "关于山西移动暖心服务十件实事的公告",
-   "date": "2026-06-09",
-   "summary": "实事一 确保资费公示要素齐全 进一步完善电信资费公示，按照用户可单独订购的形态公示销售资费方案，做到内容精简、查阅便捷，未公示不销售。 实事二 优化产品规则 精",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/sx/index_351_351_detail_55193.html",
-   "status": "on"
-  },
-  {
    "id": "55161",
    "prov": "hebei",
    "prov_name": "河北",
@@ -1280,16 +1290,6 @@
    "date": "2025-12-03",
    "summary": "1.您的通信自由和通信秘密不受侵犯，我们对您的资料和通信信息负有保密义务。但根据法律、行政法规规定，司法、监察、行政机关依法要求我们提供协助和配合，我们应给予协",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/xz/index_891_891_detail_54012.html",
-   "status": "on"
-  },
-  {
-   "id": "53889",
-   "prov": "zhejiang",
-   "prov_name": "浙江",
-   "title": "关于《中国移动家庭宽带业务客户入网协议》变更的通知",
-   "date": "2025-11-14",
-   "summary": "尊敬的客户: 应公司业务发展需要，我公司已对《中国移动家庭宽带业务客户入网协议》进行变更，新协议已通过 “浙江省合同格式条款备案与公示系统”（http://ww",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/zj/index_571_571_detail_53889.html",
    "status": "on"
   },
   {
@@ -1791,10 +1791,10 @@
   {
    "section": "shanxi",
    "name": "山西",
-   "count": 40,
-   "active": 40,
+   "count": 41,
+   "active": 41,
    "removed": 0,
-   "updated": "2026-10-31 00:17"
+   "updated": "2026-11-01 01:41"
   },
   {
    "section": "neimenggu",
@@ -1847,10 +1847,10 @@
   {
    "section": "zhejiang",
    "name": "浙江",
-   "count": 79,
-   "active": 79,
+   "count": 80,
+   "active": 80,
    "removed": 0,
-   "updated": "2026-10-27 22:09"
+   "updated": "2026-11-01 01:41"
   },
   {
    "section": "anhui",

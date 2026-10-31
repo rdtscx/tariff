@@ -1,7 +1,18 @@
 {
- "updated": "2026-10-27 22:09",
- "count": 79,
+ "updated": "2026-11-01 01:41",
+ "count": 80,
  "items": [
+  {
+   "id": "56082",
+   "title": "关于公众WLAN业务下线的公告",
+   "date": "2026-11-01",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/zj/index_571_571_detail_56082.html",
+   "status": "on",
+   "first_seen": "2026-11-01 01:41",
+   "summary": "尊敬的用户，您好！ 因业务发展调整，浙江省内中国移动CMCC和CMCC-WEB公众WLAN网络将于2026年12月31日24时正式全面停止服务，届时将无法登录使用CMCC及CMCC-WEB热点。已订购相关业务的用户将不再产生订购关系，不再产",
+   "content": "<p><br>\n\n</p>\n<p>尊敬的用户，您好！<br>\n\n<br>\n\n       因业务发展调整，浙江省内中国移动CMCC和CMCC-WEB公众WLAN网络将于2026年12月31日24时正式全面停止服务，届时将无法登录使用CMCC及CMCC-WEB热点。已订购相关业务的用户将不再产生订购关系，不再产生相关费用。为保障您的上网需求，您可以登录中国移动APP充流量专区选购流量产品，使用蜂窝移动网络满足上网需求。感谢您对中国移动的支持！详情请咨询10086。</p>\n<p><br>\n</p>\n<br>\n<p><br>\n</p>\n<p><br>\n</p>\n<div style=\"text-align:right\">中国移动通信集团浙江有限公司</div>\n<div style=\"text-align:right\">2026年11月1日</div><p><br>\n</p>\n<p><br>\n</p>",
+   "attachments": []
+  },
   {
    "id": "56022",
    "title": "关于部分腾讯会员权益调整的通告",
@@ -654,6 +665,6 @@
  ],
  "section": "zhejiang",
  "name": "浙江",
- "active": 79,
+ "active": 80,
  "removed": 0
 }
