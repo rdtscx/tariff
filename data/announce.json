@@ -1,7 +1,17 @@
 {
- "updated": "2026-10-31 11:50",
+ "updated": "2026-10-31 13:21",
  "count": 176,
  "items": [
+  {
+   "id": "56078",
+   "prov": "heilongjiang",
+   "prov_name": "黑龙江",
+   "title": "关于算力豆产品下线的公告",
+   "date": "2026-10-31",
+   "summary": "尊敬的客户： 您好！ 为了给您提供更优质的Token服务，算力豆产品将逐步向MobileAI产品迁移。算力豆产品将于2026年11月30日24:00正式下线，下",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hl/index_451_451_detail_56078.html",
+   "status": "on"
+  },
   {
    "id": "56074",
    "prov": "tianjin",
@@ -43,6 +53,26 @@
    "status": "on"
   },
   {
+   "id": "56081",
+   "prov": "heilongjiang",
+   "prov_name": "黑龙江",
+   "title": "关于黑龙江移动系统升级优化的公告（2026-10）",
+   "date": "2026-10-30",
+   "summary": "尊敬的客户： 您好！为了向您提供更为优质的服务，我公司将于2026年11月4日23:00至2026年11月5日07:00期间进行系统升级，期间将暂停（影响或部分",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hl/index_451_451_detail_56081.html",
+   "status": "on"
+  },
+  {
+   "id": "56079",
+   "prov": "heilongjiang",
+   "prov_name": "黑龙江",
+   "title": "关于黑龙江移动系统升级优化的公告（2026-10）",
+   "date": "2026-10-30",
+   "summary": "尊敬的客户： 您好！为了向您提供更为优质的服务，我公司将于2026年11月4日、2026年11月6日、2026年11月20日、2026年11月25日、2026年",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hl/index_451_451_detail_56079.html",
+   "status": "on"
+  },
+  {
    "id": "56068",
    "prov": "fujian",
    "prov_name": "福建",
@@ -50,6 +80,16 @@
    "date": "2026-10-30",
    "summary": "尊敬的客户您好: 因业务调整，我公司将于2026年12月1日0时起停止“5G特惠流量包35元10GB档（权益超市版）、5G特惠流量包25元10GB档（权益超市版",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/fj/index_591_591_detail_56068.html",
+   "status": "on"
+  },
+  {
+   "id": "56080",
+   "prov": "heilongjiang",
+   "prov_name": "黑龙江",
+   "title": "关于对今元保话费支付连续包月版等42款资费停止服务的公告",
+   "date": "2026-10-29",
+   "summary": "为进一步优化业务服务，我公司将对部分业务进行整合调整，相关资费产品将于2026年11月30日24时起停止提供服务。现将有关事项公告如下： 一、涉及业务 本次调整",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hl/index_451_451_detail_56080.html",
    "status": "on"
   },
   {
@@ -100,16 +140,6 @@
    "date": "2026-10-27",
    "summary": "尊敬的客户： 您好！为了向您提供更为优质的服务，我公司将于2026年11月3日、4日、5日、6日、9日、20日、25日、27日，每日0点至5点进行设备升级，期间",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/hl/index_451_451_detail_56076.html",
-   "status": "on"
-  },
-  {
-   "id": "56075",
-   "prov": "heilongjiang",
-   "prov_name": "黑龙江",
-   "title": "敏感个人信息及未满十四周岁未成年人个人信息处理规则",
-   "date": "2026-10-27",
-   "summary": "我们依据《个人信息保护法》《未成年人保护法》《儿童个人信息网络保护规定》《未成年人网络保护条例》等法律法规，特向您清晰、透明地说明我们如何处理敏感个人信息以及未",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hl/index_451_451_detail_56075.html",
    "status": "on"
   },
   {
@@ -263,16 +293,6 @@
    "status": "on"
   },
   {
-   "id": "56046",
-   "prov": "heilongjiang",
-   "prov_name": "黑龙江",
-   "title": "关于黑龙江移动系统升级优化的公告（2026-10）",
-   "date": "2026-10-22",
-   "summary": "尊敬的客户： 您好！为了向您提供更为优质的服务，我公司将在2026年10月21日、23日、27日、29日 00:00-05:00 对集中化彩铃进行系统升级优化操",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hl/index_451_451_detail_56046.html",
-   "status": "on"
-  },
-  {
    "id": "56045",
    "prov": "shanghai",
    "prov_name": "上海",
@@ -280,26 +300,6 @@
    "date": "2026-10-22",
    "summary": "中国移动通信集团上海有限公司松江区公司以公开方式寻源租赁营业厅用房的需求。现结合2026年7月-12月份松江区公司营业厅租约到期情况、房东情况及拟新建营业厅区域",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/sh/index_210_210_detail_56045.html",
-   "status": "on"
-  },
-  {
-   "id": "55144",
-   "prov": "heilongjiang",
-   "prov_name": "黑龙江",
-   "title": "下线可选资费公示",
-   "date": "2026-10-22",
-   "summary": "",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hl/index_451_451_detail_55144.html",
-   "status": "on"
-  },
-  {
-   "id": "55142",
-   "prov": "heilongjiang",
-   "prov_name": "黑龙江",
-   "title": "下线活动公示",
-   "date": "2026-10-22",
-   "summary": "",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hl/index_451_451_detail_55142.html",
    "status": "on"
   },
   {
@@ -1823,10 +1823,10 @@
   {
    "section": "heilongjiang",
    "name": "黑龙江",
-   "count": 90,
-   "active": 90,
+   "count": 94,
+   "active": 94,
    "removed": 0,
-   "updated": "2026-10-31 11:50"
+   "updated": "2026-10-31 13:21"
   },
   {
    "section": "shanghai",
