@@ -1,7 +1,17 @@
 {
- "updated": "2026-10-31 10:29",
+ "updated": "2026-10-31 11:50",
  "count": 176,
  "items": [
+  {
+   "id": "56074",
+   "prov": "tianjin",
+   "prov_name": "天津",
+   "title": "关于美好之家融合套餐2021版198元档套餐套内增加算力包月产品的公告",
+   "date": "2026-10-31",
+   "summary": "尊敬的客户： 您好！为提升用户算力体验，自2026年11月1日起，针对美好之家融合套餐2021版198元档套餐用户，套内免费赠送算力包月产品（享有免费办理资格，",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/tj/index_220_220_detail_56074.html",
+   "status": "on"
+  },
   {
    "id": "56072",
    "prov": "beijing",
@@ -63,6 +73,16 @@
    "status": "on"
   },
   {
+   "id": "56077",
+   "prov": "heilongjiang",
+   "prov_name": "黑龙江",
+   "title": "关于黑龙江移动系统升级优化的公告（2026-10）",
+   "date": "2026-10-28",
+   "summary": "尊敬的客户： 您好！为了向您提供更为优质的服务，我公司将于11月6日0:00至5:00进行设备例行检测，期间将影响哈尔滨、齐齐哈尔、牡丹江、大庆、鸡西、绥化用户",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hl/index_451_451_detail_56077.html",
+   "status": "on"
+  },
+  {
    "id": "56067",
    "prov": "beijing",
    "prov_name": "北京",
@@ -70,6 +90,26 @@
    "date": "2026-10-28",
    "summary": "尊敬的客户： 您好！ 为回馈广大客户，带来更好的业务体验，现对 49 元“动感地带校园专属套餐”中的国内通用流量进行免费升级扩容，扩容前套内流量资源：20GB ",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/bj/index_100_100_detail_56067.html",
+   "status": "on"
+  },
+  {
+   "id": "56076",
+   "prov": "heilongjiang",
+   "prov_name": "黑龙江",
+   "title": "关于黑龙江移动系统升级优化的公告（2026-10）",
+   "date": "2026-10-27",
+   "summary": "尊敬的客户： 您好！为了向您提供更为优质的服务，我公司将于2026年11月3日、4日、5日、6日、9日、20日、25日、27日，每日0点至5点进行设备升级，期间",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hl/index_451_451_detail_56076.html",
+   "status": "on"
+  },
+  {
+   "id": "56075",
+   "prov": "heilongjiang",
+   "prov_name": "黑龙江",
+   "title": "敏感个人信息及未满十四周岁未成年人个人信息处理规则",
+   "date": "2026-10-27",
+   "summary": "我们依据《个人信息保护法》《未成年人保护法》《儿童个人信息网络保护规定》《未成年人网络保护条例》等法律法规，特向您清晰、透明地说明我们如何处理敏感个人信息以及未",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hl/index_451_451_detail_56075.html",
    "status": "on"
   },
   {
@@ -323,16 +363,6 @@
    "status": "on"
   },
   {
-   "id": "56035",
-   "prov": "heilongjiang",
-   "prov_name": "黑龙江",
-   "title": "关于黑龙江移动系统升级优化的公告（2026-10）",
-   "date": "2026-10-21",
-   "summary": "尊敬的客户： 您好！为了向您提供更为优质的服务，我公司将于2026年10月22日-31日，每日00:00至5:00进行设备升级，期间将影响或部分影响省内智能网业",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hl/index_451_451_detail_56035.html",
-   "status": "on"
-  },
-  {
    "id": "56034",
    "prov": "shanghai",
    "prov_name": "上海",
@@ -340,16 +370,6 @@
    "date": "2026-10-21",
    "summary": "尊敬的用户： 根据我司业务升级安排，算力豆套餐于2026年10月23日起停止新增办理，将同步对2026年动感地带芒果卡（校园版）专属活动以及新版2025年动感地",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/sh/index_210_210_detail_56034.html",
-   "status": "on"
-  },
-  {
-   "id": "56032",
-   "prov": "heilongjiang",
-   "prov_name": "黑龙江",
-   "title": "关于黑龙江移动系统升级优化的公告（2026-10）",
-   "date": "2026-10-21",
-   "summary": "尊敬的客户： 您好！为了向您提供更为优质的服务，我公司将于10月23日、11月04日、11月06日、11月20日、11月25日、11月27日，每日0:00-5:",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hl/index_451_451_detail_56032.html",
    "status": "on"
   },
   {
@@ -380,16 +400,6 @@
    "date": "2026-10-20",
    "summary": "尊敬的客户： 您好！为给客户提供更优质的服务，我公司将于2026年10月22日00：00-07：00进行系统升级，升级期间，全省营业系统、10086系统业务办理",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/hi/index_898_898_detail_56027.html",
-   "status": "on"
-  },
-  {
-   "id": "56025",
-   "prov": "heilongjiang",
-   "prov_name": "黑龙江",
-   "title": "关于黑龙江移动系统升级优化的公告（2026-10）",
-   "date": "2026-10-20",
-   "summary": "尊敬的客户： 您好！为了向您提供更为优质的服务，我公司将于2026年10月21日0:00至6:00、2026年10月23日0:00至6:00、2026年10月2",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hl/index_451_451_detail_56025.html",
    "status": "on"
   },
   {
@@ -1000,16 +1010,6 @@
    "date": "2026-06-09",
    "summary": "实事一 确保资费公示要素齐全 进一步完善电信资费公示，按照用户可单独订购的形态公示销售资费方案，做到内容精简、查阅便捷，未公示不销售。 实事二 优化产品规则 精",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/sx/index_351_351_detail_55193.html",
-   "status": "on"
-  },
-  {
-   "id": "55182",
-   "prov": "tianjin",
-   "prov_name": "天津",
-   "title": "关于指定套餐产品扩容升级的公告",
-   "date": "2026-06-05",
-   "summary": "尊敬的客户: 为了感谢您的长期支持，6月将分批对部分套餐优惠升级，每日增加1GB夜间使用流量，该流量每天晚19点生效，流量使用完毕或者到当晚24点自动失效并清零",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/tj/index_220_220_detail_55182.html",
    "status": "on"
   },
   {
@@ -1775,10 +1775,10 @@
   {
    "section": "tianjin",
    "name": "天津",
-   "count": 41,
-   "active": 41,
+   "count": 42,
+   "active": 42,
    "removed": 0,
-   "updated": "2026-10-27 22:09"
+   "updated": "2026-10-31 11:50"
   },
   {
    "section": "hebei",
@@ -1823,10 +1823,10 @@
   {
    "section": "heilongjiang",
    "name": "黑龙江",
-   "count": 87,
-   "active": 87,
+   "count": 90,
+   "active": 90,
    "removed": 0,
-   "updated": "2026-10-27 22:09"
+   "updated": "2026-10-31 11:50"
   },
   {
    "section": "shanghai",
