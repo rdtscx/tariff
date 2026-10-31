@@ -1,7 +1,18 @@
 {
- "updated": "2026-10-27 22:09",
- "count": 20,
+ "updated": "2026-10-31 09:52",
+ "count": 21,
  "items": [
+  {
+   "id": "56073",
+   "title": "关于山东移动10月30日晚系统维护公告",
+   "date": "2026-10-29",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/sd/index_531_531_detail_56073.html",
+   "status": "on",
+   "first_seen": "2026-10-31 09:52",
+   "summary": "尊敬的移动用户： 您好！ 为提升系统性能给客户提供更好的服务，2026年10月30日晚24:00点至31日早上7:00点我公司将进行系统紧急维护升级，升级期间会停止营业厅、客服、短信营业厅、中国移动APP、微信营业厅、空中充值、移动商城等所",
+   "content": "尊敬的移动用户：<br>\n&nbsp; &nbsp; &nbsp; &nbsp;您好！<br>\n&nbsp; &nbsp; &nbsp; &nbsp;为提升系统性能给客户提供更好的服务，2026年10月30日晚24:00点至31日早上7:00点我公司将进行系统紧急维护升级，升级期间会停止营业厅、客服、短信营业厅、中国移动APP、微信营业厅、空中充值、移动商城等所有自助业务。<br>\n&nbsp; &nbsp; &nbsp; &nbsp;感谢您一直以来对我们的支持，如给您带来不便，敬请谅解！<br>\n&nbsp; &nbsp; &nbsp;<br>\n<div style=\"text-align:right\">中国移动通信集团山东有限公司</div><div style=\"text-align:right\">2026年10月29日</div><br>",
+   "attachments": []
+  },
   {
    "id": "56013",
    "title": "关于山东移动10月22日晚系统维护公告",
@@ -177,6 +188,6 @@
  ],
  "section": "shandong",
  "name": "山东",
- "active": 20,
+ "active": 21,
  "removed": 0
 }

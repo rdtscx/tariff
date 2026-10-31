@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-31 09:05",
+ "updated": "2026-10-31 09:52",
  "count": 176,
  "items": [
   {
@@ -40,6 +40,16 @@
    "date": "2026-10-30",
    "summary": "尊敬的客户您好: 因业务调整，我公司将于2026年12月1日0时起停止“5G特惠流量包35元10GB档（权益超市版）、5G特惠流量包25元10GB档（权益超市版",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/fj/index_591_591_detail_56068.html",
+   "status": "on"
+  },
+  {
+   "id": "56073",
+   "prov": "shandong",
+   "prov_name": "山东",
+   "title": "关于山东移动10月30日晚系统维护公告",
+   "date": "2026-10-29",
+   "summary": "尊敬的移动用户： 您好！ 为提升系统性能给客户提供更好的服务，2026年10月30日晚24:00点至31日早上7:00点我公司将进行系统紧急维护升级，升级期间会",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/sd/index_531_531_detail_56073.html",
    "status": "on"
   },
   {
@@ -1473,16 +1483,6 @@
    "status": "on"
   },
   {
-   "id": "50173",
-   "prov": "shandong",
-   "prov_name": "山东",
-   "title": "对外签订合同权限告知书",
-   "date": "2024-06-27",
-   "summary": "为预防和减少合同风险，维护我公司及各位合作伙伴的合法权益，现将我公司及下属分公司对外签订合同权限公告如下： 一、我公司及各市分公司是对外签署合同的主体，各区县分",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/sd/index_531_531_detail_50173.html",
-   "status": "on"
-  },
-  {
    "id": "50021",
    "prov": "gansu",
    "prov_name": "甘肃",
@@ -1879,10 +1879,10 @@
   {
    "section": "shandong",
    "name": "山东",
-   "count": 20,
-   "active": 20,
+   "count": 21,
+   "active": 21,
    "removed": 0,
-   "updated": "2026-10-27 22:09"
+   "updated": "2026-10-31 09:52"
   },
   {
    "section": "henan",
