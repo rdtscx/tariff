@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-01 09:14",
+ "updated": "2026-11-01 10:39",
  "count": 176,
  "items": [
   {
@@ -150,6 +150,16 @@
    "date": "2026-10-28",
    "summary": "尊敬的客户： 您好！ 为回馈广大客户，带来更好的业务体验，现对 49 元“动感地带校园专属套餐”中的国内通用流量进行免费升级扩容，扩容前套内流量资源：20GB ",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/bj/index_100_100_detail_56067.html",
+   "status": "on"
+  },
+  {
+   "id": "56084",
+   "prov": "hainan",
+   "prov_name": "海南",
+   "title": "椰岛任我用联合会员（10元/20元档）、椰岛麦当劳畅享包权益产品、椰岛支付宝联合会员以及椰岛支付宝PLUS会员权益产品变更公告",
+   "date": "2026-10-27",
+   "summary": "尊敬的海南移动客户： 您好！感谢您一直以来对“椰岛任我用联合会员（10元档/20元档）”、“椰岛麦当劳畅享包”、“椰岛支付宝联合会员”、“椰岛支付宝PLUS会员",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hi/index_898_898_detail_56084.html",
    "status": "on"
   },
   {
@@ -720,16 +730,6 @@
    "date": "2026-10-09",
    "summary": "尊敬的中国移动湖北公司客户： 为向客户提供更优质的服务，湖北移动将于2026年10月9日22：30至10月10日07：30进行网络系统升级工作。在此期间，将影响",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/hb/index_270_270_detail_55924.html",
-   "status": "on"
-  },
-  {
-   "id": "55910",
-   "prov": "hainan",
-   "prov_name": "海南",
-   "title": "关于全球通免停机服务结束通知的公告",
-   "date": "2026-10-07",
-   "summary": "尊敬的全球通客户： 您好！全球通钻石卡、白金卡客户国庆免停机服务将于2026年10月7日结束。为避免话费余额不足影响通信，请您及时预存话费。您可通过中国移动AP",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hi/index_898_898_detail_55910.html",
    "status": "on"
   },
   {
@@ -1927,10 +1927,10 @@
   {
    "section": "hainan",
    "name": "海南",
-   "count": 629,
-   "active": 629,
+   "count": 631,
+   "active": 631,
    "removed": 0,
-   "updated": "2026-10-27 22:09"
+   "updated": "2026-11-01 10:39"
   },
   {
    "section": "chongqing",
