@@ -1,7 +1,18 @@
 {
- "updated": "2026-10-31 11:50",
- "count": 42,
+ "updated": "2026-11-02 15:47",
+ "count": 43,
  "items": [
+  {
+   "id": "56110",
+   "title": "关于公众WLAN业务下线的公告",
+   "date": "2026-11-02",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/tj/index_220_220_detail_56110.html",
+   "status": "on",
+   "first_seen": "2026-11-02 15:47",
+   "summary": "尊敬的客户： 您好！感谢您对公众WLAN业务的支持与使用。因业务发展调整，自2026年11月30日24时起天津市域中国移动CMCC和CMCC-WEB网络将停止服务，已订购的相关业务将统一终止并自动失效，不再产生费用。为保障您的上网需求，您可",
+   "content": "<p>尊敬的客户： </p>\n<p>您好！感谢您对公众WLAN业务的支持与使用。因业务发展调整，自2026年11月30日24时起天津市域中国移动CMCC和CMCC-WEB网络将停止服务，已订购的相关业务将统一终止并自动失效，不再产生费用。为保障您的上网需求，您可以登录中国移动APP选购流量产品，详情可咨询10086。由此给您带来不便，敬请谅解。 </p>\n<p>特此公告。</p>\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>\n<p style=\"text-align:right\">中国移动通信集团天津有限公司</p>\n<p style=\"text-align:right\">2026年11月2日</p>",
+   "attachments": []
+  },
   {
    "id": "56074",
    "title": "关于美好之家融合套餐2021版198元档套餐套内增加算力包月产品的公告",
@@ -356,6 +367,6 @@
  ],
  "section": "tianjin",
  "name": "天津",
- "active": 42,
+ "active": 43,
  "removed": 0
 }

@@ -1,7 +1,17 @@
 {
- "updated": "2026-11-02 14:22",
+ "updated": "2026-11-02 15:47",
  "count": 176,
  "items": [
+  {
+   "id": "56110",
+   "prov": "tianjin",
+   "prov_name": "天津",
+   "title": "关于公众WLAN业务下线的公告",
+   "date": "2026-11-02",
+   "summary": "尊敬的客户： 您好！感谢您对公众WLAN业务的支持与使用。因业务发展调整，自2026年11月30日24时起天津市域中国移动CMCC和CMCC-WEB网络将停止服",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/tj/index_220_220_detail_56110.html",
+   "status": "on"
+  },
   {
    "id": "56109",
    "prov": "guangxi",
@@ -1013,16 +1023,6 @@
    "status": "on"
   },
   {
-   "id": "55339",
-   "prov": "tianjin",
-   "prov_name": "天津",
-   "title": "关于“和津惠电费超值礼包”产品的下线公告",
-   "date": "2026-06-30",
-   "summary": "尊敬的客户: 感谢您长期以来对我们服务的支持与使用，因产品运营策略调整，和津惠电费超值礼包（18元/月），将于2026年7月31日正式下线。下线后，该产品不再产",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/tj/index_220_220_detail_55339.html",
-   "status": "on"
-  },
-  {
    "id": "55161",
    "prov": "hebei",
    "prov_name": "河北",
@@ -1775,10 +1775,10 @@
   {
    "section": "tianjin",
    "name": "天津",
-   "count": 42,
-   "active": 42,
+   "count": 43,
+   "active": 43,
    "removed": 0,
-   "updated": "2026-10-31 11:50"
+   "updated": "2026-11-02 15:47"
   },
   {
    "section": "hebei",
