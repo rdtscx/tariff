@@ -1,7 +1,23 @@
 {
- "updated": "2026-11-02 11:50",
- "count": 386,
+ "updated": "2026-11-02 17:43",
+ "count": 387,
  "items": [
+  {
+   "id": "56113",
+   "title": "关于更新六安移动VIP售后服务中心的公示",
+   "date": "2026-11-02",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/ah/index_551_551_detail_56113.html",
+   "status": "on",
+   "first_seen": "2026-11-02 17:43",
+   "summary": "尊敬的客户： 为提供更加优质、便捷的服务，六安移动在全市各区县设立VIP售后服务中心，VIP售后服务中心提供开户、销户、业务订购、业务退订、套餐变更、解约等综合业务服务。因部分厅店调整，现对名单进行更新，具体详见附件。VIP售后服务中心的营",
+   "content": "尊敬的客户：<br>\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;为提供更加优质、便捷的服务，六安移动在全市各区县设立VIP售后服务中心，VIP售后服务中心提供开户、销户、业务订购、业务退订、套餐变更、解约等综合业务服务。因部分厅店调整，现对名单进行更新，具体详见附件。VIP售后服务中心的营业情况可能会根据节假日等因素进行调整，具体以实际执行为准。&nbsp;<br>\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;特此公示。<br>\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;附件：<a href=\"https://www.10086.cn/uploadBaseDir/content/xlsx/20261102/20261102161930682OJT.xlsx\" target=\"_blank\" download=\"VIP售后服务中心清单（20261101）-公示版.xlsx\">VIP售后服务中心清单（20261101）-公示版.xlsx</a><br>\n<br>\n<div style=\"text-align:right\">中国移动通信集团安徽有限公司六安分公司</div><div style=\"text-align:right\">2026年11月2日</div><br>",
+   "attachments": [
+    {
+     "name": "VIP售后服务中心清单（20261101）-公示版.xlsx",
+     "url": "https://www.10086.cn/uploadBaseDir/content/xlsx/20261102/20261102161930682OJT.xlsx"
+    }
+   ]
+  },
   {
    "id": "56099",
    "title": "关于腾讯视频权益原子及关联产品调整的公告",
@@ -3127,6 +3143,6 @@
  ],
  "section": "anhui",
  "name": "安徽",
- "active": 386,
+ "active": 387,
  "removed": 0
 }

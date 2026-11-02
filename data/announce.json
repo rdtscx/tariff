@@ -1,7 +1,27 @@
 {
- "updated": "2026-11-02 16:23",
+ "updated": "2026-11-02 17:43",
  "count": 176,
  "items": [
+  {
+   "id": "56114",
+   "prov": "neimenggu",
+   "prov_name": "内蒙古",
+   "title": "中国移动通信集团内蒙古有限通辽分公司2026年自控厅店引入合作伙伴项目公告 （第四期）",
+   "date": "2026-11-02",
+   "summary": "我公司计划对全市3家自控厅店开展引入合作商家工作，具体如下： 一、引入合作厅店范围 通辽科区分公司共3处自控房产引入合作商家，分别为火车站房屋、西拉木伦房屋、万",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/nm/index_471_471_detail_56114.html",
+   "status": "on"
+  },
+  {
+   "id": "56113",
+   "prov": "anhui",
+   "prov_name": "安徽",
+   "title": "关于更新六安移动VIP售后服务中心的公示",
+   "date": "2026-11-02",
+   "summary": "尊敬的客户： 为提供更加优质、便捷的服务，六安移动在全市各区县设立VIP售后服务中心，VIP售后服务中心提供开户、销户、业务订购、业务退订、套餐变更、解约等综合",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/ah/index_551_551_detail_56113.html",
+   "status": "on"
+  },
   {
    "id": "56112",
    "prov": "heilongjiang",
@@ -603,16 +623,6 @@
    "status": "on"
   },
   {
-   "id": "55999",
-   "prov": "neimenggu",
-   "prov_name": "内蒙古",
-   "title": "中国移动内蒙古有限公司巴彦淖尔分公司关于对全市5个自控厅店招商项目-二次招商公告",
-   "date": "2026-10-16",
-   "summary": "中国移动内蒙古有限公司巴彦淖尔分公司关于对全市5个自控厅店招商项目-二次招商公告 中国移动内蒙古有限公司巴彦淖尔分公司关于对全市5个自控厅店招商项目，由于一次招",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/nm/index_471_471_detail_55999.html",
-   "status": "on"
-  },
-  {
    "id": "55987",
    "prov": "zhejiang",
    "prov_name": "浙江",
@@ -830,16 +840,6 @@
    "date": "2026-09-21",
    "summary": "尊敬的移动用户： 为进一步优化产品服务体验、统一业务服务体系，2026年10月22日起，我司将陆续对原“和留言”“音频秘书”“和留言升级版”三项业务整合升级为“",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/xj/index_991_991_detail_55862.html",
-   "status": "on"
-  },
-  {
-   "id": "55844",
-   "prov": "anhui",
-   "prov_name": "安徽",
-   "title": "关于移动丰原联合会员业务下线停服的公告",
-   "date": "2026-09-17",
-   "summary": "尊敬的用户： 您好，因权益资源方合作到期，我公司移动丰原联合会员业务将于2026年10月31日24点正式下线，下线后该业务不再提供相关权益内容服务，2026年1",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/ah/index_551_551_detail_55844.html",
    "status": "on"
   },
   {
@@ -1799,10 +1799,10 @@
   {
    "section": "neimenggu",
    "name": "内蒙古",
-   "count": 70,
-   "active": 70,
+   "count": 71,
+   "active": 71,
    "removed": 0,
-   "updated": "2026-10-27 22:09"
+   "updated": "2026-11-02 17:43"
   },
   {
    "section": "liaoning",
@@ -1855,10 +1855,10 @@
   {
    "section": "anhui",
    "name": "安徽",
-   "count": 386,
-   "active": 386,
+   "count": 387,
+   "active": 387,
    "removed": 0,
-   "updated": "2026-11-02 11:50"
+   "updated": "2026-11-02 17:43"
   },
   {
    "section": "fujian",
