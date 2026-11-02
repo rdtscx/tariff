@@ -1,7 +1,17 @@
 {
- "updated": "2026-11-02 19:43",
+ "updated": "2026-11-02 21:45",
  "count": 176,
  "items": [
+  {
+   "id": "56116",
+   "prov": "hunan",
+   "prov_name": "湖南",
+   "title": "关于部分宽带业务优惠延续的补充说明",
+   "date": "2026-11-02",
+   "summary": "尊敬的用户： 您好！ 2026年8月27日我司发布《关于部分宽带业务优惠延续的说明》，经核查发现存在异常，针对前期已到期需按标准资费收取费用的客户添加的优惠活动",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hn/index_731_731_detail_56116.html",
+   "status": "on"
+  },
   {
    "id": "56114",
    "prov": "neimenggu",
@@ -870,16 +880,6 @@
    "date": "2026-09-11",
    "summary": "尊敬的客户您好： 因业务调整，我司将于2026年10月1日0时起停止以下5个产品包的服务（详见下表），系统将自动为已订购相关产品包的客户进行退订，退订后不再继续",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/fj/index_591_591_detail_55797.html",
-   "status": "on"
-  },
-  {
-   "id": "55795",
-   "prov": "hunan",
-   "prov_name": "湖南",
-   "title": "业务调整公告",
-   "date": "2026-09-11",
-   "summary": "尊敬的湖南移动用户: “新家庭网2019版”业务已于2021年1月12日下线，该业务下线后，系统仍可为已办理客户保留删除家庭网成员、删除现有成员间流量共享和合并",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hn/index_731_731_detail_55795.html",
    "status": "on"
   },
   {
@@ -1903,10 +1903,10 @@
   {
    "section": "hunan",
    "name": "湖南",
-   "count": 57,
-   "active": 57,
+   "count": 58,
+   "active": 58,
    "removed": 0,
-   "updated": "2026-11-02 09:07"
+   "updated": "2026-11-02 21:45"
   },
   {
    "section": "guangdong",
