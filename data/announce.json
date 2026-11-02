@@ -1,7 +1,17 @@
 {
- "updated": "2026-11-02 08:12",
+ "updated": "2026-11-02 09:07",
  "count": 176,
  "items": [
+  {
+   "id": "56086",
+   "prov": "hunan",
+   "prov_name": "湖南",
+   "title": "关于部分校园产品暂停销售的说明",
+   "date": "2026-11-02",
+   "summary": "尊敬的湖南移动用户: 感谢您长期以来对我司业务的支持和信任。因校园市场产品升级及权益优化调整。湖南移动将于2026年11月10日0点开始对部分历史不适用产品暂停",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hn/index_731_731_detail_56086.html",
+   "status": "on"
+  },
   {
    "id": "56083",
    "prov": "shanxi",
@@ -880,16 +890,6 @@
    "date": "2026-09-10",
    "summary": "我们依据《个人信息保护法》《未成年人保护法》《儿童个人信息网络保护规定》《未成年人网络保护条例》等法律法规，特向您清晰、透明地说明我们如何处理敏感个人信息以及未",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/jx/index_791_791_detail_55790.html",
-   "status": "on"
-  },
-  {
-   "id": "55759",
-   "prov": "hunan",
-   "prov_name": "湖南",
-   "title": "关于电视业务减免优惠说明的公告",
-   "date": "2026-09-02",
-   "summary": "尊敬的用户： “每月减免20元互联网电视费”为IPTV基础业务（即互联网电视基础业务）的配套减免优惠，部分套餐或组合包中会包含IPTV基础业务权益，在办理成功后",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hn/index_731_731_detail_55759.html",
    "status": "on"
   },
   {
@@ -1903,10 +1903,10 @@
   {
    "section": "hunan",
    "name": "湖南",
-   "count": 56,
-   "active": 56,
+   "count": 57,
+   "active": 57,
    "removed": 0,
-   "updated": "2026-10-27 22:09"
+   "updated": "2026-11-02 09:07"
   },
   {
    "section": "guangdong",
