@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-02 09:07",
+ "updated": "2026-11-02 09:47",
  "count": 176,
  "items": [
   {
@@ -83,6 +83,26 @@
    "status": "on"
   },
   {
+   "id": "56098",
+   "prov": "jiangsu",
+   "prov_name": "江苏",
+   "title": "关于部分手机报产品下线的公告",
+   "date": "2026-10-30",
+   "summary": "",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/js/index_250_250_detail_56098.html",
+   "status": "on"
+  },
+  {
+   "id": "56097",
+   "prov": "jiangsu",
+   "prov_name": "江苏",
+   "title": "2026年11月6日系统升级公告",
+   "date": "2026-10-30",
+   "summary": "",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/js/index_250_250_detail_56097.html",
+   "status": "on"
+  },
+  {
    "id": "56081",
    "prov": "heilongjiang",
    "prov_name": "黑龙江",
@@ -110,6 +130,36 @@
    "date": "2026-10-30",
    "summary": "尊敬的客户您好: 因业务调整，我公司将于2026年12月1日0时起停止“5G特惠流量包35元10GB档（权益超市版）、5G特惠流量包25元10GB档（权益超市版",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/fj/index_591_591_detail_56068.html",
+   "status": "on"
+  },
+  {
+   "id": "56096",
+   "prov": "jiangsu",
+   "prov_name": "江苏",
+   "title": "互联网电视增值业务“喜马拉雅”下线公告",
+   "date": "2026-10-29",
+   "summary": "",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/js/index_250_250_detail_56096.html",
+   "status": "on"
+  },
+  {
+   "id": "56095",
+   "prov": "jiangsu",
+   "prov_name": "江苏",
+   "title": "互联网电视增值业务“聚师课堂”下线公告",
+   "date": "2026-10-29",
+   "summary": "尊敬的客户： 由于业务调整，互联网电视“聚师课堂”产品于2026年12月31日24点起停止服务，届时续包月用户订购关系将自动取消，取消后不再收费。季包、半年包、",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/js/index_250_250_detail_56095.html",
+   "status": "on"
+  },
+  {
+   "id": "56094",
+   "prov": "jiangsu",
+   "prov_name": "江苏",
+   "title": "互联网电视增值业务“叮当少儿教育”下线公告",
+   "date": "2026-10-29",
+   "summary": "尊敬的客户： 由于业务调整，互联网电视“叮当少儿教育”产品于2026年12月31日24点起停止服务，届时续包月用户订购关系将自动取消，取消后不再收费。季包、半年",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/js/index_250_250_detail_56094.html",
    "status": "on"
   },
   {
@@ -190,6 +240,16 @@
    "date": "2026-10-26",
    "summary": "尊敬的客户，您好！ 1.您的通信自由和通信秘密不受侵犯，我们对您的客户资料和通信信息负有保密义务。但根据法律、行政法规规定，司法、行政机关依法要求我们提供协助和",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/jl/index_431_431_detail_56065.html",
+   "status": "on"
+  },
+  {
+   "id": "56087",
+   "prov": "jiangsu",
+   "prov_name": "江苏",
+   "title": "关于 “定期流量提醒（按周）” 下线的公告",
+   "date": "2026-10-23",
+   "summary": "尊敬的客户： 为持续优化通信服务体验，避免不必要的短信打扰，我公司将于2026 年 11月25日起，逐步下线 “定期流量提醒（按周）”业务，届时将不再向您发送该",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/js/index_250_250_detail_56087.html",
    "status": "on"
   },
   {
@@ -373,16 +433,6 @@
    "status": "on"
   },
   {
-   "id": "56039",
-   "prov": "jiangsu",
-   "prov_name": "江苏",
-   "title": "关于全省四项禁止流量提醒业务停售的公告",
-   "date": "2026-10-21",
-   "summary": "尊敬的客户： 为持续优化通信服务体验，我公司将于2026 年 10月27日起，停售 2200005053（禁止套餐流量阈值提醒）、2200005054（禁止有套",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/js/index_250_250_detail_56039.html",
-   "status": "on"
-  },
-  {
    "id": "56037",
    "prov": "neimenggu",
    "prov_name": "内蒙古",
@@ -513,16 +563,6 @@
    "status": "on"
   },
   {
-   "id": "56001",
-   "prov": "jiangsu",
-   "prov_name": "江苏",
-   "title": "2026年10月23日系统升级公告",
-   "date": "2026-10-16",
-   "summary": "尊敬的客户： 为给客户提供更优质的服务，我公司将于2026年10月23日0:00至6:00进行相关网络调整工作，届时可能会影响全省移动用户的语音、手机上网、互联",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/js/index_250_250_detail_56001.html",
-   "status": "on"
-  },
-  {
    "id": "56000",
    "prov": "neimenggu",
    "prov_name": "内蒙古",
@@ -543,36 +583,6 @@
    "status": "on"
   },
   {
-   "id": "55994",
-   "prov": "jiangsu",
-   "prov_name": "江苏",
-   "title": "2026年10月22日系统升级公告",
-   "date": "2026-10-16",
-   "summary": "尊敬的客户： 为给客户提供更优质的服务，我公司将于2026年10月22日22:00至次日10:00进行业务支撑系统升级，调整期间，全省营业系统、10086系统业",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/js/index_250_250_detail_55994.html",
-   "status": "on"
-  },
-  {
-   "id": "55993",
-   "prov": "jiangsu",
-   "prov_name": "江苏",
-   "title": "2026年10月21日系统升级公告",
-   "date": "2026-10-16",
-   "summary": "尊敬的客户： 为给客户提供更优质的服务，我公司将于2026年10月21日22:00至次日10:00进行业务支撑系统升级，调整期间，全省营业系统、10086系统业",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/js/index_250_250_detail_55993.html",
-   "status": "on"
-  },
-  {
-   "id": "55992",
-   "prov": "jiangsu",
-   "prov_name": "江苏",
-   "title": "2026年10月19日系统升级公告",
-   "date": "2026-10-15",
-   "summary": "尊敬的客户： 为给客户提供更优质的服务，我公司将于2026年10月19日22:00至次日10:00进行业务支撑系统升级，调整期间，全省营业系统、10086系统业",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/js/index_250_250_detail_55992.html",
-   "status": "on"
-  },
-  {
    "id": "55987",
    "prov": "zhejiang",
    "prov_name": "浙江",
@@ -580,16 +590,6 @@
    "date": "2026-10-15",
    "summary": "尊敬的用户： 您好！ 绍兴手机报等6份手机报产品拟于2026年11月15日正式停止服务并下线，届时将不再提供内容更新与服务。如时间变动将再次告知。 特此公告！ ",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/zj/index_571_571_detail_55987.html",
-   "status": "on"
-  },
-  {
-   "id": "55986",
-   "prov": "jiangsu",
-   "prov_name": "江苏",
-   "title": "关于移动全家享套餐（宽带升级版）和自选套餐流量包（2022版和畅享版）停售的公告",
-   "date": "2026-10-15",
-   "summary": "尊敬的客户： 因新的资费已上线销售，自2026年10月20日起移动全家享套餐（宽带升级版）和自选套餐流量包（2022版和畅享版）停售，特此公告。套餐目录如下，详",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/js/index_250_250_detail_55986.html",
    "status": "on"
   },
   {
@@ -1839,10 +1839,10 @@
   {
    "section": "jiangsu",
    "name": "江苏",
-   "count": 4311,
-   "active": 4311,
+   "count": 4318,
+   "active": 4318,
    "removed": 0,
-   "updated": "2026-10-27 22:09"
+   "updated": "2026-11-02 09:47"
   },
   {
    "section": "zhejiang",
