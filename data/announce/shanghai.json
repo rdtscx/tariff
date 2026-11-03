@@ -1,6 +1,6 @@
 {
- "updated": "2026-11-02 11:50",
- "count": 195,
+ "updated": "2026-11-03 13:50",
+ "count": 196,
  "items": [
   {
    "id": "56102",
@@ -159,6 +159,14 @@
    "date": "2026-09-16",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/sh/index_210_210_detail_55837.html",
    "status": "on"
+  },
+  {
+   "id": "56120",
+   "title": "关于开展家庭宽带产品提速的公告",
+   "date": "2026-09-12",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/sh/index_210_210_detail_56120.html",
+   "status": "on",
+   "first_seen": "2026-11-03 13:50"
   },
   {
    "id": "55807",
@@ -1619,6 +1627,6 @@
  ],
  "section": "shanghai",
  "name": "上海",
- "active": 195,
+ "active": 196,
  "removed": 0
 }
