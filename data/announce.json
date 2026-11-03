@@ -1,7 +1,17 @@
 {
- "updated": "2026-11-03 08:46",
+ "updated": "2026-11-03 09:50",
  "count": 176,
  "items": [
+  {
+   "id": "56117",
+   "prov": "neimenggu",
+   "prov_name": "内蒙古",
+   "title": "中国移动内蒙古公司呼和浩特分公司2026年东影路营业厅合作运营项目竞谈引入公告",
+   "date": "2026-11-03",
+   "summary": "根据区公司《关于修订中国移动通信集团内蒙古有限公司营业厅终端特许经营管理办法》（市场（品牌）通〔2026〕48号）相关文件规定，为推进营业厅市场化运营转型，搭建",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/nm/index_471_471_detail_56117.html",
+   "status": "on"
+  },
   {
    "id": "56116",
    "prov": "hunan",
@@ -620,16 +630,6 @@
    "date": "2026-10-18",
    "summary": "尊敬的客户： 为进一步提升我司业务运营、客户服务、市场拓展能力，拟引入优秀营业厅运营支撑合作伙伴，我司现就营业厅运营支撑向社会公开招募合作方，欢迎符合资格条件的",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/hi/index_898_898_detail_56006.html",
-   "status": "on"
-  },
-  {
-   "id": "56000",
-   "prov": "neimenggu",
-   "prov_name": "内蒙古",
-   "title": "科右前旗分公司关于2026年额尔格图委托加盟店引入项目的公告",
-   "date": "2026-10-16",
-   "summary": "一、货物名称、数量及主要技术参数： 加盟店名称 房屋地址 整体面积（平方米） 引入面积 （平方米) 引入数量 （家） 5G终端合约销量下限 （户/年） 子任务量",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/nm/index_471_471_detail_56000.html",
    "status": "on"
   },
   {
@@ -1799,10 +1799,10 @@
   {
    "section": "neimenggu",
    "name": "内蒙古",
-   "count": 71,
-   "active": 71,
+   "count": 72,
+   "active": 72,
    "removed": 0,
-   "updated": "2026-11-02 17:43"
+   "updated": "2026-11-03 09:50"
   },
   {
    "section": "liaoning",
