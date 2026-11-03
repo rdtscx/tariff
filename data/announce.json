@@ -1,7 +1,27 @@
 {
- "updated": "2026-11-03 09:50",
+ "updated": "2026-11-03 10:45",
  "count": 176,
  "items": [
+  {
+   "id": "56119",
+   "prov": "heilongjiang",
+   "prov_name": "黑龙江",
+   "title": "中国移动通信集团黑龙江有限公司个人信息处理规则公示",
+   "date": "2026-11-03",
+   "summary": "一、处理目的 办理入网手续 业务受理、计费及服务提供 优化网络服务质量 客户服务与体验调研 网络安全保障 个性化推荐商品和服务 二、处理方式 通过业务系统登记、",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hl/index_451_451_detail_56119.html",
+   "status": "on"
+  },
+  {
+   "id": "56118",
+   "prov": "heilongjiang",
+   "prov_name": "黑龙江",
+   "title": "中国移动通信集团黑龙江有限公司个人信息处理规则",
+   "date": "2026-11-03",
+   "summary": "1.您的通信自由和通信秘密不受侵犯，我们对您的资料和通信信息负有保密义务。但根据法律、行政法规规定，司法、行政机关依法要求我们提供协助和配合，我们应给予协助和配",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hl/index_451_451_detail_56118.html",
+   "status": "on"
+  },
   {
    "id": "56117",
    "prov": "neimenggu",
@@ -283,16 +303,6 @@
    "status": "on"
   },
   {
-   "id": "56079",
-   "prov": "heilongjiang",
-   "prov_name": "黑龙江",
-   "title": "关于黑龙江移动系统升级优化的公告（2026-10）",
-   "date": "2026-10-30",
-   "summary": "尊敬的客户： 您好！为了向您提供更为优质的服务，我公司将于2026年11月4日、2026年11月6日、2026年11月20日、2026年11月25日、2026年",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hl/index_451_451_detail_56079.html",
-   "status": "on"
-  },
-  {
    "id": "56068",
    "prov": "fujian",
    "prov_name": "福建",
@@ -310,16 +320,6 @@
    "date": "2026-10-29",
    "summary": "尊敬的客户： 由于业务调整，互联网电视“喜马拉雅”产品于2026年12月31日24点起停止服务，届时续包月用户订购关系将自动取消，取消后不再收费。季包、半年包、",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/js/index_250_250_detail_56096.html",
-   "status": "on"
-  },
-  {
-   "id": "56080",
-   "prov": "heilongjiang",
-   "prov_name": "黑龙江",
-   "title": "关于对今元保话费支付连续包月版等42款资费停止服务的公告",
-   "date": "2026-10-29",
-   "summary": "为进一步优化业务服务，我公司将对部分业务进行整合调整，相关资费产品将于2026年11月30日24时起停止提供服务。现将有关事项公告如下： 一、涉及业务 本次调整",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hl/index_451_451_detail_56080.html",
    "status": "on"
   },
   {
@@ -1823,10 +1823,10 @@
   {
    "section": "heilongjiang",
    "name": "黑龙江",
-   "count": 96,
-   "active": 96,
+   "count": 98,
+   "active": 98,
    "removed": 0,
-   "updated": "2026-11-02 16:23"
+   "updated": "2026-11-03 10:45"
   },
   {
    "section": "shanghai",
