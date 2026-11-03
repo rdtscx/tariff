@@ -1,7 +1,27 @@
 {
- "updated": "2026-11-03 18:08",
+ "updated": "2026-11-03 20:23",
  "count": 176,
  "items": [
+  {
+   "id": "56123",
+   "prov": "guangxi",
+   "prov_name": "广西",
+   "title": "关于中国移动广西公司2026年集团类客户DICT联盟合作伙伴 （第十八批）入围结果的公示",
+   "date": "2026-11-03",
+   "summary": "根据2025年12月31日在中国移动官方网站（http://www.10086.cn）发布《中国移动广西公司2026年集团类客户DICT联盟合作伙伴招募邀请函》",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/gx/index_771_771_detail_56123.html",
+   "status": "on"
+  },
+  {
+   "id": "56121",
+   "prov": "guangxi",
+   "prov_name": "广西",
+   "title": "关于广西移动公司移动云盘PDF格式转换权益（单次订购）等6项业务下线的公告",
+   "date": "2026-11-03",
+   "summary": "尊敬的客户: 您好！由于我公司业务调整，“移动云盘PDF格式转换权益（单次订购）、移动云盘爱奇艺黄金联合会员、139邮箱-纯净邮箱服务2元、【139邮箱】自写短",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/gx/index_771_771_detail_56121.html",
+   "status": "on"
+  },
   {
    "id": "56119",
    "prov": "heilongjiang",
@@ -30,6 +50,16 @@
    "date": "2026-11-03",
    "summary": "根据区公司《关于修订中国移动通信集团内蒙古有限公司营业厅终端特许经营管理办法》（市场（品牌）通〔2026〕48号）相关文件规定，为推进营业厅市场化运营转型，搭建",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/nm/index_471_471_detail_56117.html",
+   "status": "on"
+  },
+  {
+   "id": "56122",
+   "prov": "guangxi",
+   "prov_name": "广西",
+   "title": "2026年第45周割接业务公告",
+   "date": "2026-11-02",
+   "summary": "尊敬的客户： 为了给您提供更好的服务，我公司定于以下时间进行系统升级，在此期间业务影响如下。 一、2026年11月3日0:00-5:00，影响全区地市少量区域5",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/gx/index_771_771_detail_56122.html",
    "status": "on"
   },
   {
@@ -380,36 +410,6 @@
    "date": "2026-10-23",
    "summary": "尊敬的湖南移动用户: 感谢您长期以来对我司业务的支持和信任。因校园市场产品升级及权益优化调整。湖南移动将于2026年10月27日0点开始对部分历史不适用产品暂停",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/hn/index_731_731_detail_56064.html",
-   "status": "on"
-  },
-  {
-   "id": "56063",
-   "prov": "guangxi",
-   "prov_name": "广西",
-   "title": "关于中国移动广西公司2026年集团类客户DICT联盟合作伙伴 （第十七批）入围结果的公示",
-   "date": "2026-10-23",
-   "summary": "根据2025年12月31日在中国移动官方网站（http://www.10086.cn）发布《中国移动广西公司2026年集团类客户DICT联盟合作伙伴招募邀请函》",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/gx/index_771_771_detail_56063.html",
-   "status": "on"
-  },
-  {
-   "id": "56062",
-   "prov": "guangxi",
-   "prov_name": "广西",
-   "title": "河池移动第十一期鹏程商户评比结果公告",
-   "date": "2026-10-23",
-   "summary": "河池市公司已于2026年10月19日在10086官网发布《河池移动社会渠道第十一期鹏程商户评比方案公告》，接受异议反馈截止时间为10月22日中午12点。公示期间",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/gx/index_771_771_detail_56062.html",
-   "status": "on"
-  },
-  {
-   "id": "56061",
-   "prov": "guangxi",
-   "prov_name": "广西",
-   "title": "百色移动2026年社会渠道等级评定暨第十一期鹏程商户评比结果公告",
-   "date": "2026-10-23",
-   "summary": "百色移动2026年社会渠道等级评定暨第十一期鹏程商户评比方案公告于2026年10月16日于中国移动官方（www.10086.cn）进行公示，接受反馈意见截止为2",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/gx/index_771_771_detail_56061.html",
    "status": "on"
   },
   {
@@ -1919,10 +1919,10 @@
   {
    "section": "guangxi",
    "name": "广西",
-   "count": 1363,
-   "active": 1363,
+   "count": 1366,
+   "active": 1366,
    "removed": 0,
-   "updated": "2026-11-02 11:50"
+   "updated": "2026-11-03 20:23"
   },
   {
    "section": "hainan",
