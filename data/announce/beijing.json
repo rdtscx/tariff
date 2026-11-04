@@ -1,6 +1,6 @@
 {
- "updated": "2026-10-31 01:09",
- "count": 1136,
+ "updated": "2026-11-04 10:26",
+ "count": 1137,
  "items": [
   {
    "id": "56072",
@@ -88,6 +88,14 @@
     }
    ],
    "status": "on"
+  },
+  {
+   "id": "56125",
+   "title": "关于公开基站电磁辐射环境监测结果的公告",
+   "date": "2026-09-20",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/bj/index_100_100_detail_56125.html",
+   "status": "on",
+   "first_seen": "2026-11-04 10:25"
   },
   {
    "id": "55732",
@@ -9116,6 +9124,6 @@
  ],
  "section": "beijing",
  "name": "北京",
- "active": 1136,
+ "active": 1137,
  "removed": 0
 }
