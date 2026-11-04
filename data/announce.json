@@ -1,7 +1,17 @@
 {
- "updated": "2026-11-04 23:39",
+ "updated": "2026-11-05 01:38",
  "count": 176,
  "items": [
+  {
+   "id": "56135",
+   "prov": "jiangsu",
+   "prov_name": "江苏",
+   "title": "中国移动通信集团江苏有限公司Token生态合作伙伴招募结果公示",
+   "date": "2026-11-05",
+   "summary": "为丰富江苏移动Token产品供给，我公司2026年10月12日发布江苏移动Token生态合作伙伴招募公告。经资格审核、评审等程序，现将拟入选服务商名单予以公示。",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/js/index_250_250_detail_56135.html",
+   "status": "on"
+  },
   {
    "id": "56134",
    "prov": "guangxi",
@@ -410,16 +420,6 @@
    "date": "2026-10-30",
    "summary": "尊敬的客户您好: 因业务调整，我公司将于2026年12月1日0时起停止“5G特惠流量包35元10GB档（权益超市版）、5G特惠流量包25元10GB档（权益超市版",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/fj/index_591_591_detail_56068.html",
-   "status": "on"
-  },
-  {
-   "id": "56096",
-   "prov": "jiangsu",
-   "prov_name": "江苏",
-   "title": "互联网电视增值业务“喜马拉雅”下线公告",
-   "date": "2026-10-29",
-   "summary": "尊敬的客户： 由于业务调整，互联网电视“喜马拉雅”产品于2026年12月31日24点起停止服务，届时续包月用户订购关系将自动取消，取消后不再收费。季包、半年包、",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/js/index_250_250_detail_56096.html",
    "status": "on"
   },
   {
@@ -1839,10 +1839,10 @@
   {
    "section": "jiangsu",
    "name": "江苏",
-   "count": 4321,
-   "active": 4321,
+   "count": 4322,
+   "active": 4322,
    "removed": 0,
-   "updated": "2026-11-02 11:50"
+   "updated": "2026-11-05 01:38"
   },
   {
    "section": "zhejiang",
