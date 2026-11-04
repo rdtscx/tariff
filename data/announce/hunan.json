@@ -1,7 +1,18 @@
 {
- "updated": "2026-11-02 21:45",
- "count": 58,
+ "updated": "2026-11-04 08:57",
+ "count": 59,
  "items": [
+  {
+   "id": "56124",
+   "title": "5G畅玩包权益调整公告",
+   "date": "2026-11-03",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hn/index_731_731_detail_56124.html",
+   "status": "on",
+   "first_seen": "2026-11-04 08:56",
+   "summary": "尊敬的湖南移动客户： 感谢您长期以来对湖南移动的支持！因业务优化调整，原新办理5G畅玩包同步叠加1年中超连续包月会员权益近期将下线。其他未尽事宜，详询客服热线10086。 特此公告。 中国移动通信集团湖南有限公司 2026年11月4日",
+   "content": "<p>尊敬的湖南移动客户：</p>\n<p style=\"text-align:justify\">&nbsp;</p>\n<p style=\"text-align:justify\">感谢您长期以来对湖南移动的支持！因业务优化调整，原新办理5G畅玩包同步叠加1年中超连续包月会员权益近期将下线。其他未尽事宜，详询客服热线10086。</p>\n<p>&nbsp;</p>\n<p>特此公告。</p>\n<p style=\"text-align:right\">中国移动通信集团湖南有限公司</p>\n<p style=\"text-align:right\">2026年11月4日</p>\n<p style=\"text-align:justify\">&nbsp;</p>",
+   "attachments": []
+  },
   {
    "id": "56116",
    "title": "关于部分宽带业务优惠延续的补充说明",
@@ -492,6 +503,6 @@
  ],
  "section": "hunan",
  "name": "湖南",
- "active": 58,
+ "active": 59,
  "removed": 0
 }

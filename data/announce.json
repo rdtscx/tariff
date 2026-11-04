@@ -1,7 +1,17 @@
 {
- "updated": "2026-11-04 08:10",
+ "updated": "2026-11-04 08:57",
  "count": 176,
  "items": [
+  {
+   "id": "56124",
+   "prov": "hunan",
+   "prov_name": "湖南",
+   "title": "5G畅玩包权益调整公告",
+   "date": "2026-11-03",
+   "summary": "尊敬的湖南移动客户： 感谢您长期以来对湖南移动的支持！因业务优化调整，原新办理5G畅玩包同步叠加1年中超连续包月会员权益近期将下线。其他未尽事宜，详询客服热线1",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hn/index_731_731_detail_56124.html",
+   "status": "on"
+  },
   {
    "id": "56123",
    "prov": "guangxi",
@@ -720,16 +730,6 @@
    "date": "2026-10-12",
    "summary": "",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/zj/index_571_571_detail_52044.html",
-   "status": "on"
-  },
-  {
-   "id": "55954",
-   "prov": "hunan",
-   "prov_name": "湖南",
-   "title": "关于下线移动高清电视大屏权益产品的公告",
-   "date": "2026-10-10",
-   "summary": "尊敬的用户： 为进一步优化服务品质，更好保障广大用户的使用感受，配合移动高清业务升级更新，自2026年11月15日0点起，将对“移动高清IPTV基础包10”等1",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hn/index_731_731_detail_55954.html",
    "status": "on"
   },
   {
@@ -1903,10 +1903,10 @@
   {
    "section": "hunan",
    "name": "湖南",
-   "count": 58,
-   "active": 58,
+   "count": 59,
+   "active": 59,
    "removed": 0,
-   "updated": "2026-11-02 21:45"
+   "updated": "2026-11-04 08:57"
   },
   {
    "section": "guangdong",
