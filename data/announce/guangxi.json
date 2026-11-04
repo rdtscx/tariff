@@ -1,7 +1,23 @@
 {
- "updated": "2026-11-03 20:23",
- "count": 1366,
+ "updated": "2026-11-04 19:20",
+ "count": 1367,
  "items": [
+  {
+   "id": "56134",
+   "title": "关于广西移动公司业务下线的公告",
+   "date": "2026-11-04",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/gx/index_771_771_detail_56134.html",
+   "status": "on",
+   "first_seen": "2026-11-04 19:20",
+   "summary": "尊敬的客户: 您好！由于我公司业务调整，需下线游戏、动漫、阅读、手机报等共506项业务（业务清单详见附件），相关业务即将停止提供服务，计划于2026年12月5日进行下线处理，业务下线时已订购对应业务的用户，会自动失效并退订，也不再收取费用。",
+   "content": "尊敬的客户:<br>\n&nbsp; &nbsp; &nbsp; 您好！由于我公司业务调整，需下线游戏、动漫、阅读、手机报等共506项业务（业务清单详见附件），相关业务即将停止提供服务，计划于2026年12月5日进行下线处理，业务下线时已订购对应业务的用户，会自动失效并退订，也不再收取费用。如有任何疑问或需要帮助，详询10086。<br>\n&nbsp; &nbsp; &nbsp; 本次业务调整给您带来的不便，我们深表歉意，敬请予以谅解！感谢您的支持与理解。<br>\n\n&nbsp; &nbsp; &nbsp; &nbsp;<a href=\"https://www.10086.cn/uploadBaseDir/content/xlsx/20261104/20261104104528318d59.xlsx\" target=\"_blank\" download=\"附件：下线业务清单.xlsx\">附件：下线业务清单.xlsx</a><br>\n\n<br>\n<div style=\"text-align:right\">中国移动通信集团广西有限公司</div><div style=\"text-align:right\">2026年11月4日</div>",
+   "attachments": [
+    {
+     "name": "附件：下线业务清单.xlsx",
+     "url": "https://www.10086.cn/uploadBaseDir/content/xlsx/20261104/20261104104528318d59.xlsx"
+    }
+   ]
+  },
   {
    "id": "56123",
    "title": "关于中国移动广西公司2026年集团类客户DICT联盟合作伙伴 （第十八批）入围结果的公示",
@@ -10988,6 +11004,6 @@
  ],
  "section": "guangxi",
  "name": "广西",
- "active": 1366,
+ "active": 1367,
  "removed": 0
 }

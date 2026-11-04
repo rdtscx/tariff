@@ -1,7 +1,17 @@
 {
- "updated": "2026-11-04 17:20",
+ "updated": "2026-11-04 19:20",
  "count": 176,
  "items": [
+  {
+   "id": "56134",
+   "prov": "guangxi",
+   "prov_name": "广西",
+   "title": "关于广西移动公司业务下线的公告",
+   "date": "2026-11-04",
+   "summary": "尊敬的客户: 您好！由于我公司业务调整，需下线游戏、动漫、阅读、手机报等共506项业务（业务清单详见附件），相关业务即将停止提供服务，计划于2026年12月5日",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/gx/index_771_771_detail_56134.html",
+   "status": "on"
+  },
   {
    "id": "56133",
    "prov": "hunan",
@@ -220,16 +230,6 @@
    "date": "2026-11-02",
    "summary": "尊敬的客户: 您好！由于我公司业务调整，“中石化联名融合包（10元/月）”等共116个业务(业务清单详见附件)，即将停止提供服务，计划于2026年11月25日进",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/gx/index_771_771_detail_56108.html",
-   "status": "on"
-  },
-  {
-   "id": "56107",
-   "prov": "guangxi",
-   "prov_name": "广西",
-   "title": "2026-2028年中国移动广西公司崇左分公司营业厅合作招商项目（第二次）结果公告",
-   "date": "2026-11-02",
-   "summary": "2026-2028年中国移动广西公司崇左分公司营业厅合作招商项目（第二次）的招商评审工作，于2026年10月14日在中国移动官方网站（http://www.10",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/gx/index_771_771_detail_56107.html",
    "status": "on"
   },
   {
@@ -1919,10 +1919,10 @@
   {
    "section": "guangxi",
    "name": "广西",
-   "count": 1366,
-   "active": 1366,
+   "count": 1367,
+   "active": 1367,
    "removed": 0,
-   "updated": "2026-11-03 20:23"
+   "updated": "2026-11-04 19:20"
   },
   {
    "section": "hainan",
