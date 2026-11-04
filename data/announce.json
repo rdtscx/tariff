@@ -1,7 +1,27 @@
 {
- "updated": "2026-11-04 13:03",
+ "updated": "2026-11-04 14:59",
  "count": 176,
  "items": [
+  {
+   "id": "56128",
+   "prov": "heilongjiang",
+   "prov_name": "黑龙江",
+   "title": "关于黑龙江移动系统升级优化的公告（2026-11）",
+   "date": "2026-11-04",
+   "summary": "尊敬的客户： 您好！为了向您提供更为优质的服务，我公司将于2026年11月6日、2026年11月20日、2026年11月25日、2026年11月27日0:00至",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hl/index_451_451_detail_56128.html",
+   "status": "on"
+  },
+  {
+   "id": "56127",
+   "prov": "guizhou",
+   "prov_name": "贵州",
+   "title": "中国移动通信集团贵州有限公司 2026年属地权益合作方招募_中选结果公示",
+   "date": "2026-11-04",
+   "summary": "根据贵州移动权益业务发展规划及重点场景营销需求，为构建完善的数智生活消费生态、提升权益商品供给与服务品质，前期面向社会公开招募属地权益合作方，已按询比文件规定的",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/gz/index_851_851_detail_56127.html",
+   "status": "on"
+  },
   {
    "id": "56124",
    "prov": "hunan",
@@ -330,16 +350,6 @@
    "date": "2026-10-30",
    "summary": "尊敬的客户： 为给客户提供更优质的服务，我公司将于2026年11月6日0:00至6:00进行相关网络调整工作，届时可能会影响全省移动用户的语音、手机上网、互联网",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/js/index_250_250_detail_56097.html",
-   "status": "on"
-  },
-  {
-   "id": "56081",
-   "prov": "heilongjiang",
-   "prov_name": "黑龙江",
-   "title": "关于黑龙江移动系统升级优化的公告（2026-10）",
-   "date": "2026-10-30",
-   "summary": "尊敬的客户： 您好！为了向您提供更为优质的服务，我公司将于2026年11月4日23:00至2026年11月5日07:00期间进行系统升级，期间将暂停（影响或部分",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hl/index_451_451_detail_56081.html",
    "status": "on"
   },
   {
@@ -1233,16 +1243,6 @@
    "status": "on"
   },
   {
-   "id": "54837",
-   "prov": "guizhou",
-   "prov_name": "贵州",
-   "title": "关于公布中国移动贵州公司信访工作联系方式的公告",
-   "date": "2026-01-01",
-   "summary": "为进一步贯彻落实《信访工作条例》，畅通信访渠道，有效化解矛盾纠纷，更好服务群众，现将中国移动贵州公司信访工作联系方式公布如下: 信访电话:13908507759",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/gz/index_851_851_detail_54837.html",
-   "status": "on"
-  },
-  {
    "id": "54241",
    "prov": "shaanxi",
    "prov_name": "陕西",
@@ -1823,10 +1823,10 @@
   {
    "section": "heilongjiang",
    "name": "黑龙江",
-   "count": 98,
-   "active": 98,
+   "count": 99,
+   "active": 99,
    "removed": 0,
-   "updated": "2026-11-03 10:45"
+   "updated": "2026-11-04 14:59"
   },
   {
    "section": "shanghai",
@@ -1951,10 +1951,10 @@
   {
    "section": "guizhou",
    "name": "贵州",
-   "count": 110,
-   "active": 110,
+   "count": 111,
+   "active": 111,
    "removed": 0,
-   "updated": "2026-10-27 22:09"
+   "updated": "2026-11-04 14:59"
   },
   {
    "section": "yunnan",
