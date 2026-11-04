@@ -1,7 +1,29 @@
 {
- "updated": "2026-11-01 10:39",
- "count": 631,
+ "updated": "2026-11-04 17:20",
+ "count": 633,
  "items": [
+  {
+   "id": "56132",
+   "title": "我司将于2026年11月6日00:00-05:00进行网络业务系统升级的公告",
+   "date": "2026-11-04",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hi/index_898_898_detail_56132.html",
+   "status": "on",
+   "first_seen": "2026-11-04 17:20",
+   "summary": "尊敬的客户： 您好！为了提供更优质的服务，我公司将于2026年11月6日00:00-05:00进行系统升级，届时全省4/5G部分用户的上网业务将受影响，影响时长约为15分钟，给您带来的不便，敬请谅解。 中国移动通信集团海南有限公司 2026",
+   "content": "<p>尊敬的客户：</p>\n<p>&nbsp; &nbsp; &nbsp; &nbsp;您好！为了提供更优质的服务，我公司将于<a data-cal-date=\"2026-11-06 09:00\" style=\"background-color:rgb(255, 255, 255);color:inherit\">2026年11月6日</a>00:00-05:00进行系统升级，届时全省<a data-cal-date=\"2026-04-05 09:00\" style=\"background-color:rgb(255, 255, 255);color:inherit\">4/5</a>G部分用户的上网业务将受影响，影响时长约为15分钟，给您带来的不便，敬请谅解。</p>\n<p><p style=\"color:rgb(51, 51, 51);text-align:right;background-color:rgb(255, 255, 255)\">中国移动通信集团海南有限公司</p>\n<p style=\"color:rgb(51, 51, 51);text-align:right;background-color:rgb(255, 255, 255)\">2026年11月4日</p>\n<br>\n</p>",
+   "attachments": []
+  },
+  {
+   "id": "56131",
+   "title": "关于我司将于2026年11月6日00：00-07：00进行系统升级的公告",
+   "date": "2026-11-04",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hi/index_898_898_detail_56131.html",
+   "status": "on",
+   "first_seen": "2026-11-04 17:20",
+   "summary": "尊敬的客户： 您好！为给客户提供更优质的服务，我公司将于2026年11月6日00：00-07：00进行系统升级，升级期间，全省营业系统、10086系统业务办理将出现中断情况；网上营业厅、掌上营业厅、短信营业厅、自助终端等所有渠道充值、查询、",
+   "content": "<p>尊敬的客户：&nbsp;</p>\n<p>&nbsp; &nbsp; &nbsp; &nbsp;您好！为给客户提供更优质的服务，我公司将于<a data-cal-date=\"2026-11-06 09:00\" style=\"background-color:rgb(255, 255, 255);color:inherit\">2026年11月6日</a>00：00-07：00进行系统升级，升级期间，全省营业系统、10086系统业务办理将出现中断情况；网上营业厅、掌上营业厅、短信营业厅、自助终端等所有渠道充值、查询、受理业务将出现中断情况。 给您带来不便，敬请谅解。 咨询电话:10086</p>\n<p><p style=\"color:rgb(51, 51, 51);text-align:right;background-color:rgb(255, 255, 255)\">中国移动通信集团海南有限公司</p>\n<p style=\"color:rgb(51, 51, 51);text-align:right;background-color:rgb(255, 255, 255)\">2026年11月4日</p>\n<br>\n</p>",
+   "attachments": []
+  },
   {
    "id": "56084",
    "title": "椰岛任我用联合会员（10元/20元档）、椰岛麦当劳畅享包权益产品、椰岛支付宝联合会员以及椰岛支付宝PLUS会员权益产品变更公告",
@@ -5078,6 +5100,6 @@
  ],
  "section": "hainan",
  "name": "海南",
- "active": 631,
+ "active": 633,
  "removed": 0
 }
