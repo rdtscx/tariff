@@ -1,7 +1,17 @@
 {
- "updated": "2026-11-05 15:57",
+ "updated": "2026-11-05 16:32",
  "count": 176,
  "items": [
+  {
+   "id": "56139",
+   "prov": "heilongjiang",
+   "prov_name": "黑龙江",
+   "title": "关于黑龙江移动系统升级优化的公告（2026-11）",
+   "date": "2026-11-05",
+   "summary": "尊敬的客户： 您好！为了向您提供更为优质的服务，我公司将于2026年11月6日0:00至6:00、2026年11月7日0:00至6:00、2026年11月25日",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hl/index_451_451_detail_56139.html",
+   "status": "on"
+  },
   {
    "id": "56136",
    "prov": "heilongjiang",
@@ -210,16 +220,6 @@
    "date": "2026-11-02",
    "summary": "尊敬的客户： 您好！为了向您提供更为优质的服务，我公司将于2026年11月2日0:00至6:00、2026年11月4日0:00至6:00、2026年11月5日0",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/hl/index_451_451_detail_56112.html",
-   "status": "on"
-  },
-  {
-   "id": "56111",
-   "prov": "heilongjiang",
-   "prov_name": "黑龙江",
-   "title": "关于黑龙江移动系统升级优化的公告（2026-11）",
-   "date": "2026-11-02",
-   "summary": "尊敬的客户： 您好！为了向您提供更为优质的服务，我公司将于2026年11月3日、2026年11月5日、2026年11月25日、2026年11月27日每日凌晨0:",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hl/index_451_451_detail_56111.html",
    "status": "on"
   },
   {
@@ -1823,10 +1823,10 @@
   {
    "section": "heilongjiang",
    "name": "黑龙江",
-   "count": 100,
-   "active": 100,
+   "count": 101,
+   "active": 101,
    "removed": 0,
-   "updated": "2026-11-05 10:28"
+   "updated": "2026-11-05 16:32"
   },
   {
    "section": "shanghai",
