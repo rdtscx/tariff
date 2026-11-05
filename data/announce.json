@@ -1,7 +1,17 @@
 {
- "updated": "2026-11-05 23:50",
+ "updated": "2026-11-06 00:33",
  "count": 176,
  "items": [
+  {
+   "id": "56142",
+   "prov": "shanxi",
+   "prov_name": "山西",
+   "title": "2026年大同分公司委托加盟店合作伙伴评估引入公告",
+   "date": "2026-11-06",
+   "summary": "本项目为中国移动通信集团山西有限公司【大同】分公司（以下简称：【大同】移动）集中评估引入，评估引入主体为中国移动通信集团山西有限公司【大同】分公司。该项目具备引",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/sx/index_351_351_detail_56142.html",
+   "status": "on"
+  },
   {
    "id": "56141",
    "prov": "hunan",
@@ -1003,16 +1013,6 @@
    "status": "on"
   },
   {
-   "id": "55609",
-   "prov": "shanxi",
-   "prov_name": "山西",
-   "title": "关于补（换）卡业务资费的公示",
-   "date": "2026-08-07",
-   "summary": "尊敬的客户： 感谢您长期以来的支持与信赖，为给您提供更优质的服务，自本公示公布之日起1个月后，在山西移动营业网点、电子渠道办理补（换）卡业务，及外省客户在我省办",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/sx/index_351_351_detail_55609.html",
-   "status": "on"
-  },
-  {
    "id": "55464",
    "prov": "henan",
    "prov_name": "河南",
@@ -1791,10 +1791,10 @@
   {
    "section": "shanxi",
    "name": "山西",
-   "count": 41,
-   "active": 41,
+   "count": 42,
+   "active": 42,
    "removed": 0,
-   "updated": "2026-11-01 01:41"
+   "updated": "2026-11-06 00:33"
   },
   {
    "section": "neimenggu",
