@@ -1,7 +1,18 @@
 {
- "updated": "2026-11-04 17:20",
- "count": 60,
+ "updated": "2026-11-05 18:43",
+ "count": 61,
  "items": [
+  {
+   "id": "56138",
+   "title": "关于部分宽带业务活动下线通告",
+   "date": "2026-11-05",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hn/index_731_731_detail_56138.html",
+   "status": "on",
+   "first_seen": "2026-11-05 18:43",
+   "summary": "尊敬的客户：您好！ 为持续优化宽带业务结构，推进产品迭代升级，我公司将于2026年11月6日起下架部分宽带业务。由于业务调整给您带来的不便敬请谅解，感谢您对中国移动的支持！ 优惠编码 优惠名称 99753106 单宽带300M标准月包资费 ",
+   "content": "<p style=\"background-image:initial;background-position:initial;background-size:initial;background-repeat:initial;background-attachment:initial;background-origin:initial;background-clip:initial\">尊敬的客户：您好！</p>\n<p style=\"background-image:initial;background-position:initial;background-size:initial;background-repeat:initial;background-attachment:initial;background-origin:initial;background-clip:initial\">为持续优化宽带业务结构，推进产品迭代升级，我公司将于2026年11月6日起下架部分宽带业务。由于业务调整给您带来的不便敬请谅解，感谢您对中国移动的支持！</p>\n<div><table><tbody><tr><td valign=\"center\" nowrap=\"\" style=\"background:rgb(217,225,244)\"><p style=\"text-align:center;vertical-align:middle\"><b>优惠编码</b><b></b></p>\n</td><td valign=\"center\" nowrap=\"\" style=\"background:rgb(217,225,244)\"><p style=\"text-align:center;vertical-align:middle\"><b>优惠名称</b><b></b></p>\n</td></tr><tr><td valign=\"top\" nowrap=\"\"><p style=\"text-align:center;vertical-align:top\">99753106</p>\n</td><td valign=\"top\" nowrap=\"\"><p style=\"vertical-align:top\">单宽带300M标准月包资费</p>\n</td></tr><tr><td valign=\"top\" nowrap=\"\"><p style=\"text-align:center;vertical-align:top\">99753118</p>\n</td><td valign=\"top\" nowrap=\"\"><p style=\"vertical-align:top\">单宽带300M480元标准版一年包</p>\n</td></tr><tr><td valign=\"top\" nowrap=\"\"><p style=\"text-align:center;vertical-align:top\">99753119</p>\n</td><td valign=\"top\" nowrap=\"\"><p style=\"vertical-align:top\">单宽带300M960元标准版两年包</p>\n</td></tr><tr><td valign=\"top\" nowrap=\"\"><p style=\"text-align:center;vertical-align:top\">99753120</p>\n</td><td valign=\"top\" nowrap=\"\"><p style=\"vertical-align:top\">单宽带300M1440元标准版三年包</p>\n</td></tr><tr><td valign=\"top\" nowrap=\"\"><p style=\"text-align:center;vertical-align:top\">99753121</p>\n</td><td valign=\"top\" nowrap=\"\"><p style=\"vertical-align:top\">单宽带300M360元折扣版一年包</p>\n</td></tr><tr><td valign=\"top\" nowrap=\"\"><p style=\"text-align:center;vertical-align:top\">99753108</p>\n</td><td valign=\"top\" nowrap=\"\"><p style=\"vertical-align:top\">单宽带500M标准月包资费</p>\n</td></tr><tr><td valign=\"center\" nowrap=\"\"><p style=\"text-align:center;vertical-align:middle\">99753124</p>\n</td><td valign=\"center\" nowrap=\"\"><p style=\"vertical-align:middle\">单宽带500M720元标准版一年包</p>\n</td></tr><tr><td valign=\"top\" nowrap=\"\"><p style=\"text-align:center;vertical-align:top\">99753110</p>\n</td><td valign=\"top\" nowrap=\"\"><p style=\"vertical-align:top\">单宽带1000M标准月包资费</p>\n</td></tr><tr><td valign=\"top\" nowrap=\"\"><p style=\"text-align:center;vertical-align:top\">99753130</p>\n</td><td valign=\"top\" nowrap=\"\"><p style=\"vertical-align:top\">单宽带1000M1200元标准版一年包</p>\n</td></tr><tr><td valign=\"top\" nowrap=\"\"><p style=\"text-align:center;vertical-align:top\">99753131</p>\n</td><td valign=\"top\" nowrap=\"\"><p style=\"vertical-align:top\">单宽带1000M2400(元)标准版两年包</p>\n</td></tr><tr><td valign=\"top\" nowrap=\"\"><p style=\"text-align:center;vertical-align:top\">99753132</p>\n</td><td valign=\"top\" nowrap=\"\"><p style=\"vertical-align:top\">单宽带1000M3600(元)标准版三年包</p>\n</td></tr></tbody></table></div><p style=\"background-image:initial;background-position:initial;background-size:initial;background-repeat:initial;background-attachment:initial;background-origin:initial;background-clip:initial\">特此公告，感谢您的理解与支持。</p>\n<p style=\"background-image:initial;background-position:initial;background-size:initial;background-repeat:initial;background-attachment:initial;background-origin:initial;background-clip:initial\"> </p>\n<p style=\"text-align:right;background-image:initial;background-position:initial;background-size:initial;background-repeat:initial;background-attachment:initial;background-origin:initial;background-clip:initial\">中国移动通信集团湖南有限公司<br>\n2026年11月5日</p>",
+   "attachments": []
+  },
   {
    "id": "56133",
    "title": "中国移动通信集团终端有限公司湖南分公司2026年三阶段HDICT社采引入的公告",
@@ -527,6 +538,6 @@
  ],
  "section": "hunan",
  "name": "湖南",
- "active": 60,
+ "active": 61,
  "removed": 0
 }

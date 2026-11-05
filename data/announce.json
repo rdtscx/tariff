@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-05 16:32",
+ "updated": "2026-11-05 18:43",
  "count": 176,
  "items": [
   {
@@ -10,6 +10,16 @@
    "date": "2026-11-05",
    "summary": "尊敬的客户： 您好！为了向您提供更为优质的服务，我公司将于2026年11月6日0:00至6:00、2026年11月7日0:00至6:00、2026年11月25日",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/hl/index_451_451_detail_56139.html",
+   "status": "on"
+  },
+  {
+   "id": "56138",
+   "prov": "hunan",
+   "prov_name": "湖南",
+   "title": "关于部分宽带业务活动下线通告",
+   "date": "2026-11-05",
+   "summary": "尊敬的客户：您好！ 为持续优化宽带业务结构，推进产品迭代升级，我公司将于2026年11月6日起下架部分宽带业务。由于业务调整给您带来的不便敬请谅解，感谢您对中国",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hn/index_731_731_detail_56138.html",
    "status": "on"
   },
   {
@@ -620,16 +630,6 @@
    "date": "2026-10-20",
    "summary": "尊敬的客户: 因权益方单方面调整供货策略，2026年12月1日起，以下权益将无法领取：腾讯视频VIP月卡、腾讯视频VIP周卡、腾讯视频超级影视会员月卡、腾讯体育",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/zj/index_571_571_detail_56022.html",
-   "status": "on"
-  },
-  {
-   "id": "56014",
-   "prov": "hunan",
-   "prov_name": "湖南",
-   "title": "关于全民百G相关活动停售的公告",
-   "date": "2026-10-19",
-   "summary": "尊敬的湖南移动用户： 感谢您长期以来对我司业务的支持和信任。为积极响应上级部门相关监管要求，进一步提升服务质量，优化客户体验，湖南移动将于2026年10月19日",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hn/index_731_731_detail_56014.html",
    "status": "on"
   },
   {
@@ -1903,10 +1903,10 @@
   {
    "section": "hunan",
    "name": "湖南",
-   "count": 60,
-   "active": 60,
+   "count": 61,
+   "active": 61,
    "removed": 0,
-   "updated": "2026-11-04 17:20"
+   "updated": "2026-11-05 18:43"
   },
   {
    "section": "guangdong",
