@@ -1,7 +1,17 @@
 {
- "updated": "2026-11-05 08:34",
+ "updated": "2026-11-05 10:28",
  "count": 176,
  "items": [
+  {
+   "id": "56136",
+   "prov": "heilongjiang",
+   "prov_name": "黑龙江",
+   "title": "关于黑龙江移动系统升级优化的公告（2026-11）",
+   "date": "2026-11-05",
+   "summary": "尊敬的客户： 您好！为了向您提供更为优质的服务，我公司将在2026年11月6日、20日、24日、25日、27日 00:00-05:00对集中化彩铃进行系统升级优",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hl/index_451_451_detail_56136.html",
+   "status": "on"
+  },
   {
    "id": "56135",
    "prov": "jiangsu",
@@ -300,16 +310,6 @@
    "date": "2026-10-31",
    "summary": "尊敬的客户： 为给客户提供更优质的服务，我公司将于2026年11月4日0:00至6:00进行相关网络调整工作，届时可能会影响全省移动用户的语音、手机上网、互联网",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/js/index_250_250_detail_56103.html",
-   "status": "on"
-  },
-  {
-   "id": "56078",
-   "prov": "heilongjiang",
-   "prov_name": "黑龙江",
-   "title": "关于算力豆产品下线的公告",
-   "date": "2026-10-31",
-   "summary": "尊敬的客户： 您好！ 为了给您提供更优质的Token服务，算力豆产品将逐步向MobileAI产品迁移。算力豆产品将于2026年11月30日24:00正式下线，下",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hl/index_451_451_detail_56078.html",
    "status": "on"
   },
   {
@@ -1823,10 +1823,10 @@
   {
    "section": "heilongjiang",
    "name": "黑龙江",
-   "count": 99,
-   "active": 99,
+   "count": 100,
+   "active": 100,
    "removed": 0,
-   "updated": "2026-11-04 14:59"
+   "updated": "2026-11-05 10:28"
   },
   {
    "section": "shanghai",
