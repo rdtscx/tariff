@@ -1,7 +1,17 @@
 {
- "updated": "2026-11-05 20:47",
+ "updated": "2026-11-05 22:54",
  "count": 176,
  "items": [
+  {
+   "id": "56141",
+   "prov": "hunan",
+   "prov_name": "湖南",
+   "title": "公告",
+   "date": "2026-11-05",
+   "summary": "为提升服务水平，我公司将于2026年11月8日23:00至11月9日7:00期间对业务系统进行升级。届时，营业厅、银行代收、短信营业厅、网上营业厅、中国移动AP",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hn/index_731_731_detail_56141.html",
+   "status": "on"
+  },
   {
    "id": "56139",
    "prov": "heilongjiang",
@@ -480,16 +490,6 @@
    "date": "2026-10-26",
    "summary": "尊敬的客户，您好！ 1.您的通信自由和通信秘密不受侵犯，我们对您的客户资料和通信信息负有保密义务。但根据法律、行政法规规定，司法、行政机关依法要求我们提供协助和",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/jl/index_431_431_detail_56065.html",
-   "status": "on"
-  },
-  {
-   "id": "56064",
-   "prov": "hunan",
-   "prov_name": "湖南",
-   "title": "关于部分校园产品暂停销售的说明",
-   "date": "2026-10-23",
-   "summary": "尊敬的湖南移动用户: 感谢您长期以来对我司业务的支持和信任。因校园市场产品升级及权益优化调整。湖南移动将于2026年10月27日0点开始对部分历史不适用产品暂停",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hn/index_731_731_detail_56064.html",
    "status": "on"
   },
   {
@@ -1903,10 +1903,10 @@
   {
    "section": "hunan",
    "name": "湖南",
-   "count": 61,
-   "active": 61,
+   "count": 62,
+   "active": 62,
    "removed": 0,
-   "updated": "2026-11-05 18:43"
+   "updated": "2026-11-05 22:54"
   },
   {
    "section": "guangdong",
