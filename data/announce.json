@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-06 10:06",
+ "updated": "2026-11-06 10:52",
  "count": 176,
  "items": [
   {
@@ -10,6 +10,36 @@
    "date": "2026-11-06",
    "summary": "本项目为中国移动通信集团山西有限公司【大同】分公司（以下简称：【大同】移动）集中评估引入，评估引入主体为中国移动通信集团山西有限公司【大同】分公司。该项目具备引",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/sx/index_351_351_detail_56142.html",
+   "status": "on"
+  },
+  {
+   "id": "56145",
+   "prov": "guangxi",
+   "prov_name": "广西",
+   "title": "关于广西移动公司彩信等业务下线的公告",
+   "date": "2026-11-05",
+   "summary": "尊敬的客户: 您好！由于我公司业务调整，部分“彩信套餐\"、“被叫优惠”等223项业务（业务清单详见附件），即将停止提供服务，计划于2026年12月15日进行下线",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/gx/index_771_771_detail_56145.html",
+   "status": "on"
+  },
+  {
+   "id": "56144",
+   "prov": "guangxi",
+   "prov_name": "广西",
+   "title": "关于广西移动公司业务下线的公告",
+   "date": "2026-11-05",
+   "summary": "尊敬的客户: 您好！由于我公司业务调整，需下线部分视频彩铃、咪咕音乐及联合会员等115项业务（业务清单详见附件），相关业务即将停止提供服务，计划于2026年12",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/gx/index_771_771_detail_56144.html",
+   "status": "on"
+  },
+  {
+   "id": "56143",
+   "prov": "guangxi",
+   "prov_name": "广西",
+   "title": "关于广西移动公司15元畅视计划等6个业务下线的公告",
+   "date": "2026-11-05",
+   "summary": "尊敬的客户: 您好！由于我公司业务调整，“15元畅视计划”等共6个业务(业务清单详见附件)，即将停止提供服务，计划于2026年12月15日进行下线处理，业务下线",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/gx/index_771_771_detail_56143.html",
    "status": "on"
   },
   {
@@ -203,16 +233,6 @@
    "status": "on"
   },
   {
-   "id": "56122",
-   "prov": "guangxi",
-   "prov_name": "广西",
-   "title": "2026年第45周割接业务公告",
-   "date": "2026-11-02",
-   "summary": "尊敬的客户： 为了给您提供更好的服务，我公司定于以下时间进行系统升级，在此期间业务影响如下。 一、2026年11月3日0:00-5:00，影响全区地市少量区域5",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/gx/index_771_771_detail_56122.html",
-   "status": "on"
-  },
-  {
    "id": "56116",
    "prov": "hunan",
    "prov_name": "湖南",
@@ -260,26 +280,6 @@
    "date": "2026-11-02",
    "summary": "尊敬的客户： 您好！感谢您对公众WLAN业务的支持与使用。因业务发展调整，自2026年11月30日24时起天津市域中国移动CMCC和CMCC-WEB网络将停止服",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/tj/index_220_220_detail_56110.html",
-   "status": "on"
-  },
-  {
-   "id": "56109",
-   "prov": "guangxi",
-   "prov_name": "广西",
-   "title": "关于广西移动公司新通话-明星来电三档明星E包等185项新业务下线的公告",
-   "date": "2026-11-02",
-   "summary": "尊敬的客户: 您好！由于我公司业务调整，“新通话-明星来电三档明星E包、中医健康、随身导游”等185项新业务，即将停止提供服务，计划于2026年11月30日完成",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/gx/index_771_771_detail_56109.html",
-   "status": "on"
-  },
-  {
-   "id": "56108",
-   "prov": "guangxi",
-   "prov_name": "广西",
-   "title": "关于广西移动公司中石化联名融合包（10元/月）等116个业务下线的公告",
-   "date": "2026-11-02",
-   "summary": "尊敬的客户: 您好！由于我公司业务调整，“中石化联名融合包（10元/月）”等共116个业务(业务清单详见附件)，即将停止提供服务，计划于2026年11月25日进",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/gx/index_771_771_detail_56108.html",
    "status": "on"
   },
   {
@@ -1919,10 +1919,10 @@
   {
    "section": "guangxi",
    "name": "广西",
-   "count": 1367,
-   "active": 1367,
+   "count": 1370,
+   "active": 1370,
    "removed": 0,
-   "updated": "2026-11-04 19:20"
+   "updated": "2026-11-06 10:52"
   },
   {
    "section": "hainan",
