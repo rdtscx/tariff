@@ -1,7 +1,17 @@
 {
- "updated": "2026-11-06 11:28",
+ "updated": "2026-11-06 14:29",
  "count": 176,
  "items": [
+  {
+   "id": "56146",
+   "prov": "fujian",
+   "prov_name": "福建",
+   "title": "关于个人信息保护负责人联系方式的公告",
+   "date": "2026-11-06",
+   "summary": "尊敬的客户： 为更好地保护您的个人信息安全，根据国家相关法律法规的要求，我公司已设立个人信息保护负责人，负责监督和管理本公司个人信息保护相关工作。如您对本公司个",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/fj/index_591_591_detail_56146.html",
+   "status": "on"
+  },
   {
    "id": "56142",
    "prov": "shanxi",
@@ -963,16 +973,6 @@
    "status": "on"
   },
   {
-   "id": "55706",
-   "prov": "fujian",
-   "prov_name": "福建",
-   "title": "福建移动外籍来华人员可办卡营业厅网点信息公示",
-   "date": "2026-08-26",
-   "summary": "Public Notice of China Mobile fujian's Business Outlets Available for Providing ",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/fj/index_591_591_detail_55706.html",
-   "status": "on"
-  },
-  {
    "id": "53682",
    "prov": "hebei",
    "prov_name": "河北",
@@ -1863,10 +1863,10 @@
   {
    "section": "fujian",
    "name": "福建",
-   "count": 57,
-   "active": 57,
+   "count": 58,
+   "active": 58,
    "removed": 0,
-   "updated": "2026-10-31 00:17"
+   "updated": "2026-11-06 14:29"
   },
   {
    "section": "jiangxi",
