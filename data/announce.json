@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-06 16:30",
+ "updated": "2026-11-06 18:30",
  "count": 176,
  "items": [
   {
@@ -303,6 +303,16 @@
    "status": "on"
   },
   {
+   "id": "56147",
+   "prov": "jiangsu",
+   "prov_name": "江苏",
+   "title": "关于“安家无忧”等保障服务产品停售的公告",
+   "date": "2026-11-01",
+   "summary": "尊敬的客户： 因我公司业务调整，将于2026年11月5日停售“安家无忧20元月包、基金通会员10元版（升级版月包）、爱宠服务包20元、爱宠服务包30元”产品，原",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/js/index_250_250_detail_56147.html",
+   "status": "on"
+  },
+  {
    "id": "56083",
    "prov": "shanxi",
    "prov_name": "山西",
@@ -440,16 +450,6 @@
    "date": "2026-10-30",
    "summary": "尊敬的客户： 因业务调整，我公司计划于2026年11月30日前将“世界添彩手机报”、“移动拍客”、“彩信大富翁”等29个产品做下线处理，具体下线清单详见附件。后",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/js/index_250_250_detail_56098.html",
-   "status": "on"
-  },
-  {
-   "id": "56097",
-   "prov": "jiangsu",
-   "prov_name": "江苏",
-   "title": "2026年11月6日系统升级公告",
-   "date": "2026-10-30",
-   "summary": "尊敬的客户： 为给客户提供更优质的服务，我公司将于2026年11月6日0:00至6:00进行相关网络调整工作，届时可能会影响全省移动用户的语音、手机上网、互联网",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/js/index_250_250_detail_56097.html",
    "status": "on"
   },
   {
@@ -1839,10 +1839,10 @@
   {
    "section": "jiangsu",
    "name": "江苏",
-   "count": 4322,
-   "active": 4322,
+   "count": 4323,
+   "active": 4323,
    "removed": 0,
-   "updated": "2026-11-05 01:38"
+   "updated": "2026-11-06 18:30"
   },
   {
    "section": "zhejiang",
