@@ -22,7 +22,7 @@
 /* ===== 老入口自升级（2026-10-19）=====
    旧 HTML 被 CDN 缓存时，靠它自己跳到最新版：
    请求 version.json 带时间戳（CDN 必回源），版本号不同则 replace 到带时间戳的新 URL。 */
-var BUILD_VER = "20261019e";
+var BUILD_VER = "20261108a";
 (function(){
   function base(){
     var m = location.pathname.match(/^(.*)\/[^\/]*$/);
@@ -3562,6 +3562,7 @@ function ntShow(){
   if(x){ x.onclick = ntClose; }
 }
 function ntAuto(){
+  return;   /* 一次性公告已停用（2026-11-08）：不再自动弹出 */
   try{ if(localStorage.getItem(ntKey()) === "1"){ return; } }catch(e){}
   try{ ntShow(); }catch(e){}
 }

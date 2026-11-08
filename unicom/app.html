@@ -3372,6 +3372,7 @@ function ntShow(){
   if(x){ x.onclick = ntClose; }
 }
 function ntAuto(){
+  return;   /* 一次性公告已停用（2026-11-08）：不再自动弹出 */
   try{ if(localStorage.getItem(ntKey()) === "1"){ return; } }catch(e){}
   try{ ntShow(); }catch(e){}
 }
