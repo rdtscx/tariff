@@ -152,12 +152,9 @@ FETCH_WORKERS = max(1, int(os.getenv("FETCH_WORKERS") or "3"))
 # 名称集合也完全相同 → 源站返回的是按 IP 固定的集合，多轮并集【无效】。
 # 故默认改回单轮（省一半抓取时间）；仅在确有证据时手动设 FETCH_ROUNDS>1。
 FETCH_ROUNDS = max(1, int(os.getenv("FETCH_ROUNDS") or "1"))          # 常规轮数
-FETCH_ROUNDS_MAX = max(FETCH_ROUNDS, int(os.getenv("FETCH_ROUNDS_MAX") or "4"))
 # 连续多少轮无新增判定为收敛
 CONVERGE_IDLE = max(1, int(os.getenv("CONVERGE_IDLE") or "1"))
-# 条数低于历史峰值该比例时，判定为「疑似缺量」，把轮数放宽到 FETCH_ROUNDS_MAX
-SHORT_RATIO = float(os.getenv("SHORT_RATIO") or "0.95")
-# 多轮之间条数差异超过该比例时告警（证明源站确实在返回子集）
+# 多轮之间条数差异超过该比例时告警（源站确实在返回不同子集，仅日志、不拦截）
 ROUND_DIFF_WARN = float(os.getenv("ROUND_DIFF_WARN") or "0.05")
 
 
@@ -336,50 +333,6 @@ def _fetch_cell(opener, tariff_attr: str, type1: str, type2: str,
     return list(items_by_name.values())
 
 
-# 分类历史峰值文件路径（伴随快照目录持久化）
-_PEAK_PATH = os.path.join(
-    os.path.dirname(os.path.abspath(__file__)), "snapshots", "peaks.json")
-# 分类条目数低于历史峰值的该比例，判定该 UA 指纹池被源站降级
-DEGRADE_RATIO = 0.6
-
-
-def _migrate_peaks(old: dict) -> dict:
-    """旧版 peaks.json 为 {attr,t1,t2: 峰值}（31 省共用湖南基准，导致各省被误判降级）。
-    升级为按板块隔离 {section: {attr,t1,t2: 峰值}}：
-    旧 key 首字段 attr=1 -> quanguo；attr=2 -> 湖南（历史只有全网/湖南跑过）。
-    各省无历史峰值，首次运行不判降级、直接建基线，后续各自独立基准。"""
-    out = {}
-    if not isinstance(old, dict):
-        return out
-    # 已升级格式：{sec: {key: val}}
-    sample = next(iter(old.values()), None)
-    if isinstance(sample, dict):
-        return old
-    for k, v in old.items():
-        attr = str(k).split(",")[0]
-        sec = "quanguo" if attr == "1" else "hunan"
-        out.setdefault(sec, {})[k] = v
-    return out
-
-
-def _load_peaks() -> dict:
-    try:
-        with open(_PEAK_PATH, "r", encoding="utf-8") as f:
-            return _migrate_peaks(json.load(f))
-    except Exception:
-        return {}
-
-
-def _save_peaks(peaks: dict):
-    try:
-        os.makedirs(os.path.dirname(_PEAK_PATH), exist_ok=True)
-        with open(_PEAK_PATH, "w", encoding="utf-8") as f:
-            json.dump(peaks, f, ensure_ascii=False, indent=2)
-    except Exception as e:
-        print(f"[fetch] 峰值文件写入失败: {e}")
-
-
-
 _ua_idx = 0
 _ua_lock = threading.Lock()
 
@@ -405,58 +358,23 @@ def _section_map() -> dict:
     return m
 
 
-def _evaluate_degrade(cell_counts: dict, peaks: dict, failed_keys: set):
-    """降级自检（纯函数，可单测）。返回 (confirmed, degraded_desc, has_net_error)。
-
-    - 仅基于『本轮成功抓取』的分类判断；抓取失败(网络/接口错误)的分类不参与——
-      Errno 101 是 runner 侧网络抖动，缺分类绝不能当作源站降级，否则会 31 省
-      错判跳过、整轮无 diff 产出。
-    - 总量守恒：成功分类汇总条数 >= 其历史峰值 90% 视为源站真实业务调整，
-      不做降级判断（分类间此消彼长）。
-    - 保守判定：需 ≥2 个成功分类同时低于峰值 60% 才确认降级（单个分类正常
-      业务调整不算）；本轮存在抓取失败分类时一律归因网络异常，不判降级。
-    """
-    _pk = [k for k in cell_counts if peaks.get(k)]
-    _pt = sum((peaks.get(k) or 0) for k in _pk)
-    _ct = sum((cell_counts.get(k) or 0) for k in _pk)
-    _conserved = bool(_pt) and _ct >= _pt * 0.9
-    degraded = []
-    if not _conserved:
-        for key in _pk:
-            cur = cell_counts[key]
-            if cur < peaks[key] * DEGRADE_RATIO:
-                t1, t2 = key.split(",")[1:]
-                degraded.append(
-                    f"{TYPE1_CN.get(t1)}/{TYPE2_CN.get(t2)}(本轮{cur}<峰值{int(peaks[key])})")
-    has_net_error = bool(failed_keys)
-    confirmed = (not has_net_error) and len(degraded) >= 2
-    return confirmed, degraded, has_net_error
-
-
 def _fetch_board(sec: str, attr: str, code: str, opener) -> tuple:
     """抓取单个板块六大分类并合并（fetch_all / fetch_section 共用）。
 
     并发度 FETCH_WORKERS：同一板块内并行发起多个分类请求，每个分类用独立 UA 指纹。
-    返回 (items, errors, cell_counts, failed_keys)。
+    返回 (items, errors, failed_keys)。
     """
     merged = {}
     errors = []
-    cell_counts = {}
     failed_keys = set()
     lock = threading.Lock()
-    # 本板块历史峰值（按板块隔离），用于判断「疑似缺量」并放宽抓取轮数
-    try:
-        peaks_sec = (_load_peaks().get(sec) or {})
-    except Exception:
-        peaks_sec = {}
 
     def work(t1, t2):
         key = f"{attr},{t1},{t2}"
         round_sizes = []
         cell_items = {}
         last_err = None
-        # 目标轮数：常规 FETCH_ROUNDS；若历史峰值提示「疑似缺量」则放宽到 MAX
-        peak = (peaks_sec or {}).get(key, 0)
+        # 目标轮数：常规 FETCH_ROUNDS
         max_rounds = FETCH_ROUNDS
         idle = 0
         r = 0
@@ -482,9 +400,6 @@ def _fetch_board(sec: str, attr: str, code: str, opener) -> tuple:
                 if idle >= CONVERGE_IDLE and r + 1 >= FETCH_ROUNDS:
                     break
             r += 1
-            # 疑似缺量（低于历史峰值）时放宽轮数，尽可能补全
-            if r == FETCH_ROUNDS and peak and len(cell_items) < peak * SHORT_RATIO:
-                max_rounds = FETCH_ROUNDS_MAX
             if r < max_rounds:
                 time.sleep(FETCH_INTERVAL)
         if not cell_items:
@@ -499,7 +414,6 @@ def _fetch_board(sec: str, attr: str, code: str, opener) -> tuple:
         with lock:
             for it in cell_items.values():
                 merged.setdefault(it["name"], it)
-            cell_counts[key] = len(cell_items)
         # 覆盖度自检：多轮条数不一致 => 源站在返回不同的子集
         if len(round_sizes) > 1:
             lo, hi = min(round_sizes), max(round_sizes)
@@ -519,7 +433,7 @@ def _fetch_board(sec: str, attr: str, code: str, opener) -> tuple:
             if i + workers < len(combos):
                 time.sleep(FETCH_INTERVAL)
 
-    return list(merged.values()), errors, cell_counts, failed_keys
+    return list(merged.values()), errors, failed_keys
 
 
 def _pack(sec: str, items: list, errors: list) -> dict:
@@ -538,7 +452,7 @@ def fetch_section(sec: str, prov_code: str = "731") -> dict:
     else:
         attr, code = "2", prov_code
     opener = _build_opener()
-    items, errors, _counts, _failed = _fetch_board(sec, attr, code, opener)
+    items, errors, _failed = _fetch_board(sec, attr, code, opener)
     return _pack(sec, items, errors)
 
 
@@ -546,55 +460,28 @@ def fetch_all() -> dict:
     """返回 {section: {"timestamp", "section", "items", "error"}}。
 
     每个板块聚合六大类：type1(个人/政企) × type2(套餐/加装包/营销活动) 全量资费。
-    防降级：
-      - 每轮运行轮换 UA 指纹开启新配额池（源站按 IP+UA 池隔离限流）；
+    抓取策略：
+      - 每轮轮换 UA 指纹开启新配额池（源站按 IP+UA 池隔离限流）；
       - 分类并发抓取（FETCH_WORKERS，默认 3），把单轮从 ~25min sleep 压到分钟级；
-      - 分类条数低于历史峰值 60% 且 ≥2 个分类同时触发才判定降级，
-        整板块标记 error，由上层跳过对比防误报。
+      - 不做条数阈值拦截：抓到多少就交多少，失败分类只记 error 不丢已抓到的数据。
     """
     SECTIONS_MAP = _section_map()
     result = {}
     try:
         opener = _build_opener()
-        peaks = _load_peaks()
-        peaks_updated = False
         for sec in SECTIONS:
             attr, code = SECTIONS_MAP.get(sec, ("1", "731"))
-            items, errors, cell_counts, failed_keys = _fetch_board(
+            items, errors, failed_keys = _fetch_board(
                 sec, attr, code, opener)
-
-            # 分类级降级自检（保守双阈值 + 失败分类排除 + 网络异常归因）
-            #   峰值按板块隔离（peaks[sec]）：各省独立基准，互不影响；
-            #   板块无历史峰值（扩建初期/首次）时不判降级，直接建基线。
-            peaks_sec = peaks.get(sec) or {}
-            confirmed, degraded, has_net_error = _evaluate_degrade(
-                cell_counts, peaks_sec, failed_keys)
-            if confirmed:
-                errors.insert(0, f"DEGRADE:疑似源站降级({'；'.join(degraded)})")
-            else:
-                changed = False
-                for key, cur in cell_counts.items():
-                    if cur > peaks_sec.get(key, 0):
-                        peaks_sec[key] = cur
-                        changed = True
-                if changed:
-                    peaks[sec] = peaks_sec
-                    peaks_updated = True
 
             # 板块之间休息降温（无论是否降级都要休眠：降级时源站压力大，更该缓一缓）
             if sec != SECTIONS[-1]:
                 time.sleep(SECTION_INTERVAL)
 
             result[sec] = _pack(sec, items, errors)
-            if confirmed:
-                status = "（确认降级，跳过对比！）"
-            elif failed_keys:
-                status = f"（{len(failed_keys)} 个分类网络异常，已尽力重试）"
-            else:
-                status = ""
+            status = (f"（{len(failed_keys)} 个分类抓取失败，已尽力重试）"
+                      if failed_keys else "")
             print(f"[fetch] 板块 {sec} 抓取 {len(items)} 条{status}")
-        if peaks_updated:
-            _save_peaks(peaks)
     except Exception as e:
         print(f"[fetch] 抓取整体失败: {e}")
         for sec in SECTIONS:

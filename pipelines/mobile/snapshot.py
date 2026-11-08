@@ -143,11 +143,11 @@ def diff(old_items: list, new_items: list) -> dict:
             modified.append({"name": _parse_name(new[ni]), "old": _mobile_fields(old[oi]), "new": _mobile_fields(new[ni]), "changed": changed})
     return {"added": added, "removed": removed, "modified": modified, "restored": []}
 
-# ── 下线日期核验（假下架第二层防护）──
-# 数量护栏（main.py 的 ABNORMAL_DROP_RATIO）只能拦「大幅缩水」，
-# 小幅缩水时仍会把没采到的存量业务判成下架。
+# ── 下线日期核验（假下架防护）──
+# 数量阈值不再拦截抓取结果，源站返回子集时没采到的存量业务会被判成下架，
+# 只能靠业务字段逐条核验。
 # 实测：河南某轮「下架 1613 条」中 1551 条的下线日期是 2045/2042/2027 年
-# —— 明明白白还在售，却被记为下架。故再按业务字段逐条核验。
+# —— 明明白白还在售，却被记为下架。
 _DATE_PAT = re.compile(r"(\d{4})\s*[-/年.]\s*(\d{1,2})\s*[-/月.]\s*(\d{1,2})")
 # 设为 0 可关闭本层核验（例如源站日期口径变更时）
 REJECT_FUTURE_OFFLINE = os.getenv("REJECT_FUTURE_OFFLINE", "1").strip() != "0"
