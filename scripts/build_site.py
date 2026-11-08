@@ -567,15 +567,8 @@ def same_change(a, b):
     return True
 
 
-# 板块条数骤降判定阈值：低于基线的该比例即视为抓取降级（不计入变化）
-# 抓取降级防护阈值：本轮条数 < 基线该比例即判定采样异常，不计数。
-# 原为 0.5，太松——河南曾出现 3885→2403（61.9%，未跌破 50%）放行，
-# 导致 1613 条「本轮没采到」被记成真下架（其中 96% 下线日期仍在未来）。
-# 收紧到 0.7，与 pipelines/mobile/main.py 的 ABNORMAL_DROP_RATIO 同口径。
-SEC_DROP_RATIO = float(os.getenv("SEC_DROP_RATIO") or "0.7")
-# 连续降级多少轮后认定「源站现状如此」，接受新数据并重建基线
-# （一直冻结旧数据更危险：页面看着正常，实际是过期数据）
-SEC_DEGRADE_ACCEPT = int(os.getenv("SEC_DEGRADE_ACCEPT") or "3")
+# 板块条数骤降阈值已取消：抓取结果一律如实入库（有什么就是有什么）。
+# 真实下架改由 filter_sampling_removed 按下线日期逐条核验，不再看条数比例。
 
 
 def is_reverse_change(a, b):
@@ -670,16 +663,11 @@ def main():
 
     # 1) 复制当前快照到站点 data/
     st = {}   # section -> (json, items, dist)
-    # 降级计数（随 data/_degrade.json 提交，跨轮次持久化）
-    state = load(os.path.join(PREV, "_degrade.json")) or {}
     for sec in sections:
         src = os.path.join(SNAP, sec + ".json")
         old_src = os.path.join(PREV, sec + ".json")
         new_j = load(src) if os.path.exists(src) else None
-        new_n = len((new_j or {}).get("items") or []) if new_j else 0
         old_j = load(old_src)
-        old_n = len((old_j or {}).get("items") or []) if old_j else 0
-        cnt = int((state.get(sec) or {}).get("rounds", 0) or 0)
 
         # 时间倒退保护：snapshots/ 是持久目录，focus 模式下未重抓的省份会一直
         # 停留在旧快照。拿它当本轮数据会造成双重破坏：
@@ -692,42 +680,16 @@ def main():
         if new_j and old_j and _nts and _ots and _nts < _ots:
             shutil.copy(old_src, os.path.join(DATA, sec + ".json"))
             st[sec] = stat_section(sec, PREV)
-            state[sec] = {"rounds": 0, "stale_snapshot": now,
-                          "snap_ts": _nts, "base_ts": _ots}
             print(f"  [过期快照] 板块 {sec} 快照 {_nts} 早于基线 {_ots}，"
                   f"保留线上数据，本轮不比对")
             continue
 
-        if old_n > 0 and new_n < old_n * SEC_DROP_RATIO:
-            cnt += 1
-            if new_n > 0 and cnt >= SEC_DEGRADE_ACCEPT:
-                # 连续多轮偏低 → 认定源站现状如此，接受新数据重建基线
-                shutil.copy(src, os.path.join(DATA, sec + ".json"))
-                st[sec] = stat_section(sec)
-                state[sec] = {"rounds": 0, "accepted": now,
-                              "from": old_n, "to": new_n}
-                print(f"  [重同步] 板块 {sec} 连续 {cnt} 轮偏低，"
-                      f"接受新数据 {new_n} 条（原基线 {old_n} 条）")
-            else:
-                # 保留旧数据，等下一轮；本轮 0 条则无法接受
-                if old_j is not None:
-                    shutil.copy(old_src, os.path.join(DATA, sec + ".json"))
-                    st[sec] = stat_section(sec, PREV)
-                else:
-                    st[sec] = (None, [], {})
-                state[sec] = {"rounds": cnt, "last_new": new_n,
-                              "last_old": old_n, "updated": now}
-                why = "本轮 0 条" if new_n == 0 else f"本轮 {new_n} 条"
-                print(f"  [降级] 板块 {sec} {why} < 基线 {old_n} 条的 "
-                      f"{SEC_DROP_RATIO:.0%}，第 {cnt}/{SEC_DEGRADE_ACCEPT} 轮，保留旧数据")
-        else:
-            if new_j is not None and os.path.exists(src):
-                shutil.copy(src, os.path.join(DATA, sec + ".json"))
-            st[sec] = stat_section(sec)
-            state[sec] = {"rounds": 0}
-
-    with open(os.path.join(DATA, "_degrade.json"), "w", encoding="utf-8") as f:
-        json.dump(state, f, ensure_ascii=False, indent=2)
+        # 抓取结果如实入库：本轮抓到多少就写多少，不再按条数比例保留旧数据。
+        # 条数骤减可能是源站限流，但也可能是真实批量下架，一律以抓到的为准；
+        # 真实下架由下方 filter_sampling_removed 按下线日期逐条核验。
+        if new_j is not None and os.path.exists(src):
+            shutil.copy(src, os.path.join(DATA, sec + ".json"))
+        st[sec] = stat_section(sec)
 
     # 2) latest.json（仪表盘统计：sections 索引 + 全网/31省/各省分布）
     def_sec = DEFAULT_PROV if DEFAULT_PROV in sections else (sections[0] if sections else "quanguo")
@@ -832,16 +794,8 @@ def main():
             else:
                 rec[sec] = {"note": "baseline"}
             continue
-        # 抓取降级防护：本轮条数远低于基线（源站限流/降级/返回空）时，
-        # 直接 diff 会产生「整板块下架」的假变化（曾出现 quanguo 一次性 -1541）。
-        # 此类情况标记 degraded 且不计数，保留旧数据，等下一轮正常抓取再比对。
-        _old_n = len(old_items or [])
-        _new_n = len(items or [])
-        if _old_n > 0 and _new_n < _old_n * SEC_DROP_RATIO:
-            print(f"  [降级] 板块 {sec} 本轮 {_new_n} 条 < 基线 {_old_n} 条的 "
-                  f"{SEC_DROP_RATIO:.0%}，判定抓取异常，不计数、保留旧数据")
-            rec[sec] = {"note": "degraded", "baseline": _old_n, "this_round": _new_n}
-            continue
+        # 真实下架以字段核验为准：filter_sampling_removed 会剔除「下线日期仍在未来」
+        # 的假下架，不再用条数比例拦截本轮 diff。
         added, removed, modified, modified_details, mod_before, mod_after = diff_items(old_items, items)
         # 采样缺失二次校验：本轮净减少时，剔除「下线日期仍在未来」的假下架。
         # 河南曾一次性假下架 1613 条（96% 下线日期在未来），靠条数阈值（0.7）

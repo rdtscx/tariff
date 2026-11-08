@@ -19,36 +19,6 @@ import notifier
 import snapshot
 from config import CHECK_INTERVAL
 
-# 防误报护栏：本次抓取数量低于上次的该比例时，判定为"抓取不全"而非真实下架
-ABNORMAL_DROP_RATIO = 0.7
-
-# 护栏连续拦截上限。源站长期只返回确定性子集时，一直按阈值拦截会让该板块的
-# 快照永远不被写入 —— 基线恒为旧值，于是每轮都被拦，线上数据无限期冻结
-# （河南曾因此停更 25 小时）。连续拦到该轮数后改为接受本轮数据重建基线，
-# 剩下的误报由 clean_fake_added / _drop_fake_removed 与构建侧降级接受逻辑兜底。
-GUARD_ACCEPT_ROUNDS = int(os.getenv("GUARD_ACCEPT_ROUNDS") or "3")
-_GUARD_STATE = os.path.join(
-    os.path.dirname(os.path.abspath(__file__)), "snapshots", ".guard_state.json"
-)
-
-
-def _load_guard_state() -> dict:
-    try:
-        with open(_GUARD_STATE, "r", encoding="utf-8") as f:
-            d = json.load(f)
-        return d if isinstance(d, dict) else {}
-    except Exception:
-        return {}
-
-
-def _save_guard_state(state: dict):
-    try:
-        os.makedirs(os.path.dirname(_GUARD_STATE), exist_ok=True)
-        with open(_GUARD_STATE, "w", encoding="utf-8") as f:
-            json.dump(state, f, ensure_ascii=False)
-    except Exception as e:
-        print(f"[护栏] 连续拦截计数写入失败: {e}")
-
 
 def _nochange_notify_disabled() -> bool:
     """「无变化」心跳推送开关。
@@ -72,20 +42,7 @@ def _self_notify_disabled() -> bool:
     return os.getenv("SELF_NOTIFY", "").strip() == "0"
 
 
-def _is_abnormal_drop(section: str, new_items: list) -> bool:
-    """本次抓取数量骤减（<上次70%）视为异常，跳过对比，避免误报下架"""
-    old = snapshot.load_snapshot(section)
-    if old is None:
-        return False
-    old_n = len(old.get("items") or [])
-    new_n = len(new_items or [])
-    # 上次一条都没有，或本次缺少不算异常（后续有基线再判断）
-    if old_n == 0:
-        return False
-    return new_n < old_n * ABNORMAL_DROP_RATIO
-
-
-# 诊断文件路径（仓库根目录 _diag.json），记录每轮各板块实抓条数与拦截原因，
+# 诊断文件路径（仓库根目录 _diag.json），记录每轮各板块实抓条数与原因，
 # 供排查「源站到底还返不返回数据」。日志在 Actions 上不易取，落文件最可靠。
 _ROOT_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -107,8 +64,7 @@ def run_once(send_mail=True):
 
     reports = []
     first_time = False  # 本轮是否有板块首次建立基线
-    skipped = []        # 被防误报护栏拦截的板块
-    guard_state = _load_guard_state()   # 各板块「连续被拦」轮次，跨轮持久化
+    skipped = []        # 本轮一条都没抓到、只能保留旧快照的板块
     for section, new_data in data.items():
         new_items = new_data.get("items", [])
         print(f"对比板块 {section} ({len(new_items)} 条)")
@@ -117,69 +73,33 @@ def run_once(send_mail=True):
             "err": (new_data.get("error") or "")[:120],
         }
 
-        # 确认源站降级（fetcher 写入 DEGRADE: 标记）且已有基线才跳过对比防误报；
-        # 首次运行无基线时必须建立基线，即使本轮网络异常也不跳过（用户要求）。
-        # 分类部分失败（Errno 101 抖动等）已抓到多数数据时同样不跳过，
-        # 交由下方 _is_abnormal_drop 数量护栏兜底，避免整省无 diff 产出。
-        degrade_confirm = "DEGRADE:" in (new_data.get("error") or "")
-        if degrade_confirm and snapshot.load_snapshot(section) is not None:
-            # 降级但仍有数据时照写快照（不做对比、不通知），交由构建侧判定：
-            # build_site 连续 SEC_DEGRADE_ACCEPT 轮偏低才接受并重建基线。
-            # 此前直接跳过导致 snapshots/ 为空，湖南/河南的数据长期冻结在旧快照。
-            if new_items:
-                snapshot.save_snapshot(section, new_data)
-                guard_state.pop(section, None)
-                print(f"  [降级] 板块 {section} 本轮 {len(new_items)} 条，"
-                      f"已存快照交由构建侧判定（不对比、不通知）")
-                diag["sections"][section]["reason"] = "degrade_saved"
-            else:
-                print(f"  [降级] 板块 {section} 本轮 0 条，跳过对比")
-                diag["sections"][section]["reason"] = "degrade_empty"
-            skipped.append(section)
-            continue
+        # 抓取结果如实入库：只要抓到数据就写快照并参与对比，不按条数比例拦截。
+        # 此前的 70% 骤减护栏会让持续偏少的板块永远用旧基线比较、快照永不前进
+        # （河南曾因此停更 25 小时）；真实下架改由 _drop_fake_removed 按下线
+        # 日期逐条核验，不再依赖数量阈值。
         if not new_items:
-            cnt = int(guard_state.get(section, 0)) + 1
-            guard_state[section] = cnt
-            print(f"  [异常] 板块 {section} 未抓到任何数据，跳过对比（连续 {cnt} 轮）")
+            # 全 0 只可能是抓取整体失败（源站不可达/接口报错）。此时写空快照
+            # 等于清空该板块线上数据，故保留旧快照，等下一轮。
+            print(f"  [无数据] 板块 {section} 本轮 0 条，保留旧快照")
             diag["sections"][section]["reason"] = "empty"
-            diag["sections"][section]["rounds"] = cnt
             skipped.append(section)
             continue
-
-        # 防误报护栏：抓取数量骤减，不对比、不覆盖快照，只提醒。
-        # 连续拦到 GUARD_ACCEPT_ROUNDS 轮时接受本轮数据，否则该板块会一直
-        # 拿旧基线做比较、永远被拦，快照与线上数据再也不会前进。
-        if _is_abnormal_drop(section, new_items):
-            cnt = int(guard_state.get(section, 0)) + 1
-            guard_state[section] = cnt
-            if cnt < GUARD_ACCEPT_ROUNDS:
-                print(f"  [护栏] 板块 {section} 抓取数量异常骤减，"
-                      f"跳过对比（连续 {cnt}/{GUARD_ACCEPT_ROUNDS} 轮）")
-                diag["sections"][section]["reason"] = "guard"
-                diag["sections"][section]["rounds"] = cnt
-                skipped.append(section)
-                continue
-            print(f"  [护栏-接受] 板块 {section} 连续 {cnt} 轮低于基线的 "
-                  f"{ABNORMAL_DROP_RATIO:.0%}，接受本轮 {len(new_items)} 条重建基线")
-            diag["sections"][section]["reason"] = "guard_accept"
 
         # 首次运行：板块还没有基线快照，仅建立基线，不对比不发送
         if snapshot.load_snapshot(section) is None:
             snapshot.check_section(section, new_data)
             print(f"  [首次] 板块 {section} 已建立基线快照，本次不通知")
             diag["sections"][section]["reason"] = "baseline"
-            guard_state.pop(section, None)
             first_time = True
             continue
 
         r = snapshot.check_section(section, new_data)
-        guard_state.pop(section, None)
         if r:
             reports.append(r)
 
     if skipped:
         # 用户要求：不再推送"抓取不全/故障"类提醒，避免与正常变更消息重复打扰（仅保留运行日志）
-        print(f"[护栏] 异常板块 {len(skipped)} 个: {skipped}")
+        print(f"[无数据] 板块 {len(skipped)} 个: {skipped}")
         skipped_this_round = True
     else:
         skipped_this_round = False
@@ -221,7 +141,6 @@ def run_once(send_mail=True):
                 print("[notify] 已发送无变化心跳通知")
             except Exception as e:
                 print(f"[notify] 心跳发送失败: {e}")
-    _save_guard_state(guard_state)
     _write_diag(diag)
 
 
