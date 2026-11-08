@@ -22,6 +22,33 @@ from config import CHECK_INTERVAL
 # 防误报护栏：本次抓取数量低于上次的该比例时，判定为"抓取不全"而非真实下架
 ABNORMAL_DROP_RATIO = 0.7
 
+# 护栏连续拦截上限。源站长期只返回确定性子集时，一直按阈值拦截会让该板块的
+# 快照永远不被写入 —— 基线恒为旧值，于是每轮都被拦，线上数据无限期冻结
+# （河南曾因此停更 25 小时）。连续拦到该轮数后改为接受本轮数据重建基线，
+# 剩下的误报由 clean_fake_added / _drop_fake_removed 与构建侧降级接受逻辑兜底。
+GUARD_ACCEPT_ROUNDS = int(os.getenv("GUARD_ACCEPT_ROUNDS") or "3")
+_GUARD_STATE = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)), "snapshots", ".guard_state.json"
+)
+
+
+def _load_guard_state() -> dict:
+    try:
+        with open(_GUARD_STATE, "r", encoding="utf-8") as f:
+            d = json.load(f)
+        return d if isinstance(d, dict) else {}
+    except Exception:
+        return {}
+
+
+def _save_guard_state(state: dict):
+    try:
+        os.makedirs(os.path.dirname(_GUARD_STATE), exist_ok=True)
+        with open(_GUARD_STATE, "w", encoding="utf-8") as f:
+            json.dump(state, f, ensure_ascii=False)
+    except Exception as e:
+        print(f"[护栏] 连续拦截计数写入失败: {e}")
+
 
 def _nochange_notify_disabled() -> bool:
     """「无变化」心跳推送开关。
@@ -81,6 +108,7 @@ def run_once(send_mail=True):
     reports = []
     first_time = False  # 本轮是否有板块首次建立基线
     skipped = []        # 被防误报护栏拦截的板块
+    guard_state = _load_guard_state()   # 各板块「连续被拦」轮次，跨轮持久化
     for section, new_data in data.items():
         new_items = new_data.get("items", [])
         print(f"对比板块 {section} ({len(new_items)} 条)")
@@ -100,6 +128,7 @@ def run_once(send_mail=True):
             # 此前直接跳过导致 snapshots/ 为空，湖南/河南的数据长期冻结在旧快照。
             if new_items:
                 snapshot.save_snapshot(section, new_data)
+                guard_state.pop(section, None)
                 print(f"  [降级] 板块 {section} 本轮 {len(new_items)} 条，"
                       f"已存快照交由构建侧判定（不对比、不通知）")
                 diag["sections"][section]["reason"] = "degrade_saved"
@@ -109,27 +138,42 @@ def run_once(send_mail=True):
             skipped.append(section)
             continue
         if not new_items:
-            print(f"  [异常] 板块 {section} 未抓到任何数据，跳过对比")
+            cnt = int(guard_state.get(section, 0)) + 1
+            guard_state[section] = cnt
+            print(f"  [异常] 板块 {section} 未抓到任何数据，跳过对比（连续 {cnt} 轮）")
             diag["sections"][section]["reason"] = "empty"
+            diag["sections"][section]["rounds"] = cnt
             skipped.append(section)
             continue
 
-        # 防误报护栏：抓取数量骤减，不对比、不覆盖快照，只提醒
+        # 防误报护栏：抓取数量骤减，不对比、不覆盖快照，只提醒。
+        # 连续拦到 GUARD_ACCEPT_ROUNDS 轮时接受本轮数据，否则该板块会一直
+        # 拿旧基线做比较、永远被拦，快照与线上数据再也不会前进。
         if _is_abnormal_drop(section, new_items):
-            print(f"  [护栏] 板块 {section} 抓取数量异常骤减，跳过对比")
-            diag["sections"][section]["reason"] = "guard"
-            skipped.append(section)
-            continue
+            cnt = int(guard_state.get(section, 0)) + 1
+            guard_state[section] = cnt
+            if cnt < GUARD_ACCEPT_ROUNDS:
+                print(f"  [护栏] 板块 {section} 抓取数量异常骤减，"
+                      f"跳过对比（连续 {cnt}/{GUARD_ACCEPT_ROUNDS} 轮）")
+                diag["sections"][section]["reason"] = "guard"
+                diag["sections"][section]["rounds"] = cnt
+                skipped.append(section)
+                continue
+            print(f"  [护栏-接受] 板块 {section} 连续 {cnt} 轮低于基线的 "
+                  f"{ABNORMAL_DROP_RATIO:.0%}，接受本轮 {len(new_items)} 条重建基线")
+            diag["sections"][section]["reason"] = "guard_accept"
 
         # 首次运行：板块还没有基线快照，仅建立基线，不对比不发送
         if snapshot.load_snapshot(section) is None:
             snapshot.check_section(section, new_data)
             print(f"  [首次] 板块 {section} 已建立基线快照，本次不通知")
             diag["sections"][section]["reason"] = "baseline"
+            guard_state.pop(section, None)
             first_time = True
             continue
 
         r = snapshot.check_section(section, new_data)
+        guard_state.pop(section, None)
         if r:
             reports.append(r)
 
@@ -177,6 +221,7 @@ def run_once(send_mail=True):
                 print("[notify] 已发送无变化心跳通知")
             except Exception as e:
                 print(f"[notify] 心跳发送失败: {e}")
+    _save_guard_state(guard_state)
     _write_diag(diag)
 
 

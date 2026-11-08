@@ -54,9 +54,39 @@ jobs:
           MIN_GAP=1200
           ATTEMPTED=0
 
+          # 循环中途任何一次 gh api 失败都会被 set -e 直接终止脚本，而续期在脚本
+          # 末尾，于是心跳链彻底断掉（2026-11-06 实测断链，靠 schedule 与看门狗
+          # 才补上，空窗 4 小时）。这里统一走重试封装，并用 EXIT trap 兜底续期。
+          gh_api() {
+            local out i
+            for i in 1 2 3; do
+              if out=$(gh api "$@" 2>/dev/null); then printf '%s' "$out"; return 0; fi
+              echo "[warn] gh api 失败（$i/3），10s 后重试" >&2
+              sleep 10
+            done
+            return 1
+          }
+
+          RENEWED=0
+          renew() {
+            [ "$RENEWED" = "1" ] && return 0
+            RENEWED=1
+            if gh_api -X POST \
+                "repos/${GITHUB_REPOSITORY}/actions/workflows/mobile-heartbeat.yml/dispatches" \
+                -f ref=main >/dev/null; then
+              echo "已续期新心跳 $(date -u +%FT%TZ)"
+            else
+              echo "::warning::心跳续期失败，等待 build-watchdog 兜底"
+            fi
+          }
+          trap renew EXIT
+
           count_active() {
-            gh api "repos/${GITHUB_REPOSITORY}/actions/workflows/mobile-build.yml/runs?per_page=5" \
-              | jq '[.workflow_runs[] | select(.status == "in_progress" or .status == "queued" or .status == "waiting")] | length'
+            local j
+            j=$(gh_api "repos/${GITHUB_REPOSITORY}/actions/workflows/mobile-build.yml/runs?per_page=5" || true)
+            # 取不到运行列表时按「有运行」处理，宁可本轮不触发，下轮再试
+            [ -n "$j" ] || { echo 1; return 0; }
+            printf '%s' "$j" | jq '[.workflow_runs[] | select(.status == "in_progress" or .status == "queued" or .status == "waiting")] | length'
           }
 
           data_age() {
@@ -83,8 +113,11 @@ jobs:
             ATTEMPTED=1
             ACTIVE=$(count_active)
             if [ "$ACTIVE" = "0" ]; then
-              gh api -X POST "repos/${GITHUB_REPOSITORY}/actions/workflows/mobile-build.yml/dispatches" -f ref=main
-              echo "已触发下一轮抓取 $(date -u +%FT%TZ)"
+              if gh_api -X POST "repos/${GITHUB_REPOSITORY}/actions/workflows/mobile-build.yml/dispatches" -f ref=main >/dev/null; then
+                echo "已触发下一轮抓取 $(date -u +%FT%TZ)"
+              else
+                echo "::warning::触发抓取失败，等下一轮循环或兜底任务补上"
+              fi
             else
               echo "已有 $ACTIVE 个抓取运行在进行/排队，直接等待其结束"
             fi
@@ -97,5 +130,5 @@ jobs:
             echo "抓取已结束 $(date -u +%FT%TZ)"
           done
 
-          gh api -X POST "repos/${GITHUB_REPOSITORY}/actions/workflows/mobile-heartbeat.yml/dispatches" -f ref=main
-          echo "时间预算用尽，已续期新心跳 $(date -u +%FT%TZ)"
+          echo "时间预算用尽 $(date -u +%FT%TZ)"
+          renew
