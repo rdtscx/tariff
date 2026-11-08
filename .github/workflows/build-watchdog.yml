@@ -9,7 +9,7 @@ name: Build Watchdog
 
 on:
   schedule:
-    - cron: "*/30 * * * *"
+    - cron: "*/15 * * * *"
   workflow_dispatch:
 
 permissions:
@@ -45,7 +45,10 @@ jobs:
       - name: 数据过期时自动补触发抓取
         # GitHub schedule 对本仓库实测延迟可达数小时甚至整轮丢失（曾出现
         # 连续 3 个 cron 点未触发）。这里以线上 latest.json 的时间戳为准：
-        # 超过 3 小时未更新且当前没有正在跑/排队的抓取时，补一次手动触发。
+        # 超过 130 分钟未更新且当前没有正在跑/排队的抓取时，补一次手动触发。
+        # 130 分钟 = 正常节拍（心跳 95 分钟触发 + 构建约 27 分钟）留一点余量；
+        # 阈值原先取 3 小时，导致心跳断链后最长要 3 小时 + 巡检 30 分钟 +
+        # 构建 27 分钟才会恢复，用户看到的就是「更新被拉到 3~4 小时」。
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -55,7 +58,7 @@ jobs:
           UPDATED=$(cat /tmp/updated)
           AGE=$(( $(date -u +%s) - $(date -u -d "$UPDATED" +%s) ))
           echo "线上数据 updated=$UPDATED，距今 $((AGE/60)) 分钟"
-          if [ "$AGE" -lt 10800 ]; then
+          if [ "$AGE" -lt 7800 ]; then
             echo "数据新鲜，无需补抓"
             exit 0
           fi
