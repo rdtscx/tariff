@@ -1,7 +1,17 @@
 {
- "updated": "2026-11-09 09:56",
+ "updated": "2026-11-09 11:02",
  "count": 176,
  "items": [
+  {
+   "id": "56154",
+   "prov": "anhui",
+   "prov_name": "安徽",
+   "title": "关于个人信息保护负责人联系方式的公告",
+   "date": "2026-11-09",
+   "summary": "尊敬的客户: 为更好地保护您的个人信息安全，根据国家相关法律法规的要求，我公司已设立个人信息保护负责人，负责监督和管理本公司个人信息保护相关工作。如您对本公司个",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/ah/index_551_551_detail_56154.html",
+   "status": "on"
+  },
   {
    "id": "56140",
    "prov": "fujian",
@@ -680,16 +690,6 @@
    "date": "2026-10-19",
    "summary": "尊敬的客户: 您好！因业务发展调整，2026年12月1日00时起安徽省内中国移动CMCC、CMCC-WEB、CMCC-EDU网络将停止服务，已订购相应业务的用户",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/ah/index_551_551_detail_56009.html",
-   "status": "on"
-  },
-  {
-   "id": "56008",
-   "prov": "anhui",
-   "prov_name": "安徽",
-   "title": "关于更新六安移动VIP售后服务中心的公示",
-   "date": "2026-10-19",
-   "summary": "尊敬的客户: 为提供更加优质、便捷的服务，六安移动在全市各区县设立VIP售后服务中心，VIP售后服务中心提供开户、销户、业务订购、业务退订、套餐变更、解约等综合",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/ah/index_551_551_detail_56008.html",
    "status": "on"
   },
   {
@@ -1855,10 +1855,10 @@
   {
    "section": "anhui",
    "name": "安徽",
-   "count": 387,
-   "active": 387,
+   "count": 388,
+   "active": 388,
    "removed": 0,
-   "updated": "2026-11-02 17:43"
+   "updated": "2026-11-09 11:02"
   },
   {
    "section": "fujian",
