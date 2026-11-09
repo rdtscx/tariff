@@ -1,7 +1,18 @@
 {
- "updated": "2026-11-06 14:29",
- "count": 58,
+ "updated": "2026-11-09 08:59",
+ "count": 59,
  "items": [
+  {
+   "id": "56140",
+   "title": "关于安防业务四档产品包下线的公告",
+   "date": "2026-11-09",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/fj/index_591_591_detail_56140.html",
+   "status": "on",
+   "first_seen": "2026-11-09 08:59",
+   "summary": "尊敬的客户您好： 因业务调整，我司将于2026年12月1日0时起停止以下四档安防产品包的服务（详见下表），系统将自动为已订购相关产品包的客户进行退订，退订后不再继续扣除功能费，退订无需您做任何操作。对此给您造成的不便，敬请谅解，感谢您的理解",
+   "content": "<div>尊敬的客户您好：</div><div><br>\n</div><p>&nbsp; &nbsp; &nbsp; &nbsp;因业务调整，我司将于2026年12月1日0时起停止以下四档安防产品包的服务（详见下表），系统将自动为已订购相关产品包的客户进行退订，退订后不再继续扣除功能费，退订无需您做任何操作。对此给您造成的不便，敬请谅解，感谢您的理解与支持。</p>\n<p><table bordercolor=\"#000000\"><tbody><tr><td><strong>产品编</strong><strong>码</strong><br>\n</td><td><strong>产品包名称</strong><br>\n</td></tr><tr><td>1000810011<br>\n</td><td>安防云存储-30天事件超高清版<br>\n</td></tr><tr><td>1000810015<br>\n</td><td>安防云存储-3天全天超高清版<br>\n</td></tr><tr><td>1000810016<br>\n</td><td>安防云存储-7天全天超高清版<br>\n</td></tr><tr><td>1000810017<br>\n</td><td>安防云存储-30天全天超高清版<br>\n</td></tr></tbody></table><br>\n</p>\n<div><br>\n</div><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;中国移动通信集团福建有限公司</p>\n<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;2026年11月9日</p>\n<br>",
+   "attachments": []
+  },
   {
    "id": "56146",
    "title": "关于个人信息保护负责人联系方式的公告",
@@ -521,6 +532,6 @@
  ],
  "section": "fujian",
  "name": "福建",
- "active": 58,
+ "active": 59,
  "removed": 0
 }

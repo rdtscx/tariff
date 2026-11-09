@@ -1,7 +1,17 @@
 {
- "updated": "2026-11-09 08:10",
+ "updated": "2026-11-09 08:59",
  "count": 176,
  "items": [
+  {
+   "id": "56140",
+   "prov": "fujian",
+   "prov_name": "福建",
+   "title": "关于安防业务四档产品包下线的公告",
+   "date": "2026-11-09",
+   "summary": "尊敬的客户您好： 因业务调整，我司将于2026年12月1日0时起停止以下四档安防产品包的服务（详见下表），系统将自动为已订购相关产品包的客户进行退订，退订后不再",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/fj/index_591_591_detail_56140.html",
+   "status": "on"
+  },
   {
    "id": "56149",
    "prov": "guangxi",
@@ -900,16 +910,6 @@
    "date": "2026-09-11",
    "summary": "尊敬的客户您好： 因业务调整，我公司将分批于2026年11月1日0时起、12月1日0时起停止部分“饿了么随心享会员包、爱奇艺黄金月会员包月版”等13个业务的服务",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/fj/index_591_591_detail_55805.html",
-   "status": "on"
-  },
-  {
-   "id": "55797",
-   "prov": "fujian",
-   "prov_name": "福建",
-   "title": "关于安防、云电脑相关五个产品包下线的公告",
-   "date": "2026-09-11",
-   "summary": "尊敬的客户您好： 因业务调整，我司将于2026年10月1日0时起停止以下5个产品包的服务（详见下表），系统将自动为已订购相关产品包的客户进行退订，退订后不再继续",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/fj/index_591_591_detail_55797.html",
    "status": "on"
   },
   {
@@ -1863,10 +1863,10 @@
   {
    "section": "fujian",
    "name": "福建",
-   "count": 58,
-   "active": 58,
+   "count": 59,
+   "active": 59,
    "removed": 0,
-   "updated": "2026-11-06 14:29"
+   "updated": "2026-11-09 08:59"
   },
   {
    "section": "jiangxi",
