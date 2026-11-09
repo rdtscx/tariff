@@ -1,7 +1,17 @@
 {
- "updated": "2026-11-09 16:06",
+ "updated": "2026-11-09 17:47",
  "count": 176,
  "items": [
+  {
+   "id": "56162",
+   "prov": "jiangsu",
+   "prov_name": "江苏",
+   "title": "关于“健康无忧”、“萌宠无忧”系列保障服务产品更名的公告",
+   "date": "2026-11-09",
+   "summary": "尊敬的客户： 为统一产品品牌，提升服务体验，自2026年11月19日起，“健康无忧”系列产品正式更名为“出行宝”、“萌宠无忧”系列产品正式更名为“萌宠宝”。具体",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/js/index_250_250_detail_56162.html",
+   "status": "on"
+  },
   {
    "id": "56158",
    "prov": "hubei",
@@ -40,6 +50,26 @@
    "date": "2026-11-09",
    "summary": "尊敬的客户您好： 因业务调整，我司将于2026年12月1日0时起停止以下四档安防产品包的服务（详见下表），系统将自动为已订购相关产品包的客户进行退订，退订后不再",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/fj/index_591_591_detail_56140.html",
+   "status": "on"
+  },
+  {
+   "id": "56161",
+   "prov": "beijing",
+   "prov_name": "北京",
+   "title": "部分爱家宽带方案 300M 提速升级公告",
+   "date": "2026-11-08",
+   "summary": "尊敬的客户： 北京移动为回馈宽带老客户、提升客户上网体验，计划自 2026 年 11 月面向部分爱家宽带方案（具体套餐列表详见附件）进行 300M 宽带套餐提速",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/bj/index_100_100_detail_56161.html",
+   "status": "on"
+  },
+  {
+   "id": "56163",
+   "prov": "hainan",
+   "prov_name": "海南",
+   "title": "关于移动58元套餐等套餐宽带速率升级通知的公告",
+   "date": "2026-11-06",
+   "summary": "尊敬的客户： 您好！移动58元套餐等套餐包含的宽带权益速率已升级，现将于2026年11月-12月期间，对移动58元套餐等套餐（见附件套餐清单）且手机号码、宽带状",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hi/index_898_898_detail_56163.html",
    "status": "on"
   },
   {
@@ -483,16 +513,6 @@
    "status": "on"
   },
   {
-   "id": "56098",
-   "prov": "jiangsu",
-   "prov_name": "江苏",
-   "title": "关于部分手机报产品下线的公告",
-   "date": "2026-10-30",
-   "summary": "尊敬的客户： 因业务调整，我公司计划于2026年11月30日前将“世界添彩手机报”、“移动拍客”、“彩信大富翁”等29个产品做下线处理，具体下线清单详见附件。后",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/js/index_250_250_detail_56098.html",
-   "status": "on"
-  },
-  {
    "id": "56068",
    "prov": "fujian",
    "prov_name": "福建",
@@ -723,16 +743,6 @@
    "status": "on"
   },
   {
-   "id": "56006",
-   "prov": "hainan",
-   "prov_name": "海南",
-   "title": "中国移动通信集团海南有限公司营业厅运营支撑方公开招募公告",
-   "date": "2026-10-18",
-   "summary": "尊敬的客户： 为进一步提升我司业务运营、客户服务、市场拓展能力，拟引入优秀营业厅运营支撑合作伙伴，我司现就营业厅运营支撑向社会公开招募合作方，欢迎符合资格条件的",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hi/index_898_898_detail_56006.html",
-   "status": "on"
-  },
-  {
    "id": "55987",
    "prov": "zhejiang",
    "prov_name": "浙江",
@@ -810,16 +820,6 @@
    "date": "2026-10-11",
    "summary": "尊敬的客户： 您好！ 2026 年 11 月 11 日起，承诺低消有礼、动感地带校园专属套餐合约活动的部分档位在所有渠道停售，具体产品列表详见附件。此后，各渠道",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/bj/index_100_100_detail_56155.html",
-   "status": "on"
-  },
-  {
-   "id": "56157",
-   "prov": "beijing",
-   "prov_name": "北京",
-   "title": "关于 18 元飞享套餐副卡版下线的公告",
-   "date": "2026-10-10",
-   "summary": "尊敬的客户： 感谢您一直以来的陪伴与信赖！自 2026 年 10 月 19 日起，18 元飞享套餐副卡版下线，届时将无法进行该业务的办理。我们为您准备了其他丰富",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/bj/index_100_100_detail_56157.html",
    "status": "on"
   },
   {
@@ -1767,10 +1767,10 @@
   {
    "section": "beijing",
    "name": "北京",
-   "count": 1140,
-   "active": 1140,
+   "count": 1141,
+   "active": 1141,
    "removed": 0,
-   "updated": "2026-11-09 15:47"
+   "updated": "2026-11-09 17:47"
   },
   {
    "section": "tianjin",
@@ -1839,10 +1839,10 @@
   {
    "section": "jiangsu",
    "name": "江苏",
-   "count": 4323,
-   "active": 4323,
+   "count": 4324,
+   "active": 4324,
    "removed": 0,
-   "updated": "2026-11-06 18:30"
+   "updated": "2026-11-09 17:47"
   },
   {
    "section": "zhejiang",
@@ -1927,10 +1927,10 @@
   {
    "section": "hainan",
    "name": "海南",
-   "count": 633,
-   "active": 633,
+   "count": 634,
+   "active": 634,
    "removed": 0,
-   "updated": "2026-11-04 17:20"
+   "updated": "2026-11-09 17:47"
   },
   {
    "section": "chongqing",
