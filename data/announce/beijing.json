@@ -1,6 +1,6 @@
 {
- "updated": "2026-11-04 10:26",
- "count": 1137,
+ "updated": "2026-11-09 15:47",
+ "count": 1140,
  "items": [
   {
    "id": "56072",
@@ -43,6 +43,36 @@
    "content": "尊敬的客户：<br>\n&nbsp; &nbsp; &nbsp; 感谢您一直以来的陪伴与信赖！自 2026 年 10 月 19 日起，8 元 4G 飞享卡下线，届时将无法进行该业务的办理。我们为您准备了其他丰富的套餐供你选择。您可以登录中国移动 APP 或详询 10086 选购。期待继续为您提供优质服务！<br>\n&nbsp; &nbsp; &nbsp; 特此公告。<div style=\"color:rgb(51, 51, 51);background-color:rgb(255, 255, 255);text-align:right\">中国移动通信集团北京有限公司</div><div style=\"color:rgb(51, 51, 51);background-color:rgb(255, 255, 255);text-align:right\">2026 年 10 月13 日</div><br>",
    "attachments": [],
    "status": "on"
+  },
+  {
+   "id": "56155",
+   "title": "校园合约、承诺低消有礼部分档位下线通知",
+   "date": "2026-10-11",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/bj/index_100_100_detail_56155.html",
+   "status": "on",
+   "first_seen": "2026-11-09 15:47",
+   "summary": "尊敬的客户： 您好！ 2026 年 11 月 11 日起，承诺低消有礼、动感地带校园专属套餐合约活动的部分档位在所有渠道停售，具体产品列表详见附件。此后，各渠道均无法再办理该部分产品，此前已成功办理的客户，可按照原有业务规则继续使用。有该部",
+   "content": "<div>尊敬的客户： </div><div>&nbsp; &nbsp; &nbsp; 您好！ </div><div>&nbsp; &nbsp; &nbsp; 2026 年 11 月 11 日起，承诺低消有礼、动感地带校园专属套餐合约活动的部分档位在所有渠道停售，具体产品列表详见附件。此后，各渠道均无法再办理该部分产品，此前已成功办理的客户，可按照原有业务规则继续使用。有该部分业务需求的客户，可拨打 10086 热线或前往营业厅咨询办理其他档位。</div><div>&nbsp; &nbsp; &nbsp;  由此给您带来的不便敬请谅解，感谢您的理解与支持！</div><div>&nbsp; &nbsp; &nbsp; 特此公告。 </div><div style=\"text-align:right\">中国移动通信集团北京有限公司 </div><div style=\"text-align:right\">2026 年 10 月 11 日</div>",
+   "attachments": []
+  },
+  {
+   "id": "56157",
+   "title": "关于 18 元飞享套餐副卡版下线的公告",
+   "date": "2026-10-10",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/bj/index_100_100_detail_56157.html",
+   "status": "on",
+   "first_seen": "2026-11-09 15:47",
+   "summary": "尊敬的客户： 感谢您一直以来的陪伴与信赖！自 2026 年 10 月 19 日起，18 元飞享套餐副卡版下线，届时将无法进行该业务的办理。我们为您准备了其他丰富的套餐供你选择。您可以登录中国移动 APP 或详询 10086 选购。期待继续为",
+   "content": "<div>尊敬的客户： </div><div>&nbsp; &nbsp; &nbsp; 感谢您一直以来的陪伴与信赖！自 2026 年 10 月 19 日起，18 元飞享套餐副卡版下线，届时将无法进行该业务的办理。我们为您准备了其他丰富的套餐供你选择。您可以登录中国移动 APP 或详询 10086 选购。期待继续为您提供优质服务！</div><div>&nbsp; &nbsp; &nbsp; 特此公告 </div><div><div style=\"color:rgb(51, 51, 51);background-color:rgb(255, 255, 255);text-align:right\">中国移动通信集团北京有限公司</div><div style=\"color:rgb(51, 51, 51);background-color:rgb(255, 255, 255);text-align:right\">2026 年 10 月10日</div> </div>",
+   "attachments": []
+  },
+  {
+   "id": "56159",
+   "title": "关于为北京移动客户继续提供北斗短信应急通信服务的公告",
+   "date": "2026-09-30",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/bj/index_100_100_detail_56159.html",
+   "status": "on",
+   "first_seen": "2026-11-09 15:47"
   },
   {
    "id": "55882",
@@ -9124,6 +9154,6 @@
  ],
  "section": "beijing",
  "name": "北京",
- "active": 1137,
+ "active": 1140,
  "removed": 0
 }

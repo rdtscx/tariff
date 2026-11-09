@@ -1,7 +1,27 @@
 {
- "updated": "2026-11-09 13:51",
+ "updated": "2026-11-09 15:47",
  "count": 176,
  "items": [
+  {
+   "id": "56158",
+   "prov": "hubei",
+   "prov_name": "湖北",
+   "title": "关于公众WLAN业务下线的通知",
+   "date": "2026-11-09",
+   "summary": "尊敬的中国移动湖北公司客户： 您好！因业务发展调整，自2027年1月1日零时起湖北省内中国移动CMCC、CMCC-WEB、CMCC-EDU及CMCC-TV等所有",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hb/index_270_270_detail_56158.html",
+   "status": "on"
+  },
+  {
+   "id": "56156",
+   "prov": "hubei",
+   "prov_name": "湖北",
+   "title": "关于算力豆产品向MobileAI产品迁移的公告",
+   "date": "2026-11-09",
+   "summary": "尊敬的中国移动湖北公司客户： 为了给您提供更优质的Token服务，中国移动计划于2026年11月11日起有序关停算力豆产品，并于2026年12月11日前完成迁移",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hb/index_270_270_detail_56156.html",
+   "status": "on"
+  },
   {
    "id": "56154",
    "prov": "anhui",
@@ -783,6 +803,26 @@
    "status": "on"
   },
   {
+   "id": "56155",
+   "prov": "beijing",
+   "prov_name": "北京",
+   "title": "校园合约、承诺低消有礼部分档位下线通知",
+   "date": "2026-10-11",
+   "summary": "尊敬的客户： 您好！ 2026 年 11 月 11 日起，承诺低消有礼、动感地带校园专属套餐合约活动的部分档位在所有渠道停售，具体产品列表详见附件。此后，各渠道",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/bj/index_100_100_detail_56155.html",
+   "status": "on"
+  },
+  {
+   "id": "56157",
+   "prov": "beijing",
+   "prov_name": "北京",
+   "title": "关于 18 元飞享套餐副卡版下线的公告",
+   "date": "2026-10-10",
+   "summary": "尊敬的客户： 感谢您一直以来的陪伴与信赖！自 2026 年 10 月 19 日起，18 元飞享套餐副卡版下线，届时将无法进行该业务的办理。我们为您准备了其他丰富",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/bj/index_100_100_detail_56157.html",
+   "status": "on"
+  },
+  {
    "id": "55944",
    "prov": "guizhou",
    "prov_name": "贵州",
@@ -800,26 +840,6 @@
    "date": "2026-10-10",
    "summary": "尊敬的用户： 您好！ 根据生态环境部《通信基站环境保护工作备忘录》相关要求，中国移动通信集团贵州有限公司各市州公司分别对应监测移动通信基站进行了电磁辐射监测，监",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/gz/index_851_851_detail_55942.html",
-   "status": "on"
-  },
-  {
-   "id": "55925",
-   "prov": "hubei",
-   "prov_name": "湖北",
-   "title": "关于“移动来电管家”系列产品功能升级的公告",
-   "date": "2026-10-09",
-   "summary": "尊敬的中国移动湖北公司客户： 感谢您长期以来对中国移动的支持与信赖！为进一步优化“和留言”产品服务体验、统一业务服务体系，自2026年11月起，我司将陆续对原”",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hb/index_270_270_detail_55925.html",
-   "status": "on"
-  },
-  {
-   "id": "55924",
-   "prov": "hubei",
-   "prov_name": "湖北",
-   "title": "关于继续为湖北客户提供北斗短信应急通信服务的公告",
-   "date": "2026-10-09",
-   "summary": "尊敬的中国移动湖北公司客户： 为向客户提供更优质的服务，湖北移动将于2026年10月9日22：30至10月10日07：30进行网络系统升级工作。在此期间，将影响",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hb/index_270_270_detail_55924.html",
    "status": "on"
   },
   {
@@ -850,26 +870,6 @@
    "date": "2026-09-29",
    "summary": "尊敬的客户，您好! 因权益合作方单方面调整供货策略，影音会员大流量及PLUS 娱乐版会员权益池内的腾讯视频 VIP 会员月卡供应安排调整如下: 自 2026年1",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/fj/index_591_591_detail_55896.html",
-   "status": "on"
-  },
-  {
-   "id": "55882",
-   "prov": "beijing",
-   "prov_name": "北京",
-   "title": "关于 17951 IP 充值卡业务下线通知",
-   "date": "2026-09-24",
-   "summary": "尊敬的客户： 您好！因业务调整，基于 13800138000 承载的部分他网用户使用 17951 IP 充值卡（固定电话用户预付费 IP 电话卡）业务操作的相关",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/bj/index_100_100_detail_55882.html",
-   "status": "on"
-  },
-  {
-   "id": "55881",
-   "prov": "beijing",
-   "prov_name": "北京",
-   "title": "关于 IP 直通车业务下线的公告",
-   "date": "2026-09-24",
-   "summary": "尊敬的客户， 因业务调整，北京移动 IP 直通车业务于2026年10月20日下线，如给客户造成不便敬请谅解。客户可以直接拨打长途电话，费用详询 10086。 感",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/bj/index_100_100_detail_55881.html",
    "status": "on"
   },
   {
@@ -1767,10 +1767,10 @@
   {
    "section": "beijing",
    "name": "北京",
-   "count": 1137,
-   "active": 1137,
+   "count": 1140,
+   "active": 1140,
    "removed": 0,
-   "updated": "2026-11-04 10:26"
+   "updated": "2026-11-09 15:47"
   },
   {
    "section": "tianjin",
@@ -1895,10 +1895,10 @@
   {
    "section": "hubei",
    "name": "湖北",
-   "count": 1325,
-   "active": 1325,
+   "count": 1327,
+   "active": 1327,
    "removed": 0,
-   "updated": "2026-10-31 01:09"
+   "updated": "2026-11-09 15:47"
   },
   {
    "section": "hunan",
