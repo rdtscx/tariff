@@ -1,7 +1,17 @@
 {
- "updated": "2026-11-10 16:11",
+ "updated": "2026-11-10 18:02",
  "count": 176,
  "items": [
+  {
+   "id": "56179",
+   "prov": "shanxi",
+   "prov_name": "山西",
+   "title": "吕梁分公司2026年第6批自控厅委托加盟合作伙伴评估引入结果公示",
+   "date": "2026-11-10",
+   "summary": "中国移动通信集团山西有限公司【吕梁】分公司（以下简称：【吕梁】移动）2026年第6批自控厅委托加盟合作伙伴评估引入项目（项目编号：LL202606）已按照相关规",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/sx/index_351_351_detail_56179.html",
+   "status": "on"
+  },
   {
    "id": "56178",
    "prov": "neimenggu",
@@ -850,16 +860,6 @@
    "date": "2026-09-30",
    "summary": "尊敬的移动用户: 感谢您一直以来对我司服务的支持与使用，因权益合作方调整供货策略，“流量畅看包-腾讯视频”业务将于2026年11月1日全面下架。产品下架后，不会",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/tj/index_220_220_detail_55906.html",
-   "status": "on"
-  },
-  {
-   "id": "55905",
-   "prov": "shanxi",
-   "prov_name": "山西",
-   "title": "关于腾讯视频原子权益及关联产品下线的公告",
-   "date": "2026-09-30",
-   "summary": "尊敬的客户： 为进一步优化客户权益服务体系，升级权益服务质量，为广大用户提供更优质、稳定、多元的权益服务体验，我公司将对现有底层权益能力进行迭代升级，本次升级将",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/sx/index_351_351_detail_55905.html",
    "status": "on"
   },
   {
@@ -1791,10 +1791,10 @@
   {
    "section": "shanxi",
    "name": "山西",
-   "count": 42,
-   "active": 42,
+   "count": 43,
+   "active": 43,
    "removed": 0,
-   "updated": "2026-11-06 00:42"
+   "updated": "2026-11-10 18:02"
   },
   {
    "section": "neimenggu",
