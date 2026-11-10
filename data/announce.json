@@ -1,7 +1,27 @@
 {
- "updated": "2026-11-10 08:41",
+ "updated": "2026-11-10 10:15",
  "count": 176,
  "items": [
+  {
+   "id": "56178",
+   "prov": "neimenggu",
+   "prov_name": "内蒙古",
+   "title": "阿尔山市分公司2026年3家托加盟店引入项目公告",
+   "date": "2026-11-10",
+   "summary": "一、货物名称、数量及主要技术参数： 加盟店名称 房屋地址 整体面积 （平方米） 引入面积 （平方米) 引入数量 （家） 履约保证金 （元/年） 租金下限 （元/",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/nm/index_471_471_detail_56178.html",
+   "status": "on"
+  },
+  {
+   "id": "56177",
+   "prov": "beijing",
+   "prov_name": "北京",
+   "title": "关于本地流量统付业务下线的公告",
+   "date": "2026-11-09",
+   "summary": "尊敬的客户，因业务调整，北京移动本地流量统付业务于 2026 年 11月 30 日下线，如给您造成不便敬请谅解。如有疑问请致电 10086。感谢您的理解与支持！",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/bj/index_100_100_detail_56177.html",
+   "status": "on"
+  },
   {
    "id": "56176",
    "prov": "guangxi",
@@ -633,16 +653,6 @@
    "status": "on"
   },
   {
-   "id": "56047",
-   "prov": "neimenggu",
-   "prov_name": "内蒙古",
-   "title": "中国移动内蒙古公司系统优化升级公告",
-   "date": "2026-10-22",
-   "summary": "尊敬的客户： 您好！ 为不断提高客户服务水平，持续提升客户服务质量，我公司将于2026年10月22日23点- 10月23日7点进行系统优化升级。届时，各营业网点",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/nm/index_471_471_detail_56047.html",
-   "status": "on"
-  },
-  {
    "id": "56045",
    "prov": "shanghai",
    "prov_name": "上海",
@@ -810,16 +820,6 @@
    "date": "2026-10-12",
    "summary": "",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/zj/index_571_571_detail_52044.html",
-   "status": "on"
-  },
-  {
-   "id": "56155",
-   "prov": "beijing",
-   "prov_name": "北京",
-   "title": "校园合约、承诺低消有礼部分档位下线通知",
-   "date": "2026-10-11",
-   "summary": "尊敬的客户： 您好！ 2026 年 11 月 11 日起，承诺低消有礼、动感地带校园专属套餐合约活动的部分档位在所有渠道停售，具体产品列表详见附件。此后，各渠道",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/bj/index_100_100_detail_56155.html",
    "status": "on"
   },
   {
@@ -1767,10 +1767,10 @@
   {
    "section": "beijing",
    "name": "北京",
-   "count": 1141,
-   "active": 1141,
+   "count": 1142,
+   "active": 1142,
    "removed": 0,
-   "updated": "2026-11-09 17:47"
+   "updated": "2026-11-10 10:15"
   },
   {
    "section": "tianjin",
@@ -1799,10 +1799,10 @@
   {
    "section": "neimenggu",
    "name": "内蒙古",
-   "count": 74,
-   "active": 74,
+   "count": 75,
+   "active": 75,
    "removed": 0,
-   "updated": "2026-11-04 17:20"
+   "updated": "2026-11-10 10:15"
   },
   {
    "section": "liaoning",

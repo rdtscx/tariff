@@ -1,7 +1,18 @@
 {
- "updated": "2026-11-09 17:47",
- "count": 1141,
+ "updated": "2026-11-10 10:15",
+ "count": 1142,
  "items": [
+  {
+   "id": "56177",
+   "title": "关于本地流量统付业务下线的公告",
+   "date": "2026-11-09",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/bj/index_100_100_detail_56177.html",
+   "status": "on",
+   "first_seen": "2026-11-10 10:14",
+   "summary": "尊敬的客户，因业务调整，北京移动本地流量统付业务于 2026 年 11月 30 日下线，如给您造成不便敬请谅解。如有疑问请致电 10086。感谢您的理解与支持！ 特此公告。 中国移动通信集团北京有限公司 2026 年 11 月 9 日",
+   "content": "<div>&nbsp; &nbsp; &nbsp; 尊敬的客户，因业务调整，北京移动本地流量统付业务于 2026 年 11月 30 日下线，如给您造成不便敬请谅解。如有疑问请致电 10086。感谢您的理解与支持！</div><div> &nbsp; &nbsp; &nbsp; 特此公告。</div><div style=\"text-align:right\">中国移动通信集团北京有限公司 </div><div style=\"text-align:right\">2026 年 11 月 9 日</div>\n<div></div>",
+   "attachments": []
+  },
   {
    "id": "56161",
    "title": "部分爱家宽带方案 300M 提速升级公告",
@@ -9165,6 +9176,6 @@
  ],
  "section": "beijing",
  "name": "北京",
- "active": 1141,
+ "active": 1142,
  "removed": 0
 }
