@@ -1,6 +1,6 @@
 {
- "updated": "2026-11-09 17:47",
- "count": 4324,
+ "updated": "2026-11-11 17:28",
+ "count": 4325,
  "items": [
   {
    "id": "56162",
@@ -552,6 +552,14 @@
    "date": "2026-09-04",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/js/index_250_250_detail_55724.html",
    "status": "on"
+  },
+  {
+   "id": "56180",
+   "title": "关于暂停线上销户业务受理的公告",
+   "date": "2026-08-30",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/js/index_250_250_detail_56180.html",
+   "status": "on",
+   "first_seen": "2026-11-11 17:28"
   },
   {
    "id": "55761",
@@ -34668,6 +34676,6 @@
  ],
  "section": "jiangsu",
  "name": "江苏",
- "active": 4324,
+ "active": 4325,
  "removed": 0
 }
