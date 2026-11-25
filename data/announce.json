@@ -1,7 +1,17 @@
 {
- "updated": "2026-11-25 22:26",
+ "updated": "2026-11-26 03:25",
  "count": 176,
  "items": [
+  {
+   "id": "56281",
+   "prov": "fujian",
+   "prov_name": "福建",
+   "title": "关于“算力豆产品”升级焕新为“Mobile AI产品”的公告",
+   "date": "2026-11-26",
+   "summary": "尊敬的客户: 为了给您提供更优质、更丰富的体验，算力豆系列产品将逐步向MobileAI系列产品迁移。2026年11月26日起，停止算力豆系列产品销售。2027年",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/fj/index_591_591_detail_56281.html",
+   "status": "on"
+  },
   {
    "id": "56216",
    "prov": "fujian",
@@ -890,16 +900,6 @@
    "date": "2026-10-26",
    "summary": "尊敬的客户，您好！ 1.您的通信自由和通信秘密不受侵犯，我们对您的客户资料和通信信息负有保密义务。但根据法律、行政法规规定，司法、行政机关依法要求我们提供协助和",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/jl/index_431_431_detail_56065.html",
-   "status": "on"
-  },
-  {
-   "id": "53548",
-   "prov": "fujian",
-   "prov_name": "福建",
-   "title": "福建移动停售资费营销案公示",
-   "date": "2026-10-23",
-   "summary": "福建移动停售资费营销案详见附件。 附件：福建移动停售资费营销案公示汇总（20261023）.xlsx 中国移动通信集团福建有限公司 2026年10月23日",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/fj/index_591_591_detail_53548.html",
    "status": "on"
   },
   {
@@ -1863,10 +1863,10 @@
   {
    "section": "fujian",
    "name": "福建",
-   "count": 61,
-   "active": 61,
+   "count": 62,
+   "active": 62,
    "removed": 0,
-   "updated": "2026-11-25 17:00"
+   "updated": "2026-11-26 03:25"
   },
   {
    "section": "jiangxi",
