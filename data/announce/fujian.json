@@ -1,6 +1,6 @@
 {
- "updated": "2026-11-26 03:25",
- "count": 62,
+ "updated": "2026-11-26 17:21",
+ "count": 63,
  "items": [
   {
    "id": "56281",
@@ -47,6 +47,26 @@
     {
      "name": "20261120101310581xaI.xlsx",
      "url": "https://www.10086.cn/uploadBaseDir/content/xlsx/20261120/20261120101310581xaI.xlsx"
+    }
+   ]
+  },
+  {
+   "id": "56287",
+   "title": "关于12580部分产品资费下线的公告",
+   "date": "2026-11-23",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/fj/index_591_591_detail_56287.html",
+   "status": "on",
+   "first_seen": "2026-11-26 17:20",
+   "summary": "尊敬的客户，您好： 因业务优化调整，自2026年12月28日24时起，我司12580部分产品资费将下线并停止提供服务，具体下线资费清单请见公告附件。 已订购附件清单里的业务资费产品的用户，在本次下线的相关资费产品停止服务时，将为您自动办理退",
+   "content": "<p>&nbsp; &nbsp; &nbsp; &nbsp;</p>\n<p>尊敬的客户，您好：</p>\n<p>因业务优化调整，自2026年12月28日24时起，我司12580部分产品资费将下线并停止提供服务，具体下线资费清单请见公告附件。</p>\n<p>已订购附件清单里的业务资费产品的用户，在本次下线的相关资费产品停止服务时，将为您自动办理退订，无需您手动操作。在产品资费下线后，相关服务将不再提供，亦不再收取相应费用。</p>\n<p>本次调整仅涉及附件清单里的业务资费，不影响用户号码的正常使用及其他已订购业务。</p>\n<p>您也可以提前通过以下方式自行退订：打开“中国移动”APP，进入“已订业务”退订，或者拨打10086客服进行退订。</p>\n<p>由此给您带来的不便，敬请谅解，感谢您的理解与支持。如有疑问，可致电10086咨询。</p>\n<p>特此公告。</p>\n<p><br>\n</p>\n<p></p>\n<p>附件：<a href=\"https://www.10086.cn/uploadBaseDir/content/xlsx/20261126/20261126152255833bWS.xlsx\" target=\"_blank\" download=\"12580部分产品资费下线明细.xlsx\"><u>12580部分产品资费下线明细.xlsx</u></a></p>\n<br>\n<p><br>\n</p>\n<p><br>\n</p>\n<p><a href=\"https://www.10086.cn/uploadBaseDir/content/xlsx/20261126/20261126151709672c7Y.xlsx\" target=\"_blank\" download=\"福建移动停售资费营销案公示汇总（20261126）.xlsx\"></a></p>\n<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;中国移动通信集团福建有限公司<br>\n&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;2026年11月23日</p>",
+   "attachments": [
+    {
+     "name": "12580部分产品资费下线明细.xlsx",
+     "url": "https://www.10086.cn/uploadBaseDir/content/xlsx/20261126/20261126152255833bWS.xlsx"
+    },
+    {
+     "name": "20261126151709672c7Y.xlsx",
+     "url": "https://www.10086.cn/uploadBaseDir/content/xlsx/20261126/20261126151709672c7Y.xlsx"
     }
    ]
   },
@@ -580,6 +600,6 @@
  ],
  "section": "fujian",
  "name": "福建",
- "active": 62,
+ "active": 63,
  "removed": 0
 }

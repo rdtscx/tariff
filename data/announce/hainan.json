@@ -1,7 +1,23 @@
 {
- "updated": "2026-11-24 16:29",
- "count": 637,
+ "updated": "2026-11-26 17:21",
+ "count": 638,
  "items": [
+  {
+   "id": "56289",
+   "title": "移动业务下线公告",
+   "date": "2026-11-26",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hi/index_898_898_detail_56289.html",
+   "status": "on",
+   "first_seen": "2026-11-26 17:20",
+   "summary": "尊敬的海南移动客户您好： 由于产品运营合作调整，部分业务将于2026年12月31日起停止服务并终止计费。 涉及的业务清单详见附表。 如有不便，敬请谅解。感谢您的理解与支持。 (公告附件-1126更新版）下线业务清单.xlsx 中国移动通信集",
+   "content": "<p>尊敬的海南移动客户您好： &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br>\n&nbsp; &nbsp; &nbsp; &nbsp;由于产品运营合作调整，部分业务将于2026年12月31日起停止服务并终止计费。</p>\n<p>涉及的业务清单详见附表。</p>\n<p>如有不便，敬请谅解。感谢您的理解与支持。</p>\n<p><a href=\"https://www.10086.cn/uploadBaseDir/content/xlsx/20261126/20261126170630057RP3.xlsx\" target=\"_blank\" download=\"(公告附件-1126更新版）下线业务清单.xlsx\">(公告附件-1126更新版）下线业务清单.xlsx</a></p>\n<p><p setedaria=\"true\" tabindex=\"0\" style=\"color:rgb(51, 51, 51);text-align:right;background-color:rgb(255, 255, 255)\">中国移动通信集团海南有限公司</p>\n<p setedaria=\"true\" tabindex=\"0\" style=\"color:rgb(51, 51, 51);text-align:right;background-color:rgb(255, 255, 255)\">2026年11月26日</p>\n</p>",
+   "attachments": [
+    {
+     "name": "(公告附件-1126更新版）下线业务清单.xlsx",
+     "url": "https://www.10086.cn/uploadBaseDir/content/xlsx/20261126/20261126170630057RP3.xlsx"
+    }
+   ]
+  },
   {
    "id": "56260",
    "title": "关于我司将于2026年11月26日00：00-07：00进行系统升级的公告",
@@ -5144,6 +5160,6 @@
  ],
  "section": "hainan",
  "name": "海南",
- "active": 637,
+ "active": 638,
  "removed": 0
 }

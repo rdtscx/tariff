@@ -1,7 +1,27 @@
 {
- "updated": "2026-11-26 15:01",
+ "updated": "2026-11-26 17:21",
  "count": 176,
  "items": [
+  {
+   "id": "56289",
+   "prov": "hainan",
+   "prov_name": "海南",
+   "title": "移动业务下线公告",
+   "date": "2026-11-26",
+   "summary": "尊敬的海南移动客户您好： 由于产品运营合作调整，部分业务将于2026年12月31日起停止服务并终止计费。 涉及的业务清单详见附表。 如有不便，敬请谅解。感谢您的",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hi/index_898_898_detail_56289.html",
+   "status": "on"
+  },
+  {
+   "id": "56286",
+   "prov": "shandong",
+   "prov_name": "山东",
+   "title": "关于12580部分产品资费下线的公告",
+   "date": "2026-11-26",
+   "summary": "尊敬的客户，您好： 因业务优化调整，自2026年12月28日24时起，我司12580部分产品资费将下线并停止提供服务，具体下线资费清单请见公告附件。 已订购附件",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/sd/index_531_531_detail_56286.html",
+   "status": "on"
+  },
   {
    "id": "56285",
    "prov": "jilin",
@@ -260,6 +280,16 @@
    "date": "2026-11-24",
    "summary": "尊敬的客户： 2026年11月27日00:00至06:00，上海移动为进一步提升语音网络能力与服务质量，将对网间紧急特服（119、120）话务路由进行优化。期间",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/sh/index_210_210_detail_56257.html",
+   "status": "on"
+  },
+  {
+   "id": "56287",
+   "prov": "fujian",
+   "prov_name": "福建",
+   "title": "关于12580部分产品资费下线的公告",
+   "date": "2026-11-23",
+   "summary": "尊敬的客户，您好： 因业务优化调整，自2026年12月28日24时起，我司12580部分产品资费将下线并停止提供服务，具体下线资费清单请见公告附件。 已订购附件",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/fj/index_591_591_detail_56287.html",
    "status": "on"
   },
   {
@@ -773,16 +803,6 @@
    "status": "on"
   },
   {
-   "id": "56131",
-   "prov": "hainan",
-   "prov_name": "海南",
-   "title": "关于我司将于2026年11月6日00：00-07：00进行系统升级的公告",
-   "date": "2026-11-04",
-   "summary": "尊敬的客户： 您好！为给客户提供更优质的服务，我公司将于2026年11月6日00：00-07：00进行系统升级，升级期间，全省营业系统、10086系统业务办理将",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hi/index_898_898_detail_56131.html",
-   "status": "on"
-  },
-  {
    "id": "56127",
    "prov": "guizhou",
    "prov_name": "贵州",
@@ -880,26 +900,6 @@
    "date": "2026-10-30",
    "summary": "中国移动通信集团上海有限公司崇明区公司以公开方式寻源租赁营业厅用房的需求。现结合2026年10月-12月份崇明区公司营业厅租约到期情况、房东情况及拟新建营业厅区",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/sh/index_210_210_detail_56101.html",
-   "status": "on"
-  },
-  {
-   "id": "56068",
-   "prov": "fujian",
-   "prov_name": "福建",
-   "title": "关于省内五档权益产品下线的公告承载需求",
-   "date": "2026-10-30",
-   "summary": "尊敬的客户您好: 因业务调整，我公司将于2026年12月1日0时起停止“5G特惠流量包35元10GB档（权益超市版）、5G特惠流量包25元10GB档（权益超市版",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/fj/index_591_591_detail_56068.html",
-   "status": "on"
-  },
-  {
-   "id": "56073",
-   "prov": "shandong",
-   "prov_name": "山东",
-   "title": "关于山东移动10月30日晚系统维护公告",
-   "date": "2026-10-29",
-   "summary": "尊敬的移动用户： 您好！ 为提升系统性能给客户提供更好的服务，2026年10月30日晚24:00点至31日早上7:00点我公司将进行系统紧急维护升级，升级期间会",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/sd/index_531_531_detail_56073.html",
    "status": "on"
   },
   {
@@ -1863,10 +1863,10 @@
   {
    "section": "fujian",
    "name": "福建",
-   "count": 62,
-   "active": 62,
+   "count": 63,
+   "active": 63,
    "removed": 0,
-   "updated": "2026-11-26 03:25"
+   "updated": "2026-11-26 17:21"
   },
   {
    "section": "jiangxi",
@@ -1879,10 +1879,10 @@
   {
    "section": "shandong",
    "name": "山东",
-   "count": 26,
-   "active": 26,
+   "count": 27,
+   "active": 27,
    "removed": 0,
-   "updated": "2026-11-23 16:19"
+   "updated": "2026-11-26 17:21"
   },
   {
    "section": "henan",
@@ -1927,10 +1927,10 @@
   {
    "section": "hainan",
    "name": "海南",
-   "count": 637,
-   "active": 637,
+   "count": 638,
+   "active": 638,
    "removed": 0,
-   "updated": "2026-11-24 16:29"
+   "updated": "2026-11-26 17:21"
   },
   {
    "section": "chongqing",

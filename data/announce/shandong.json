@@ -1,7 +1,23 @@
 {
- "updated": "2026-11-23 16:19",
- "count": 26,
+ "updated": "2026-11-26 17:21",
+ "count": 27,
  "items": [
+  {
+   "id": "56286",
+   "title": "关于12580部分产品资费下线的公告",
+   "date": "2026-11-26",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/sd/index_531_531_detail_56286.html",
+   "status": "on",
+   "first_seen": "2026-11-26 17:20",
+   "summary": "尊敬的客户，您好： 因业务优化调整，自2026年12月28日24时起，我司12580部分产品资费将下线并停止提供服务，具体下线资费清单请见公告附件。 已订购附件清单里的业务资费产品的用户，在本次下线的相关资费产品停止服务时，将为您自动办理退",
+   "content": "<p>尊敬的客户，您好：<br>\n&nbsp; &nbsp; &nbsp; &nbsp;因业务优化调整，自2026年12月28日24时起，我司12580部分产品资费将下线并停止提供服务，具体下线资费清单请见公告附件。<br>\n已订购附件清单里的业务资费产品的用户，在本次下线的相关资费产品停止服务时，将为您自动办理退订，无需您手动操作。在产品资费下线后，相关服务将不再提供，亦不再收取相应费用。<br>\n&nbsp; &nbsp; &nbsp; &nbsp;本次调整仅涉及附件清单里的业务资费，不影响用户号码的正常使用及其他已订购业务。<br>\n&nbsp; &nbsp; &nbsp; &nbsp;您也可以提前通过以下方式自行退订：打开“中国移动”APP，进入“已订业务”退订，或者拨打10086客服进行退订。<br>\n&nbsp; &nbsp; &nbsp; &nbsp;由此给您带来的不便，敬请谅解，感谢您的理解与支持。如有疑问，可致电10086咨询。<br>\n&nbsp; &nbsp; &nbsp; &nbsp;特此公告。<br>\n<div><br>\n</div><br>\n</p>\n&nbsp; &nbsp; &nbsp;<br>\n<div style=\"text-align:right\">中国移动通信集团山东有限公司</div><p style=\"text-align:right\">2026年11月26日</p>\n<p style=\"text-align:right\"><br>\n</p>\n<p style=\"text-align:left\">附件：12580部分产品资费下线明细</p>\n<p style=\"text-align:left\"><a href=\"https://www.10086.cn/uploadBaseDir/content/xlsx/20261126/20261126141143146jzD.xlsx\" target=\"_blank\" download=\"12580部分产品资费下线明细.xlsx\">12580部分产品资费下线明细.xlsx</a></p>\n<br>",
+   "attachments": [
+    {
+     "name": "12580部分产品资费下线明细.xlsx",
+     "url": "https://www.10086.cn/uploadBaseDir/content/xlsx/20261126/20261126141143146jzD.xlsx"
+    }
+   ]
+  },
   {
    "id": "56253",
    "title": "关于山东移动11月26日晚系统维护公告",
@@ -243,6 +259,6 @@
  ],
  "section": "shandong",
  "name": "山东",
- "active": 26,
+ "active": 27,
  "removed": 0
 }
