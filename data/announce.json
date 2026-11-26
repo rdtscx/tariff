@@ -1,7 +1,27 @@
 {
- "updated": "2026-11-26 08:27",
+ "updated": "2026-11-26 10:35",
  "count": 176,
  "items": [
+  {
+   "id": "56283",
+   "prov": "neimenggu",
+   "prov_name": "内蒙古",
+   "title": "关于12580部分产品资费下线的公告",
+   "date": "2026-11-26",
+   "summary": "尊敬的客户，您好： 因业务优化调整，自2026年12月28日24时起，我司12580部分产品资费将下线并停止提供服务，具体下线资费清单请见公告附件。 已订购附件",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/nm/index_471_471_detail_56283.html",
+   "status": "on"
+  },
+  {
+   "id": "56282",
+   "prov": "hebei",
+   "prov_name": "河北",
+   "title": "中国移动通信集团河北有限公司秦皇岛分公司引商、委托加盟店 （第三批）招募项目比选公告",
+   "date": "2026-11-26",
+   "summary": "一、项目基本情况 1、采购内容：对7个营业厅开展引商、委托加盟店合作招募工作。 2、采购方式：公开比选。 3、实施周期：自合同生效之日起≤2年。合作期满后，重新",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/he/index_311_311_detail_56282.html",
+   "status": "on"
+  },
   {
    "id": "56281",
    "prov": "fujian",
@@ -470,16 +490,6 @@
    "date": "2026-11-20",
    "summary": "尊敬的客户： 为进一步提升副卡客户使用体验，满足副卡用户资金使用便利需求，我司拟为部分副卡用户同步开通余额（含营销返款）转移功能。相关事项公告如下： 一、调整范",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/js/index_250_250_detail_56210.html",
-   "status": "on"
-  },
-  {
-   "id": "56209",
-   "prov": "neimenggu",
-   "prov_name": "内蒙古",
-   "title": "中国移动内蒙古有限公司巴彦淖尔分公司关于对全市16个自控厅店招商项目-招商公告",
-   "date": "2026-11-20",
-   "summary": "中国移动内蒙古有限公司巴彦淖尔分公司关于对全市16个自控厅店招商项目，进行招商。招商人为中国移动内蒙古有限公司巴彦淖尔市临河、五原、前旗、磴口、中旗、杭后、后旗",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/nm/index_471_471_detail_56209.html",
    "status": "on"
   },
   {
@@ -1163,16 +1173,6 @@
    "status": "on"
   },
   {
-   "id": "54884",
-   "prov": "hebei",
-   "prov_name": "河北",
-   "title": "中国移动超级基站和应急卫星网能力升级工程（河北节点单项工程） 环境影响报告书（征求意见稿）全文公示",
-   "date": "2026-04-21",
-   "summary": "为保障公众环境保护知情权、参与权、表达权和监督权，依据《环境影响评价公众参与办法》（生态环境部令第4号），现公开下列信息，征求与该建设项目环境影响有关的意见。 ",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/he/index_311_311_detail_54884.html",
-   "status": "on"
-  },
-  {
    "id": "54850",
    "prov": "jilin",
    "prov_name": "吉林",
@@ -1783,10 +1783,10 @@
   {
    "section": "hebei",
    "name": "河北",
-   "count": 33,
-   "active": 33,
+   "count": 34,
+   "active": 34,
    "removed": 0,
-   "updated": "2026-11-23 10:26"
+   "updated": "2026-11-26 10:35"
   },
   {
    "section": "shanxi",
@@ -1799,10 +1799,10 @@
   {
    "section": "neimenggu",
    "name": "内蒙古",
-   "count": 83,
-   "active": 83,
+   "count": 84,
+   "active": 84,
    "removed": 0,
-   "updated": "2026-11-24 16:29"
+   "updated": "2026-11-26 10:35"
   },
   {
    "section": "liaoning",
