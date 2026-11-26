@@ -1,7 +1,18 @@
 {
- "updated": "2026-11-26 10:35",
- "count": 84,
+ "updated": "2026-11-26 10:55",
+ "count": 85,
  "items": [
+  {
+   "id": "56284",
+   "title": "中国移动内蒙古公司系统优化升级公告",
+   "date": "2026-11-26",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/nm/index_471_471_detail_56284.html",
+   "status": "on",
+   "first_seen": "2026-11-26 10:54",
+   "summary": "尊敬的客户： 您好！ 为不断提高客户服务水平，持续提升客户服务质量，我公司将于2026年11月26日23点- 11月27日7点进行系统优化升级。届时，各营业网点和电子渠道将暂停业务办理、充值交费、话费查询等服务。为不影响您的正常通信，请您提",
+   "content": "尊敬的客户：&nbsp; &nbsp; &nbsp;<br>\n<br>\n&nbsp; &nbsp; &nbsp; 您好！<br>\n<br>\n&nbsp; &nbsp; &nbsp; 为不断提高客户服务水平，持续提升客户服务质量，我公司将于2026年11月26日23点- 11月27日7点进行系统优化升级。届时，各营业网点和电子渠道将暂停业务办理、充值交费、话费查询等服务。为不影响您的正常通信，请您提前交纳足额话费。<br>\n<br>\n&nbsp; &nbsp; &nbsp; 特此公告！<br>\n<br>\n&nbsp;<br>\n<br>\n<br>\n<br>\n<div style=\"text-align:right\">中国移动通信集团内蒙古有限公司</div><div style=\"text-align:right\"><br>\n</div><div style=\"text-align:right\">2026年11月26日</div>",
+   "attachments": []
+  },
   {
    "id": "56283",
    "title": "关于12580部分产品资费下线的公告",
@@ -777,6 +788,6 @@
  ],
  "section": "neimenggu",
  "name": "内蒙古",
- "active": 84,
+ "active": 85,
  "removed": 0
 }

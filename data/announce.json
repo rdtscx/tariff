@@ -1,7 +1,17 @@
 {
- "updated": "2026-11-26 10:35",
+ "updated": "2026-11-26 10:55",
  "count": 176,
  "items": [
+  {
+   "id": "56284",
+   "prov": "neimenggu",
+   "prov_name": "内蒙古",
+   "title": "中国移动内蒙古公司系统优化升级公告",
+   "date": "2026-11-26",
+   "summary": "尊敬的客户： 您好！ 为不断提高客户服务水平，持续提升客户服务质量，我公司将于2026年11月26日23点- 11月27日7点进行系统优化升级。届时，各营业网点",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/nm/index_471_471_detail_56284.html",
+   "status": "on"
+  },
   {
    "id": "56283",
    "prov": "neimenggu",
@@ -310,16 +320,6 @@
    "date": "2026-11-23",
    "summary": "本项目由中国移动通信集团内蒙古有限公司包头分公司组织实施。包头分公司现启动昆区等5处自有房屋引商项目招募工作，自治区范围内符合资格要求的意向合作商均可报名参与竞",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/nm/index_471_471_detail_56250.html",
-   "status": "on"
-  },
-  {
-   "id": "56248",
-   "prov": "neimenggu",
-   "prov_name": "内蒙古",
-   "title": "中国移动通辽分公司2026年自控厅店引入合作伙伴项目（第四期）谈判结果公示",
-   "date": "2026-11-23",
-   "summary": "11月2日通辽分公司启动3 处自控房产合作伙伴引入项目。本项目谈判工作由科区分公司组织开展，谈判时间为 2026 年 11月12日。现将本项目中各房屋的中选候选",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/nm/index_471_471_detail_56248.html",
    "status": "on"
   },
   {
@@ -1799,10 +1799,10 @@
   {
    "section": "neimenggu",
    "name": "内蒙古",
-   "count": 84,
-   "active": 84,
+   "count": 85,
+   "active": 85,
    "removed": 0,
-   "updated": "2026-11-26 10:35"
+   "updated": "2026-11-26 10:55"
   },
   {
    "section": "liaoning",
