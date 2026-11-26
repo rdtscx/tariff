@@ -1,7 +1,17 @@
 {
- "updated": "2026-11-26 12:48",
+ "updated": "2026-11-26 15:01",
  "count": 176,
  "items": [
+  {
+   "id": "56285",
+   "prov": "jilin",
+   "prov_name": "吉林",
+   "title": "关于12580部分产品资费下线的公告",
+   "date": "2026-11-26",
+   "summary": "尊敬的客户： 您好！因业务优化调整，自2026年12月28日24时起，我司12580部分产品资费将下线并停止提供服务，具体下线资费清单请见公告附件。 已订购附件",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/jl/index_431_431_detail_56285.html",
+   "status": "on"
+  },
   {
    "id": "56284",
    "prov": "neimenggu",
@@ -1333,16 +1343,6 @@
    "status": "on"
   },
   {
-   "id": "54198",
-   "prov": "jilin",
-   "prov_name": "吉林",
-   "title": "吉林移动部分套餐免费升级公告",
-   "date": "2025-12-26",
-   "summary": "尊敬的客户： 您好！为感谢您的长期支持，更好满足您的通信需求，吉林移动将为部分套餐客户免费升级套内资源，具体如下： 一、升级时间 2026年1月1日起正式生效 ",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/jl/index_431_431_detail_54198.html",
-   "status": "on"
-  },
-  {
    "id": "54193",
    "prov": "jiangxi",
    "prov_name": "江西",
@@ -1815,10 +1815,10 @@
   {
    "section": "jilin",
    "name": "吉林",
-   "count": 99,
-   "active": 99,
+   "count": 100,
+   "active": 100,
    "removed": 0,
-   "updated": "2026-10-27 22:09"
+   "updated": "2026-11-26 15:01"
   },
   {
    "section": "heilongjiang",

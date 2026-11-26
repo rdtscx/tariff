@@ -1,7 +1,23 @@
 {
- "updated": "2026-10-27 22:09",
- "count": 99,
+ "updated": "2026-11-26 15:01",
+ "count": 100,
  "items": [
+  {
+   "id": "56285",
+   "title": "关于12580部分产品资费下线的公告",
+   "date": "2026-11-26",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/jl/index_431_431_detail_56285.html",
+   "status": "on",
+   "first_seen": "2026-11-26 15:01",
+   "summary": "尊敬的客户： 您好！因业务优化调整，自2026年12月28日24时起，我司12580部分产品资费将下线并停止提供服务，具体下线资费清单请见公告附件。 已订购附件清单里的业务资费产品的用户，在本次下线的相关资费产品停止服务时，将为您自动办理退",
+   "content": "<p></p>\n<p><br>\n</p>\n<p>尊敬的客户：</p>\n<p>&nbsp; &nbsp; &nbsp; &nbsp;您好！因业务优化调整，自2026年12月28日24时起，我司12580部分产品资费将下线并停止提供服务，具体下线资费清单请见公告附件。</p>\n<p>&nbsp; &nbsp; &nbsp; &nbsp;已订购附件清单里的业务资费产品的用户，在本次下线的相关资费产品停止服务时，将为您自动办理退订，无需您手动操作。在产品资费下线后，相关服务将不再提供，亦不再收取相应费用。</p>\n<p>&nbsp; &nbsp; &nbsp; &nbsp;本次调整仅涉及附件清单里的业务资费，不影响用户号码的正常使用及其他已订购业务。</p>\n<p>&nbsp; &nbsp; &nbsp; &nbsp;您也可以提前通过以下方式自行退订：打开“中国移动”APP，进入“已订业务”退订，或者拨打10086客服进行退订。</p>\n<p>&nbsp; &nbsp; &nbsp; &nbsp;由此给您带来的不便，敬请谅解，感谢您的理解与支持。如有疑问，可致电10086咨询。</p>\n<p>&nbsp; &nbsp; &nbsp; &nbsp;特此公告。</p>\n<p></p>\n<p><br>\n</p>\n<p><a href=\"https://www.10086.cn/uploadBaseDir/content/xlsx/20261126/20261126133828183Ifx.xlsx\" target=\"_blank\" download=\"附件1 ：12580产品100户以下需下线的资费清单.xlsx\">附件1 ：12580产品100户以下需下线的资费清单.xlsx</a><br>\n</p>\n<p><br>\n</p>\n<p><br>\n</p>\n<br>\n<p><br>\n</p>\n<p style=\"text-align:right\" microsoft=\"\" yahei\";\"=\"\">&nbsp;中国移动通信集团吉林有限公司</p>\n<p style=\"text-align:right\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2026年11月26日</p>",
+   "attachments": [
+    {
+     "name": "附件1 ：12580产品100户以下需下线的资费清单.xlsx",
+     "url": "https://www.10086.cn/uploadBaseDir/content/xlsx/20261126/20261126133828183Ifx.xlsx"
+    }
+   ]
+  },
   {
    "id": "56065",
    "title": "中国移动通信集团吉林有限公司个人信息处理规则",
@@ -814,6 +830,6 @@
  ],
  "section": "jilin",
  "name": "吉林",
- "active": 99,
+ "active": 100,
  "removed": 0
 }
