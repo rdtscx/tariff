@@ -1,7 +1,23 @@
 {
- "updated": "2026-11-27 16:52",
- "count": 47,
+ "updated": "2026-11-27 21:18",
+ "count": 48,
  "items": [
+  {
+   "id": "56299",
+   "title": "关于部分增值业务资费下线的公告",
+   "date": "2026-11-27",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/tj/index_220_220_detail_56299.html",
+   "status": "on",
+   "first_seen": "2026-11-27 21:17",
+   "summary": "尊敬的客户： 您好！ 为进一步优化业务服务，咪咕视讯、咪咕阅读、移动云电脑、PLUS会员、12580惠出行、G3视讯等4738个产品包将于2026年12月27日24时起停止服务并下线。本次下线产品清单详见附件。 已订购上述资费产品的客户，上",
+   "content": "<p>尊敬的客户：</p>\n<p>您好！</p>\n<p>为进一步优化业务服务，咪咕视讯、咪咕阅读、移动云电脑、PLUS会员、12580惠出行、G3视讯等4738个产品包将于2026年12月27日24时起停止服务并下线。本次下线产品清单详见附件。</p>\n<p>已订购上述资费产品的客户，上述资费产品停止服务时将为您自动办理退订，无需您手动操作。自退订次月起不再产生相关费用。本次调整仅涉及上述资费产品，不影响您号码的正常使用及其他已订购业务。</p>\n<p>如您有业务疑问，可致电10086客服热线咨询。由此给您带来的不便，敬请谅解，感谢您的理解与支持。</p>\n<p>特此公告。</p>\n<p>&nbsp;</p>\n<p style=\"text-align:right\">中国移动通信集团天津有限公司</p>\n<p style=\"text-align:right\">2026年11月27日</p>\n<p style=\"text-align:left\"><a href=\"https://www.10086.cn/uploadBaseDir/content/xlsx/20261127/20261127175347113Ayk.xlsx\" target=\"_blank\" download=\"下线资费产品清单\">下线资费产品清单</a><br>\n</p>",
+   "attachments": [
+    {
+     "name": "下线资费产品清单",
+     "url": "https://www.10086.cn/uploadBaseDir/content/xlsx/20261127/20261127175347113Ayk.xlsx"
+    }
+   ]
+  },
   {
    "id": "56298",
    "title": "关于咪咕视频部分资费下线的公告",
@@ -421,6 +437,6 @@
  ],
  "section": "tianjin",
  "name": "天津",
- "active": 47,
+ "active": 48,
  "removed": 0
 }

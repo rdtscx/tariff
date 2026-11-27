@@ -1,7 +1,17 @@
 {
- "updated": "2026-11-27 19:02",
+ "updated": "2026-11-27 21:18",
  "count": 176,
  "items": [
+  {
+   "id": "56299",
+   "prov": "tianjin",
+   "prov_name": "天津",
+   "title": "关于部分增值业务资费下线的公告",
+   "date": "2026-11-27",
+   "summary": "尊敬的客户： 您好！ 为进一步优化业务服务，咪咕视讯、咪咕阅读、移动云电脑、PLUS会员、12580惠出行、G3视讯等4738个产品包将于2026年12月27日",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/tj/index_220_220_detail_56299.html",
+   "status": "on"
+  },
   {
    "id": "56298",
    "prov": "tianjin",
@@ -860,16 +870,6 @@
    "date": "2026-11-01",
    "summary": "尊敬的用户，您好！ 因业务发展调整，浙江省内中国移动CMCC和CMCC-WEB公众WLAN网络将于2026年12月31日24时正式全面停止服务，届时将无法登录使",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/zj/index_571_571_detail_56082.html",
-   "status": "on"
-  },
-  {
-   "id": "56074",
-   "prov": "tianjin",
-   "prov_name": "天津",
-   "title": "关于美好之家融合套餐2021版198元档套餐套内增加算力包月产品的公告",
-   "date": "2026-10-31",
-   "summary": "尊敬的客户： 您好！为提升用户算力体验，自2026年11月1日起，针对美好之家融合套餐2021版198元档套餐用户，套内免费赠送算力包月产品（享有免费办理资格，",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/tj/index_220_220_detail_56074.html",
    "status": "on"
   },
   {
@@ -1775,10 +1775,10 @@
   {
    "section": "tianjin",
    "name": "天津",
-   "count": 47,
-   "active": 47,
+   "count": 48,
+   "active": 48,
    "removed": 0,
-   "updated": "2026-11-27 16:52"
+   "updated": "2026-11-27 21:18"
   },
   {
    "section": "hebei",
