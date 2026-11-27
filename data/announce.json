@@ -1,7 +1,27 @@
 {
- "updated": "2026-11-27 07:50",
+ "updated": "2026-11-27 10:32",
  "count": 176,
  "items": [
+  {
+   "id": "56291",
+   "prov": "neimenggu",
+   "prov_name": "内蒙古",
+   "title": "中国移动呼伦贝尔分公司2026年自营厅引商入柜引入公告（第二期）",
+   "date": "2026-11-27",
+   "summary": "中国移动呼伦贝尔分公司现启动2026年自营厅引商入柜项目引入工作，现面向全区合规合作商家招募合作伙伴。 一、引入项目的名称、数量及主要情况 1.1 项目内容：海",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/nm/index_471_471_detail_56291.html",
+   "status": "on"
+  },
+  {
+   "id": "56290",
+   "prov": "neimenggu",
+   "prov_name": "内蒙古",
+   "title": "中国移动呼伦贝尔分公司2026年委托加盟店引入公告（第二期）",
+   "date": "2026-11-27",
+   "summary": "中国移动呼伦贝尔分公司现启动2026年委托加盟店项目引入工作，现面向全区合规合作商家招募合作伙伴。 一、引入项目的名称、数量及主要情况 1.1 项目内容：海拉尔",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/nm/index_471_471_detail_56290.html",
+   "status": "on"
+  },
   {
    "id": "56289",
    "prov": "hainan",
@@ -263,16 +283,6 @@
    "status": "on"
   },
   {
-   "id": "56258",
-   "prov": "neimenggu",
-   "prov_name": "内蒙古",
-   "title": "中国移动内蒙古有限公司巴彦淖尔分公司关于对全市16个自控厅店招商项目-二次招商公告",
-   "date": "2026-11-24",
-   "summary": "中国移动内蒙古有限公司巴彦淖尔分公司关于对全市16个自控厅店招商项目，由于一次招商公告供应商报名人数不满足谈判，进行二次招商公告。招商人为中国移动内蒙古有限公司",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/nm/index_471_471_detail_56258.html",
-   "status": "on"
-  },
-  {
    "id": "56257",
    "prov": "shanghai",
    "prov_name": "上海",
@@ -350,16 +360,6 @@
    "date": "2026-11-23",
    "summary": "尊敬的客户： 您好！ 由于公司内业务调整，移动高清4款资费产品将于2026年11月30日24:00正式下线，下线后将停止相关服务。业务下线后，不再收取任何功能费",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/hl/index_451_451_detail_56251.html",
-   "status": "on"
-  },
-  {
-   "id": "56250",
-   "prov": "neimenggu",
-   "prov_name": "内蒙古",
-   "title": "中国移动包头分公司2026年部分自有房屋引商招募公告",
-   "date": "2026-11-23",
-   "summary": "本项目由中国移动通信集团内蒙古有限公司包头分公司组织实施。包头分公司现启动昆区等5处自有房屋引商项目招募工作，自治区范围内符合资格要求的意向合作商均可报名参与竞",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/nm/index_471_471_detail_56250.html",
    "status": "on"
   },
   {
@@ -1799,10 +1799,10 @@
   {
    "section": "neimenggu",
    "name": "内蒙古",
-   "count": 85,
-   "active": 85,
+   "count": 87,
+   "active": 87,
    "removed": 0,
-   "updated": "2026-11-26 10:55"
+   "updated": "2026-11-27 10:32"
   },
   {
    "section": "liaoning",
