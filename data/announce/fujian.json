@@ -1,6 +1,6 @@
 {
- "updated": "2026-11-26 17:21",
- "count": 63,
+ "updated": "2026-11-27 12:21",
+ "count": 64,
  "items": [
   {
    "id": "56281",
@@ -96,6 +96,14 @@
      "url": "https://www.10086.cn/uploadBaseDir/content/xlsx/20261106/20261106112819196xAp.xlsx"
     }
    ]
+  },
+  {
+   "id": "56294",
+   "title": "关于15元Plus会员娱乐版（12个月）等产品下线的公告",
+   "date": "2026-10-31",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/fj/index_591_591_detail_56294.html",
+   "status": "on",
+   "first_seen": "2026-11-27 12:21"
   },
   {
    "id": "56068",
@@ -600,6 +608,6 @@
  ],
  "section": "fujian",
  "name": "福建",
- "active": 63,
+ "active": 64,
  "removed": 0
 }

@@ -1,6 +1,6 @@
 {
- "updated": "2026-11-26 17:21",
- "count": 638,
+ "updated": "2026-11-27 12:21",
+ "count": 639,
  "items": [
   {
    "id": "56289",
@@ -14,6 +14,26 @@
    "attachments": [
     {
      "name": "(公告附件-1126更新版）下线业务清单.xlsx",
+     "url": "https://www.10086.cn/uploadBaseDir/content/xlsx/20261126/20261126170630057RP3.xlsx"
+    }
+   ]
+  },
+  {
+   "id": "56292",
+   "title": "关于12580部分产品资费下线的公告",
+   "date": "2026-11-24",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hi/index_898_898_detail_56292.html",
+   "status": "on",
+   "first_seen": "2026-11-27 12:21",
+   "summary": "尊敬的客户： 您好！因业务优化调整，自2026年12月28日24时起，我司12580部分产品资费将下线并停止提供服务，具体下线资费清单请见公告附件。 已订购附件清单里的业务资费产品的用户，在本次下线的相关资费产品停止服务时，将为您自动办理退",
+   "content": "<p></p>\n<p style=\"background-color:rgb(255, 255, 255)\">尊敬的客户：</p>\n<p style=\"background-color:rgb(255, 255, 255)\">&nbsp; &nbsp; &nbsp; &nbsp;您好！因业务优化调整，自2026年12月28日24时起，我司12580部分产品资费将下线并停止提供服务，具体下线资费清单请见公告附件。</p>\n<p style=\"background-color:rgb(255, 255, 255)\">已订购附件清单里的业务资费产品的用户，在本次下线的相关资费产品停止服务时，将为您自动办理退订，无需您手动操作。在产品资费下线后，相关服务将不再提供，亦不再收取相应费用。</p>\n<p style=\"background-color:rgb(255, 255, 255)\">本次调整仅涉及附件清单里的业务资费，不影响用户号码的正常使用及其他已订购业务。</p>\n<p style=\"background-color:rgb(255, 255, 255)\">您也可以提前通过以下方式自行退订：打开“中国移动”APP，进入“已订业务”退订，或者拨打10086客服进行退订。</p>\n<p style=\"background-color:rgb(255, 255, 255)\">由此给您带来的不便，敬请谅解，感谢您的理解与支持。如有疑问，可致电10086咨询。</p>\n<p style=\"background-color:rgb(255, 255, 255)\">特此公告。</p>\n<p><a href=\"https://www.10086.cn/uploadBaseDir/content/xlsx/20261127/202611271115223976hK.xlsx\" target=\"_blank\" download=\"关于12580部分产品资费下线的资费明细.xlsx\">关于12580部分产品资费下线的资费明细.xlsx</a></p>\n<p><a href=\"https://www.10086.cn/uploadBaseDir/content/xlsx/20261126/20261126170630057RP3.xlsx\" target=\"_blank\" download=\"\"></a></p>\n<p></p>\n<p setedaria=\"true\" tabindex=\"0\" style=\"color:rgb(51, 51, 51);text-align:right;background-color:rgb(255, 255, 255)\">中国移动通信集团海南有限公司</p>\n<p setedaria=\"true\" tabindex=\"0\" style=\"color:rgb(51, 51, 51);text-align:right;background-color:rgb(255, 255, 255)\">2026年11月24日</p>",
+   "attachments": [
+    {
+     "name": "关于12580部分产品资费下线的资费明细.xlsx",
+     "url": "https://www.10086.cn/uploadBaseDir/content/xlsx/20261127/202611271115223976hK.xlsx"
+    },
+    {
+     "name": "20261126170630057RP3.xlsx",
      "url": "https://www.10086.cn/uploadBaseDir/content/xlsx/20261126/20261126170630057RP3.xlsx"
     }
    ]
@@ -5160,6 +5180,6 @@
  ],
  "section": "hainan",
  "name": "海南",
- "active": 638,
+ "active": 639,
  "removed": 0
 }

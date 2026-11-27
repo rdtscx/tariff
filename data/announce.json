@@ -1,7 +1,17 @@
 {
- "updated": "2026-11-27 10:32",
+ "updated": "2026-11-27 12:21",
  "count": 176,
  "items": [
+  {
+   "id": "56293",
+   "prov": "hunan",
+   "prov_name": "湖南",
+   "title": "关于部分停服产品下线的公告",
+   "date": "2026-11-27",
+   "summary": "尊敬的用户： 您好！ 为进一步优化业务服务感知，保障客户知情权，针对部分停服产品进行下线，现将有关事项公告如下： 一、涉及业务 本次涉及 1878 项产品包的具",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hn/index_731_731_detail_56293.html",
+   "status": "on"
+  },
   {
    "id": "56291",
    "prov": "neimenggu",
@@ -180,6 +190,16 @@
    "date": "2026-11-25",
    "summary": "中国移动通信集团上海有限公司金山分公司以公开方式寻源租赁营业厅用房的需求。现结合2027年1月-6月份金山分公司营业厅租约到期情况、房东情况及拟新建营业厅区域情",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/sh/index_210_210_detail_56270.html",
+   "status": "on"
+  },
+  {
+   "id": "56292",
+   "prov": "hainan",
+   "prov_name": "海南",
+   "title": "关于12580部分产品资费下线的公告",
+   "date": "2026-11-24",
+   "summary": "尊敬的客户： 您好！因业务优化调整，自2026年12月28日24时起，我司12580部分产品资费将下线并停止提供服务，具体下线资费清单请见公告附件。 已订购附件",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hi/index_898_898_detail_56292.html",
    "status": "on"
   },
   {
@@ -543,16 +563,6 @@
    "status": "on"
   },
   {
-   "id": "56195",
-   "prov": "hunan",
-   "prov_name": "湖南",
-   "title": "系统升级通知",
-   "date": "2026-11-20",
-   "summary": "为提升服务水平，我公司将于2026年11月25日23:00至11月26日7:00期间对业务系统进行升级。届时，营业厅、银行代收、短信营业厅、网上营业厅、中国移动",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hn/index_731_731_detail_56195.html",
-   "status": "on"
-  },
-  {
    "id": "56194",
    "prov": "hubei",
    "prov_name": "湖北",
@@ -790,16 +800,6 @@
    "date": "2026-11-06",
    "summary": "本项目为中国移动通信集团山西有限公司【大同】分公司（以下简称：【大同】移动）集中评估引入，评估引入主体为中国移动通信集团山西有限公司【大同】分公司。该项目具备引",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/sx/index_351_351_detail_56142.html",
-   "status": "on"
-  },
-  {
-   "id": "56132",
-   "prov": "hainan",
-   "prov_name": "海南",
-   "title": "我司将于2026年11月6日00:00-05:00进行网络业务系统升级的公告",
-   "date": "2026-11-04",
-   "summary": "尊敬的客户： 您好！为了提供更优质的服务，我公司将于2026年11月6日00:00-05:00进行系统升级，届时全省4/5G部分用户的上网业务将受影响，影响时长",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hi/index_898_898_detail_56132.html",
    "status": "on"
   },
   {
@@ -1863,10 +1863,10 @@
   {
    "section": "fujian",
    "name": "福建",
-   "count": 63,
-   "active": 63,
+   "count": 64,
+   "active": 64,
    "removed": 0,
-   "updated": "2026-11-26 17:21"
+   "updated": "2026-11-27 12:21"
   },
   {
    "section": "jiangxi",
@@ -1903,10 +1903,10 @@
   {
    "section": "hunan",
    "name": "湖南",
-   "count": 68,
-   "active": 68,
+   "count": 69,
+   "active": 69,
    "removed": 0,
-   "updated": "2026-11-25 18:33"
+   "updated": "2026-11-27 12:21"
   },
   {
    "section": "guangdong",
@@ -1927,10 +1927,10 @@
   {
    "section": "hainan",
    "name": "海南",
-   "count": 638,
-   "active": 638,
+   "count": 639,
+   "active": 639,
    "removed": 0,
-   "updated": "2026-11-26 17:21"
+   "updated": "2026-11-27 12:21"
   },
   {
    "section": "chongqing",
