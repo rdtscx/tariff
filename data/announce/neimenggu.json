@@ -1,7 +1,23 @@
 {
- "updated": "2026-11-27 10:32",
- "count": 87,
+ "updated": "2026-11-27 16:52",
+ "count": 88,
  "items": [
+  {
+   "id": "56296",
+   "title": "关于部分停售业务的公告",
+   "date": "2026-11-27",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/nm/index_471_471_detail_56296.html",
+   "status": "on",
+   "first_seen": "2026-11-27 16:52",
+   "summary": "尊敬的移动用户： 感谢您长期以来对我们的支持，因业务发展调整，现将部分停售业务进行公告。停售业务不再产生订购关系，不再产生相关费用。具体清单详见附件。 给您带来的不便敬请谅解，感谢您的理解与支持！ 停服产品清单详见附件内容。 中国移动通信集",
+   "content": "<p><p>尊敬的移动用户：</p>\n<p>感谢您长期以来对我们的支持，因业务发展调整，现将部分停售业务进行公告。停售业务不再产生订购关系，不再产生相关费用。具体清单详见附件。</p>\n<p>给您带来的不便敬请谅解，感谢您的理解与支持！</p>\n<p>停服产品清单详见附件内容。</p>\n<p>&nbsp;</p>\n<p>&nbsp;</p>\n<p style=\"text-align:right\">中国移动通信集团内蒙古有限公司</p>\n<p style=\"text-align:right\">&nbsp;</p>\n<p style=\"text-align:right\">2026年11月27日</p>\n<a href=\"https://www.10086.cn/uploadBaseDir/content/zip/20261127/20261127151028271uM7.zip\" target=\"_blank\" download=\"第一批次公告下线1125(1).zip\">第一批次公告下线1125(1).zip</a><br>\n</p>",
+   "attachments": [
+    {
+     "name": "第一批次公告下线1125(1).zip",
+     "url": "https://www.10086.cn/uploadBaseDir/content/zip/20261127/20261127151028271uM7.zip"
+    }
+   ]
+  },
   {
    "id": "56291",
    "title": "中国移动呼伦贝尔分公司2026年自营厅引商入柜引入公告（第二期）",
@@ -810,6 +826,6 @@
  ],
  "section": "neimenggu",
  "name": "内蒙古",
- "active": 87,
+ "active": 88,
  "removed": 0
 }

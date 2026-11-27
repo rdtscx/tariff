@@ -1,7 +1,47 @@
 {
- "updated": "2026-11-27 14:32",
+ "updated": "2026-11-27 16:52",
  "count": 176,
  "items": [
+  {
+   "id": "56298",
+   "prov": "tianjin",
+   "prov_name": "天津",
+   "title": "关于咪咕视频部分资费下线的公告",
+   "date": "2026-11-27",
+   "summary": "尊敬的客户： 您好！ 感谢您对咪咕视频业务的支持与使用。因业务发展调整，自2026年11月30日24时起，咪咕视频以下业务产品（具体清单附后）将下线停服，已订购",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/tj/index_220_220_detail_56298.html",
+   "status": "on"
+  },
+  {
+   "id": "56297",
+   "prov": "hunan",
+   "prov_name": "湖南",
+   "title": "关于湖南移动“三湘好物”选品招募公告",
+   "date": "2026-11-27",
+   "summary": "为落实集团公司移动爱购商城“九州好物”主题营销，丰富移动爱购商城AI豆兑换实物商品供给，满足客户对高品质生活的诉求，现面向社会公开招募湖南产地优质特色商品，相关",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hn/index_731_731_detail_56297.html",
+   "status": "on"
+  },
+  {
+   "id": "56296",
+   "prov": "neimenggu",
+   "prov_name": "内蒙古",
+   "title": "关于部分停售业务的公告",
+   "date": "2026-11-27",
+   "summary": "尊敬的移动用户： 感谢您长期以来对我们的支持，因业务发展调整，现将部分停售业务进行公告。停售业务不再产生订购关系，不再产生相关费用。具体清单详见附件。 给您带来",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/nm/index_471_471_detail_56296.html",
+   "status": "on"
+  },
+  {
+   "id": "56295",
+   "prov": "guangxi",
+   "prov_name": "广西",
+   "title": "中国移动广西公司2027年度互联网分销合作伙伴招募公告",
+   "date": "2026-11-27",
+   "summary": "为持续拓展线上业务生态，繁荣数字化销售渠道，中国移动广西公司现面向全社会公开招募2027年度互联网分销合作伙伴。我们期待与具备成熟流量阵地和稳定运营能力的伙伴携",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/gx/index_771_771_detail_56295.html",
+   "status": "on"
+  },
   {
    "id": "56293",
    "prov": "hunan",
@@ -293,16 +333,6 @@
    "status": "on"
   },
   {
-   "id": "56259",
-   "prov": "neimenggu",
-   "prov_name": "内蒙古",
-   "title": "锡林郭勒分公司2026年引商入柜（第二期）项目结果公示",
-   "date": "2026-11-24",
-   "summary": "锡林郭勒分公司2026年引商入柜（第二期）项目于2026年11月3日15：00开始竞争性谈判，现将中选候选人公示如下： 标段1自营锡市察哈尔营业厅（一楼）成交人",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/nm/index_471_471_detail_56259.html",
-   "status": "on"
-  },
-  {
    "id": "56257",
    "prov": "shanghai",
    "prov_name": "上海",
@@ -450,16 +480,6 @@
    "date": "2026-11-20",
    "summary": "尊敬的客户： 当前正值汛期，为响应湖南省防汛备汛工作部署，进一步提升全省应急场景应急通信保障能力，全力保障省内防灾减灾、应急救援工作有序开展。针对全省应急工作人",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/hn/index_731_731_detail_56241.html",
-   "status": "on"
-  },
-  {
-   "id": "56240",
-   "prov": "hunan",
-   "prov_name": "湖南",
-   "title": "关于购机享优惠活动业务调整的公告",
-   "date": "2026-11-20",
-   "summary": "尊敬的湖南移动用户： 为积极响应工信部关于“明白办，放心用”的相关要求，湖南移动将于2026年11月20日0点起对以下产品部分活动规则进行细微调整，具体请见活动",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/hn/index_731_731_detail_56240.html",
    "status": "on"
   },
   {
@@ -630,16 +650,6 @@
    "date": "2026-11-18",
    "summary": "尊敬的客户： 您好！为了提供更优质的服务，我公司将于2026年11月20日、12月9日00:00-05:00进行系统升级，届时全省4/5G TOC及物联网部分用",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/hi/index_898_898_detail_56223.html",
-   "status": "on"
-  },
-  {
-   "id": "56221",
-   "prov": "guangxi",
-   "prov_name": "广西",
-   "title": "关于中国移动广西公司2026年集团类客户DICT联盟合作伙伴 （第十九批）入围结果的公示",
-   "date": "2026-11-18",
-   "summary": "根据2025年12月31日在中国移动官方网站（http://www.10086.cn）发布《中国移动广西公司2026年集团类客户DICT联盟合作伙伴招募邀请函》",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/gx/index_771_771_detail_56221.html",
    "status": "on"
   },
   {
@@ -960,16 +970,6 @@
    "date": "2026-10-15",
    "summary": "尊敬的用户： 您好！ 绍兴手机报等6份手机报产品拟于2026年11月15日正式停止服务并下线，届时将不再提供内容更新与服务。如时间变动将再次告知。 特此公告！ ",
    "page_url": "https://www.10086.cn/aboutus/news/pannounce/zj/index_571_571_detail_55987.html",
-   "status": "on"
-  },
-  {
-   "id": "55970",
-   "prov": "tianjin",
-   "prov_name": "天津",
-   "title": "关于手机报122个产品下线的公告",
-   "date": "2026-10-13",
-   "summary": "尊敬的客户： 您好！ 感谢您对手机报业务的支持与使用。因业务调整，山西日报手机报等122项手机报产品拟于2026年11月15日停止服务并下线。下线后将停止内容更",
-   "page_url": "https://www.10086.cn/aboutus/news/pannounce/tj/index_220_220_detail_55970.html",
    "status": "on"
   },
   {
@@ -1775,10 +1775,10 @@
   {
    "section": "tianjin",
    "name": "天津",
-   "count": 46,
-   "active": 46,
+   "count": 47,
+   "active": 47,
    "removed": 0,
-   "updated": "2026-11-24 16:29"
+   "updated": "2026-11-27 16:52"
   },
   {
    "section": "hebei",
@@ -1799,10 +1799,10 @@
   {
    "section": "neimenggu",
    "name": "内蒙古",
-   "count": 87,
-   "active": 87,
+   "count": 88,
+   "active": 88,
    "removed": 0,
-   "updated": "2026-11-27 10:32"
+   "updated": "2026-11-27 16:52"
   },
   {
    "section": "liaoning",
@@ -1903,10 +1903,10 @@
   {
    "section": "hunan",
    "name": "湖南",
-   "count": 69,
-   "active": 69,
+   "count": 70,
+   "active": 70,
    "removed": 0,
-   "updated": "2026-11-27 12:21"
+   "updated": "2026-11-27 16:52"
   },
   {
    "section": "guangdong",
@@ -1919,10 +1919,10 @@
   {
    "section": "guangxi",
    "name": "广西",
-   "count": 1386,
-   "active": 1386,
+   "count": 1387,
+   "active": 1387,
    "removed": 0,
-   "updated": "2026-11-25 18:33"
+   "updated": "2026-11-27 16:52"
   },
   {
    "section": "hainan",

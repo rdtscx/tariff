@@ -1,7 +1,23 @@
 {
- "updated": "2026-11-24 16:29",
- "count": 46,
+ "updated": "2026-11-27 16:52",
+ "count": 47,
  "items": [
+  {
+   "id": "56298",
+   "title": "关于咪咕视频部分资费下线的公告",
+   "date": "2026-11-27",
+   "page_url": "https://www.10086.cn/aboutus/news/pannounce/tj/index_220_220_detail_56298.html",
+   "status": "on",
+   "first_seen": "2026-11-27 16:52",
+   "summary": "尊敬的客户： 您好！ 感谢您对咪咕视频业务的支持与使用。因业务发展调整，自2026年11月30日24时起，咪咕视频以下业务产品（具体清单附后）将下线停服，已订购相关产品将统一终止并自动失效，不再产生费用。您可通过咪咕视频客户端“帮助与客服”",
+   "content": "<p>尊敬的客户：</p>\n<p>您好！</p>\n<p>感谢您对咪咕视频业务的支持与使用。因业务发展调整，自2026年11月30日24时起，咪咕视频以下业务产品（具体清单附后）将下线停服，已订购相关产品将统一终止并自动失效，不再产生费用。您可通过咪咕视频客户端“帮助与客服”了解详情，或致电10086咨询。由此给您带来不便，敬请谅解。</p>\n<p>特此公告。</p>\n<p>&nbsp;</p>\n<p style=\"text-align:right\">中国移动通信集团天津有限公司</p>\n<p style=\"text-align:right\">2026年11月27日</p>\n<p style=\"text-align:left\"><a href=\"https://www.10086.cn/uploadBaseDir/content/xlsx/20261127/20261127155859815quj.xlsx\" target=\"_blank\" download=\"附件：下线产品清单\">附件：下线产品清单</a><br>\n</p>",
+   "attachments": [
+    {
+     "name": "附件：下线产品清单",
+     "url": "https://www.10086.cn/uploadBaseDir/content/xlsx/20261127/20261127155859815quj.xlsx"
+    }
+   ]
+  },
   {
    "id": "56262",
    "title": "关于139邮箱、新通话、移动云盘、移动云手机 部分资费下线的公告",
@@ -405,6 +421,6 @@
  ],
  "section": "tianjin",
  "name": "天津",
- "active": 46,
+ "active": 47,
  "removed": 0
 }
